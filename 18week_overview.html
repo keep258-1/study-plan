@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>18周全科并行计划 · 总览</title>
@@ -233,7 +231,7 @@ tr.exam-week td{outline:2px solid #e74c3c;outline-offset:-1px}
 .toast.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
-<body>
+<body class="">
 
 <div class="header">
   <div class="header-left">
@@ -242,7 +240,7 @@ tr.exam-week td{outline:2px solid #e74c3c;outline-offset:-1px}
   </div>
   <div class="header-right">
     <button class="edit-mode-btn" id="editBtn" onclick="toggleEditMode()">✏️ 编辑任务</button>
-    <button class="edit-mode-btn" id="syncBtn" onclick="syncToGitHub()" style="background:rgba(34,197,94,0.2);border-color:rgba(34,197,94,0.4)">☁️ 同步到 GitHub</button>
+    <button class="edit-mode-btn" id="syncBtn" onclick="syncToGitHub()" style="background:rgba(34,197,94,0.2);border-color:rgba(34,197,94,0.4)" disabled="">⏳ 同步中…</button>
     <a class="link-btn" href="index.html">🏠 目录</a>
   </div>
 </div>
@@ -270,10 +268,10 @@ tr.exam-week td{outline:2px solid #e74c3c;outline-offset:-1px}
 <div class="progress-wrap">
   <span class="progress-label">完成进度</span>
   <div class="progress-track">
-    <div class="progress-fill" id="pfill" style="width:0%"></div>
+    <div class="progress-fill" id="pfill" style="width: 2%;"></div>
   </div>
-  <span class="progress-pct" id="ppct">0%</span>
-  <span class="progress-count" id="pcount"></span>
+  <span class="progress-pct" id="ppct">2%</span>
+  <span class="progress-count" id="pcount">4 / 215 项</span>
 </div>
 
 <div class="legend">
@@ -301,7 +299,1603 @@ tr.exam-week td{outline:2px solid #e74c3c;outline-offset:-1px}
   <th style="width:148px">⚑ 节点 / 完成标志</th>
 </tr>
 </thead>
-<tbody id="tbody"></tbody>
+<tbody id="tbody"><tr class="ph1">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">1</div>
+        <div class="wdate">3/11</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">3/11</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb1">第一阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="1" data-col="stat" data-field="lec">Stat110 Lec1-4</div>
+    <div class="task-list" data-w="1" data-col="stat">
+      <div class="task done" data-id="ck_w1_stat_0" data-w="1" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w1_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="stat" data-i="0">随机事件·样本空间</div>
+      <button class="task-del" onclick="deleteTask(1,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task done" data-id="ck_w1_stat_1" data-w="1" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w1_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="stat" data-i="1">条件概率·独立性</div>
+      <button class="task-del" onclick="deleteTask(1,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task done" data-id="ck_w1_stat_2" data-w="1" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w1_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="stat" data-i="2">贝叶斯定理与全概率</div>
+      <button class="task-del" onclick="deleteTask(1,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(1,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="1" data-col="calc" data-field="lec">乐经良 第1章</div>
+    <div class="task-list" data-w="1" data-col="calc">
+      <div class="task" data-id="ck_w1_calc_0" data-w="1" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w1_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="calc" data-i="0">函数与极限（每天30~60min）</div>
+      <button class="task-del" onclick="deleteTask(1,'calc',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(1,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="1" data-col="prog" data-field="lec">CS61A Lec1-4</div>
+    <div class="task-list" data-w="1" data-col="prog">
+      <div class="task" data-id="ck_w1_prog_0" data-w="1" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w1_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="prog" data-i="0">Python基础·函数</div>
+      <button class="task-del" onclick="deleteTask(1,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w1_prog_1" data-w="1" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w1_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="prog" data-i="1">Lab1/HW1/Disc1</div>
+      <button class="task-del" onclick="deleteTask(1,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(1,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="1" data-col="db" data-field="lec">CMU Lec01-04</div>
+    <div class="task-list" data-w="1" data-col="db">
+      <div class="task done" data-id="ck_w1_db_0" data-w="1" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w1_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="db" data-i="0">关系模型与关系代数</div>
+      <button class="task-del" onclick="deleteTask(1,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w1_db_1" data-w="1" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w1_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="db" data-i="1">SQLZoo Section1-3</div>
+      <button class="task-del" onclick="deleteTask(1,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(1,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="1" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="1" data-col="eng">
+      <div class="task" data-id="ck_w1_eng_0" data-w="1" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w1_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="eng" data-i="0">单词App开始</div>
+      <button class="task-del" onclick="deleteTask(1,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w1_eng_1" data-w="1" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w1_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="1" data-col="eng" data-i="1">每日109词</div>
+      <button class="task-del" onclick="deleteTask(1,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(1,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">Day1正式开始！</div><div class="node-item">能推导贝叶斯公式</div>
+    </td></tr><tr class="ph1">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">2</div>
+        <div class="wdate">3/18</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">3/18</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb1">第一阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="2" data-col="stat" data-field="lec">Stat110 Lec5-8</div>
+    <div class="task-list" data-w="2" data-col="stat">
+      <div class="task" data-id="ck_w2_stat_0" data-w="2" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w2_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="stat" data-i="0">离散随机变量·PMF</div>
+      <button class="task-del" onclick="deleteTask(2,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w2_stat_1" data-w="2" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w2_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="stat" data-i="1">二项/几何/超几何分布</div>
+      <button class="task-del" onclick="deleteTask(2,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w2_stat_2" data-w="2" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w2_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="stat" data-i="2">常见离散分布汇总</div>
+      <button class="task-del" onclick="deleteTask(2,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(2,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="2" data-col="calc" data-field="lec">乐经良 第2章</div>
+    <div class="task-list" data-w="2" data-col="calc">
+      <div class="task" data-id="ck_w2_calc_0" data-w="2" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w2_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="calc" data-i="0">导数定义与四则运算</div>
+      <button class="task-del" onclick="deleteTask(2,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w2_calc_1" data-w="2" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w2_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="calc" data-i="1">链式法则·隐函数求导</div>
+      <button class="task-del" onclick="deleteTask(2,'calc',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(2,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="2" data-col="prog" data-field="lec">CS61A Lec5-8</div>
+    <div class="task-list" data-w="2" data-col="prog">
+      <div class="task" data-id="ck_w2_prog_0" data-w="2" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w2_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="prog" data-i="0">高阶函数·Lambda·闭包</div>
+      <button class="task-del" onclick="deleteTask(2,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w2_prog_1" data-w="2" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w2_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="prog" data-i="1">Lab2/HW2/Disc2</div>
+      <button class="task-del" onclick="deleteTask(2,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(2,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="2" data-col="db" data-field="lec">CMU Lec05-09</div>
+    <div class="task-list" data-w="2" data-col="db"><div class="task" data-id="ck_w2_db_0" data-w="2" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w2_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="db" data-i="0">SQLZoo Section4-6</div>
+      <button class="task-del" onclick="deleteTask(2,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w2_db_1" data-w="2" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w2_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="db" data-i="1">窗口函数·CTE练习</div>
+      <button class="task-del" onclick="deleteTask(2,'db',1)" title="删除此任务">✕</button>
+    </div></div>
+    <button class="add-task-btn" onclick="addTask(2,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="2" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="2" data-col="eng">
+      <div class="task" data-id="ck_w2_eng_0" data-w="2" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w2_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="eng" data-i="0">109词/天</div>
+      <button class="task-del" onclick="deleteTask(2,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w2_eng_1" data-w="2" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w2_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="2" data-col="eng" data-i="1">复习错词</div>
+      <button class="task-del" onclick="deleteTask(2,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(2,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">能写出二项分布PMF</div><div class="node-item">能用lambda与高阶函数</div>
+    </td></tr><tr class="ph1">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">3</div>
+        <div class="wdate">3/25</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">3/25</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb1">第一阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="3" data-col="stat" data-field="lec">Stat110 Lec9-13</div>
+    <div class="task-list" data-w="3" data-col="stat">
+      <div class="task" data-id="ck_w3_stat_0" data-w="3" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w3_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="stat" data-i="0">连续随机变量·PDF/CDF</div>
+      <button class="task-del" onclick="deleteTask(3,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_stat_1" data-w="3" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w3_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="stat" data-i="1">正态分布·标准化</div>
+      <button class="task-del" onclick="deleteTask(3,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_stat_2" data-w="3" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w3_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="stat" data-i="2">指数分布·无记忆性</div>
+      <button class="task-del" onclick="deleteTask(3,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(3,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="3" data-col="calc" data-field="lec">乐经良 第3章</div>
+    <div class="task-list" data-w="3" data-col="calc">
+      <div class="task" data-id="ck_w3_calc_0" data-w="3" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w3_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="calc" data-i="0">微分中值定理</div>
+      <button class="task-del" onclick="deleteTask(3,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_calc_1" data-w="3" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w3_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="calc" data-i="1">洛必达法则</div>
+      <button class="task-del" onclick="deleteTask(3,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_calc_2" data-w="3" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w3_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="calc" data-i="2">导数应用·单调极值</div>
+      <button class="task-del" onclick="deleteTask(3,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(3,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="3" data-col="prog" data-field="lec">CS61A Lec9-12</div>
+    <div class="task-list" data-w="3" data-col="prog">
+      <div class="task" data-id="ck_w3_prog_0" data-w="3" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w3_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="prog" data-i="0">递归·递归应用</div>
+      <button class="task-del" onclick="deleteTask(3,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_prog_1" data-w="3" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w3_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="prog" data-i="1">迭代器·生成器</div>
+      <button class="task-del" onclick="deleteTask(3,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_prog_2" data-w="3" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w3_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="prog" data-i="2">Lab3/HW3/Disc3</div>
+      <button class="task-del" onclick="deleteTask(3,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(3,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="3" data-col="db" data-field="lec">CMU Lec10-14</div>
+    <div class="task-list" data-w="3" data-col="db">
+      <div class="task" data-id="ck_w3_db_0" data-w="3" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w3_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="db" data-i="0">范式理论·函数依赖</div>
+      <button class="task-del" onclick="deleteTask(3,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_db_1" data-w="3" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w3_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="db" data-i="1">BCNF分解</div>
+      <button class="task-del" onclick="deleteTask(3,'db',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_db_2" data-w="3" data-col="db" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w3_db_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="db" data-i="2">3NF综合练习</div>
+      <button class="task-del" onclick="deleteTask(3,'db',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(3,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="3" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="3" data-col="eng">
+      <div class="task" data-id="ck_w3_eng_0" data-w="3" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w3_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="eng" data-i="0">109词/天</div>
+      <button class="task-del" onclick="deleteTask(3,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w3_eng_1" data-w="3" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w3_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="3" data-col="eng" data-i="1">复习错词</div>
+      <button class="task-del" onclick="deleteTask(3,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(3,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">拓扑学开课</div><div class="node-item">正态分布能手算标准化</div>
+    </td></tr><tr class="ph1">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">4</div>
+        <div class="wdate">4/1</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">4/1</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb1">第一阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="4" data-col="stat" data-field="lec">Stat110 Lec14-18</div>
+    <div class="task-list" data-w="4" data-col="stat">
+      <div class="task" data-id="ck_w4_stat_0" data-w="4" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w4_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="stat" data-i="0">多维联合分布·边缘分布</div>
+      <button class="task-del" onclick="deleteTask(4,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_stat_1" data-w="4" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w4_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="stat" data-i="1">条件分布·独立性判断</div>
+      <button class="task-del" onclick="deleteTask(4,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_stat_2" data-w="4" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w4_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="stat" data-i="2">协方差·相关系数</div>
+      <button class="task-del" onclick="deleteTask(4,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(4,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="4" data-col="calc" data-field="lec">乐经良 第4章</div>
+    <div class="task-list" data-w="4" data-col="calc">
+      <div class="task" data-id="ck_w4_calc_0" data-w="4" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w4_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="calc" data-i="0">不定积分·基本公式</div>
+      <button class="task-del" onclick="deleteTask(4,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_calc_1" data-w="4" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w4_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="calc" data-i="1">换元积分·分部积分</div>
+      <button class="task-del" onclick="deleteTask(4,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_calc_2" data-w="4" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w4_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="calc" data-i="2">（第5章难度已跳过✓）</div>
+      <button class="task-del" onclick="deleteTask(4,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(4,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="4" data-col="prog" data-field="lec">CS61A Lec13-16</div>
+    <div class="task-list" data-w="4" data-col="prog">
+      <div class="task" data-id="ck_w4_prog_0" data-w="4" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w4_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="prog" data-i="0">OOP·类与继承</div>
+      <button class="task-del" onclick="deleteTask(4,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_prog_1" data-w="4" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w4_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="prog" data-i="1">多态·特殊方法</div>
+      <button class="task-del" onclick="deleteTask(4,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_prog_2" data-w="4" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w4_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="prog" data-i="2">Lab4/HW4/Disc4</div>
+      <button class="task-del" onclick="deleteTask(4,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(4,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="4" data-col="db" data-field="lec">CMU Lec15-18</div>
+    <div class="task-list" data-w="4" data-col="db">
+      <div class="task" data-id="ck_w4_db_0" data-w="4" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w4_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="db" data-i="0">存储层·Page布局</div>
+      <button class="task-del" onclick="deleteTask(4,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_db_1" data-w="4" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w4_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="db" data-i="1">内存管理·缓冲池</div>
+      <button class="task-del" onclick="deleteTask(4,'db',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_db_2" data-w="4" data-col="db" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w4_db_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="db" data-i="2">B+树索引原理</div>
+      <button class="task-del" onclick="deleteTask(4,'db',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(4,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="4" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="4" data-col="eng">
+      <div class="task" data-id="ck_w4_eng_0" data-w="4" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w4_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="eng" data-i="0">109词/天</div>
+      <button class="task-del" onclick="deleteTask(4,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w4_eng_1" data-w="4" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w4_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="4" data-col="eng" data-i="1">复习错词</div>
+      <button class="task-del" onclick="deleteTask(4,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(4,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">18.01完成☑</div><div class="node-item">能从联合PDF推导边缘分布</div>
+    </td></tr><tr class="ph1">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">5</div>
+        <div class="wdate">4/8</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">4/8</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb1">第一阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="5" data-col="stat" data-field="lec">Stat110 Lec19-23</div>
+    <div class="task-list" data-w="5" data-col="stat">
+      <div class="task" data-id="ck_w5_stat_0" data-w="5" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w5_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="stat" data-i="0">数学期望·线性性质</div>
+      <button class="task-del" onclick="deleteTask(5,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_stat_1" data-w="5" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w5_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="stat" data-i="1">方差·标准差</div>
+      <button class="task-del" onclick="deleteTask(5,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_stat_2" data-w="5" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w5_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="stat" data-i="2">矩·MGF定义与应用</div>
+      <button class="task-del" onclick="deleteTask(5,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(5,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="5" data-col="calc" data-field="lec">乐经良 第5章</div>
+    <div class="task-list" data-w="5" data-col="calc">
+      <div class="task" data-id="ck_w5_calc_0" data-w="5" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w5_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="calc" data-i="0">定积分定义·性质</div>
+      <button class="task-del" onclick="deleteTask(5,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_calc_1" data-w="5" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w5_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="calc" data-i="1">定积分计算</div>
+      <button class="task-del" onclick="deleteTask(5,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_calc_2" data-w="5" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w5_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="calc" data-i="2">广义积分</div>
+      <button class="task-del" onclick="deleteTask(5,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(5,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="5" data-col="prog" data-field="lec">CS61A Lec17-20</div>
+    <div class="task-list" data-w="5" data-col="prog">
+      <div class="task" data-id="ck_w5_prog_0" data-w="5" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w5_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="prog" data-i="0">解释器·Scheme基础</div>
+      <button class="task-del" onclick="deleteTask(5,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_prog_1" data-w="5" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w5_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="prog" data-i="1">尾递归·定积分近似</div>
+      <button class="task-del" onclick="deleteTask(5,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_prog_2" data-w="5" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w5_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="prog" data-i="2">Lab5/HW5/Disc5</div>
+      <button class="task-del" onclick="deleteTask(5,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(5,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="5" data-col="db" data-field="lec">CMU Lec19-22</div>
+    <div class="task-list" data-w="5" data-col="db">
+      <div class="task" data-id="ck_w5_db_0" data-w="5" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w5_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="db" data-i="0">查询处理流程</div>
+      <button class="task-del" onclick="deleteTask(5,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_db_1" data-w="5" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w5_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="db" data-i="1">排序算法·外排序</div>
+      <button class="task-del" onclick="deleteTask(5,'db',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_db_2" data-w="5" data-col="db" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w5_db_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="db" data-i="2">Join算法优化</div>
+      <button class="task-del" onclick="deleteTask(5,'db',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(5,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="5" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="5" data-col="eng">
+      <div class="task" data-id="ck_w5_eng_0" data-w="5" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w5_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="eng" data-i="0">109词/天</div>
+      <button class="task-del" onclick="deleteTask(5,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w5_eng_1" data-w="5" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w5_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="5" data-col="eng" data-i="1">复习错词</div>
+      <button class="task-del" onclick="deleteTask(5,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(5,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">能推导MGF求矩</div><div class="node-item">Stanford DB全部完成☑</div>
+    </td></tr><tr class="ph1">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">6</div>
+        <div class="wdate">4/15</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">4/15</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb1">第一阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="6" data-col="stat" data-field="lec">Stat110 Lec24-34</div>
+    <div class="task-list" data-w="6" data-col="stat">
+      <div class="task" data-id="ck_w6_stat_0" data-w="6" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w6_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="stat" data-i="0">大数定律（弱/强）</div>
+      <button class="task-del" onclick="deleteTask(6,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_stat_1" data-w="6" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w6_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="stat" data-i="1">中心极限定理</div>
+      <button class="task-del" onclick="deleteTask(6,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_stat_2" data-w="6" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w6_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="stat" data-i="2">CLT近似计算练习</div>
+      <button class="task-del" onclick="deleteTask(6,'stat',2)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_stat_3" data-w="6" data-col="stat" data-i="3">
+      <div class="tcb" onclick="toggleCheck('ck_w6_stat_3',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="stat" data-i="3">概率论收尾</div>
+      <button class="task-del" onclick="deleteTask(6,'stat',3)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(6,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="6" data-col="calc" data-field="lec">乐经良 第6-7章</div>
+    <div class="task-list" data-w="6" data-col="calc">
+      <div class="task" data-id="ck_w6_calc_0" data-w="6" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w6_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="calc" data-i="0">定积分应用（面积/体积）</div>
+      <button class="task-del" onclick="deleteTask(6,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_calc_1" data-w="6" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w6_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="calc" data-i="1">常微分方程基础</div>
+      <button class="task-del" onclick="deleteTask(6,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_calc_2" data-w="6" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w6_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="calc" data-i="2">可分离变量·一阶线性</div>
+      <button class="task-del" onclick="deleteTask(6,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(6,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="6" data-col="prog" data-field="lec">CS61A Lec21-25</div>
+    <div class="task-list" data-w="6" data-col="prog">
+      <div class="task" data-id="ck_w6_prog_0" data-w="6" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w6_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="prog" data-i="0">数据处理·流</div>
+      <button class="task-del" onclick="deleteTask(6,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_prog_1" data-w="6" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w6_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="prog" data-i="1">SQL基础（CS61A）</div>
+      <button class="task-del" onclick="deleteTask(6,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_prog_2" data-w="6" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w6_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="prog" data-i="2">Lab6/HW6，CS61A收尾</div>
+      <button class="task-del" onclick="deleteTask(6,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(6,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="6" data-col="db" data-field="lec">CMU Lec23-25</div>
+    <div class="task-list" data-w="6" data-col="db">
+      <div class="task" data-id="ck_w6_db_0" data-w="6" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w6_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="db" data-i="0">事务·ACID</div>
+      <button class="task-del" onclick="deleteTask(6,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_db_1" data-w="6" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w6_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="db" data-i="1">并发控制·锁</div>
+      <button class="task-del" onclick="deleteTask(6,'db',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_db_2" data-w="6" data-col="db" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w6_db_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="db" data-i="2">UNDO/REDO恢复</div>
+      <button class="task-del" onclick="deleteTask(6,'db',2)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_db_3" data-w="6" data-col="db" data-i="3">
+      <div class="tcb" onclick="toggleCheck('ck_w6_db_3',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="db" data-i="3">Widom 约束·触发器·视图</div>
+      <button class="task-del" onclick="deleteTask(6,'db',3)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(6,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="6" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="6" data-col="eng">
+      <div class="task" data-id="ck_w6_eng_0" data-w="6" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w6_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="eng" data-i="0">109词/天</div>
+      <button class="task-del" onclick="deleteTask(6,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w6_eng_1" data-w="6" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w6_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="6" data-col="eng" data-i="1">复习错词</div>
+      <button class="task-del" onclick="deleteTask(6,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(6,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">概率论基础完成☑</div><div class="node-item">能用CLT正确近似☑</div>
+    </td></tr><tr class="ph2 exam-week">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">7</div>
+        <div class="wdate">4/22</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">4/22</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb2">第二阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="7" data-col="stat" data-field="lec">MIT18.650 Lec1-4</div>
+    <div class="task-list" data-w="7" data-col="stat">
+      <div class="task" data-id="ck_w7_stat_0" data-w="7" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w7_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="stat" data-i="0">统计量·抽样分布</div>
+      <button class="task-del" onclick="deleteTask(7,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w7_stat_1" data-w="7" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w7_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="stat" data-i="1">χ²分布·t分布·F分布</div>
+      <button class="task-del" onclick="deleteTask(7,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w7_stat_2" data-w="7" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w7_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="stat" data-i="2">数理统计开始</div>
+      <button class="task-del" onclick="deleteTask(7,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(7,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="7" data-col="calc" data-field="lec">乐经良 第7章</div>
+    <div class="task-list" data-w="7" data-col="calc">
+      <div class="task" data-id="ck_w7_calc_0" data-w="7" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w7_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="calc" data-i="0">微分方程继续</div>
+      <button class="task-del" onclick="deleteTask(7,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w7_calc_1" data-w="7" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w7_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="calc" data-i="1">差分方程补充（1~2h）</div>
+      <button class="task-del" onclick="deleteTask(7,'calc',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(7,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="7" data-col="prog" data-field="lec">CS61A Lec26-30</div>
+    <div class="task-list" data-w="7" data-col="prog">
+      <div class="task" data-id="ck_w7_prog_0" data-w="7" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w7_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="prog" data-i="0">逻辑回归原理</div>
+      <button class="task-del" onclick="deleteTask(7,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w7_prog_1" data-w="7" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w7_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="prog" data-i="1">HW7，CS61A完成</div>
+      <button class="task-del" onclick="deleteTask(7,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(7,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="7" data-col="db" data-field="lec">⚠️ 期末冲刺（考前3天）</div>
+    <div class="task-list" data-w="7" data-col="db">
+      <div class="task" data-id="ck_w7_db_0" data-w="7" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w7_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="db" data-i="0">停Stanford/CMU视频</div>
+      <button class="task-del" onclick="deleteTask(7,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w7_db_1" data-w="7" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w7_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="db" data-i="1">只刷学校数据库PPT</div>
+      <button class="task-del" onclick="deleteTask(7,'db',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w7_db_2" data-w="7" data-col="db" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w7_db_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="db" data-i="2">考后降至隔天30min</div>
+      <button class="task-del" onclick="deleteTask(7,'db',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(7,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="7" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="7" data-col="eng">
+      <div class="task" data-id="ck_w7_eng_0" data-w="7" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w7_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="7" data-col="eng" data-i="0">109词/天</div>
+      <button class="task-del" onclick="deleteTask(7,'eng',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(7,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">⚠️ 数据库期末（4/22前后）</div><div class="node-item">CS61A完成☑</div>
+    </td></tr><tr class="ph2">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">8</div>
+        <div class="wdate">4/29</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">4/29</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb2">第二阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="8" data-col="stat" data-field="lec">MIT18.650 Lec5-7</div>
+    <div class="task-list" data-w="8" data-col="stat">
+      <div class="task" data-id="ck_w8_stat_0" data-w="8" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w8_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="stat" data-i="0">矩估计法</div>
+      <button class="task-del" onclick="deleteTask(8,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_stat_1" data-w="8" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w8_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="stat" data-i="1">最大似然估计MLE（⭐⭐）</div>
+      <button class="task-del" onclick="deleteTask(8,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_stat_2" data-w="8" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w8_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="stat" data-i="2">MLE性质·渐进正态</div>
+      <button class="task-del" onclick="deleteTask(8,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(8,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="8" data-col="calc" data-field="lec">乐经良 第8章</div>
+    <div class="task-list" data-w="8" data-col="calc">
+      <div class="task" data-id="ck_w8_calc_0" data-w="8" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w8_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="calc" data-i="0">多元函数·偏导数</div>
+      <button class="task-del" onclick="deleteTask(8,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_calc_1" data-w="8" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w8_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="calc" data-i="1">梯度·方向导数</div>
+      <button class="task-del" onclick="deleteTask(8,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_calc_2" data-w="8" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w8_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="calc" data-i="2">极值·拉格朗日乘数</div>
+      <button class="task-del" onclick="deleteTask(8,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(8,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="8" data-col="prog" data-field="lec">CS61B Lec1-8</div>
+    <div class="task-list" data-w="8" data-col="prog">
+      <div class="task" data-id="ck_w8_prog_0" data-w="8" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w8_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="prog" data-i="0">Java基础·数据类型</div>
+      <button class="task-del" onclick="deleteTask(8,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_prog_1" data-w="8" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w8_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="prog" data-i="1">链表·引用·递归</div>
+      <button class="task-del" onclick="deleteTask(8,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_prog_2" data-w="8" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w8_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="prog" data-i="2">CS61B正式开始</div>
+      <button class="task-del" onclick="deleteTask(8,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(8,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="8" data-col="db" data-field="lec">数据库复习（约30页）</div>
+    <div class="task-list" data-w="8" data-col="db">
+      <div class="task" data-id="ck_w8_db_0" data-w="8" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w8_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="db" data-i="0">数据库笔记整理</div>
+      <button class="task-del" onclick="deleteTask(8,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_db_1" data-w="8" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w8_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="db" data-i="1">隔天30min维持</div>
+      <button class="task-del" onclick="deleteTask(8,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(8,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="8" data-col="eng" data-field="lec">英语备考开始</div>
+    <div class="task-list" data-w="8" data-col="eng">
+      <div class="task" data-id="ck_w8_eng_0" data-w="8" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w8_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="eng" data-i="0">单词20词+/天</div>
+      <button class="task-del" onclick="deleteTask(8,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_eng_1" data-w="8" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w8_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="eng" data-i="1">阅读30min</div>
+      <button class="task-del" onclick="deleteTask(8,'eng',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w8_eng_2" data-w="8" data-col="eng" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w8_eng_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="8" data-col="eng" data-i="2">写作40min</div>
+      <button class="task-del" onclick="deleteTask(8,'eng',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(8,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">建立独立MLE推导能力</div><div class="node-item">CS61B正式开始</div><div class="node-item">英语全面备考开始</div>
+    </td></tr><tr class="ph2">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">9</div>
+        <div class="wdate">5/6</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">5/6</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb2">第二阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="9" data-col="stat" data-field="lec">MIT18.650 Lec8-10</div>
+    <div class="task-list" data-w="9" data-col="stat">
+      <div class="task" data-id="ck_w9_stat_0" data-w="9" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w9_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="stat" data-i="0">充分统计量</div>
+      <button class="task-del" onclick="deleteTask(9,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w9_stat_1" data-w="9" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w9_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="stat" data-i="1">UMVUE·完全统计量（⭐⭐）</div>
+      <button class="task-del" onclick="deleteTask(9,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w9_stat_2" data-w="9" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w9_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="stat" data-i="2">Rao-Blackwell定理</div>
+      <button class="task-del" onclick="deleteTask(9,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(9,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="9" data-col="calc" data-field="lec">乐经良 第10章</div>
+    <div class="task-list" data-w="9" data-col="calc">
+      <div class="task" data-id="ck_w9_calc_0" data-w="9" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w9_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="calc" data-i="0">二重积分（直角/极坐标）</div>
+      <button class="task-del" onclick="deleteTask(9,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w9_calc_1" data-w="9" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w9_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="calc" data-i="1">第11章 曲线积分（必须过✓）</div>
+      <button class="task-del" onclick="deleteTask(9,'calc',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(9,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="9" data-col="prog" data-field="lec">CS61B Lec6-10</div>
+    <div class="task-list" data-w="9" data-col="prog">
+      <div class="task" data-id="ck_w9_prog_0" data-w="9" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w9_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="prog" data-i="0">泛型·迭代器</div>
+      <button class="task-del" onclick="deleteTask(9,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w9_prog_1" data-w="9" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w9_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="prog" data-i="1">ArrayList·LinkedList</div>
+      <button class="task-del" onclick="deleteTask(9,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w9_prog_2" data-w="9" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w9_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="prog" data-i="2">1天完成</div>
+      <button class="task-del" onclick="deleteTask(9,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(9,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="9" data-col="db" data-field="lec">SQL简答题练习</div>
+    <div class="task-list" data-w="9" data-col="db">
+      <div class="task" data-id="ck_w9_db_0" data-w="9" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w9_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="db" data-i="0">隔天30min</div>
+      <button class="task-del" onclick="deleteTask(9,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w9_db_1" data-w="9" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w9_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="db" data-i="1">复杂查询练习</div>
+      <button class="task-del" onclick="deleteTask(9,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(9,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="9" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="9" data-col="eng">
+      <div class="task" data-id="ck_w9_eng_0" data-w="9" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w9_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="eng" data-i="0">单词+阅读30min</div>
+      <button class="task-del" onclick="deleteTask(9,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w9_eng_1" data-w="9" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w9_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="9" data-col="eng" data-i="1">写作40min</div>
+      <button class="task-del" onclick="deleteTask(9,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(9,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">18.02完成☑</div><div class="node-item">能应用Rao-Blackwell定理</div>
+    </td></tr><tr class="ph2">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">10</div>
+        <div class="wdate">5/13</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">5/13</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb2">第二阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="10" data-col="stat" data-field="lec">MIT18.650 Lec11-13</div>
+    <div class="task-list" data-w="10" data-col="stat">
+      <div class="task" data-id="ck_w10_stat_0" data-w="10" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w10_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="stat" data-i="0">区间估计理论</div>
+      <button class="task-del" onclick="deleteTask(10,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w10_stat_1" data-w="10" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w10_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="stat" data-i="1">枢轴量法</div>
+      <button class="task-del" onclick="deleteTask(10,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w10_stat_2" data-w="10" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w10_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="stat" data-i="2">正态总体置信区间</div>
+      <button class="task-del" onclick="deleteTask(10,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(10,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="10" data-col="calc" data-field="lec">乐经良 第12章</div>
+    <div class="task-list" data-w="10" data-col="calc">
+      <div class="task" data-id="ck_w10_calc_0" data-w="10" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w10_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="calc" data-i="0">无穷级数·收敛判别</div>
+      <button class="task-del" onclick="deleteTask(10,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w10_calc_1" data-w="10" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w10_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="calc" data-i="1">幂级数·收敛半径</div>
+      <button class="task-del" onclick="deleteTask(10,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w10_calc_2" data-w="10" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w10_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="calc" data-i="2">Taylor展开</div>
+      <button class="task-del" onclick="deleteTask(10,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(10,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="10" data-col="prog" data-field="lec">CS61B Lec11-15</div>
+    <div class="task-list" data-w="10" data-col="prog">
+      <div class="task" data-id="ck_w10_prog_0" data-w="10" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w10_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="prog" data-i="0">BST实现与分析</div>
+      <button class="task-del" onclick="deleteTask(10,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w10_prog_1" data-w="10" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w10_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="prog" data-i="1">渐进分析·大O</div>
+      <button class="task-del" onclick="deleteTask(10,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w10_prog_2" data-w="10" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w10_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="prog" data-i="2">排序算法（1天）</div>
+      <button class="task-del" onclick="deleteTask(10,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(10,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="10" data-col="db" data-field="lec">数据库知识查漏</div>
+    <div class="task-list" data-w="10" data-col="db">
+      <div class="task" data-id="ck_w10_db_0" data-w="10" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w10_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="db" data-i="0">复习常见简答题</div>
+      <button class="task-del" onclick="deleteTask(10,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w10_db_1" data-w="10" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w10_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="db" data-i="1">整理问答题模板</div>
+      <button class="task-del" onclick="deleteTask(10,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(10,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="10" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="10" data-col="eng">
+      <div class="task" data-id="ck_w10_eng_0" data-w="10" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w10_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="eng" data-i="0">单词+阅读30min</div>
+      <button class="task-del" onclick="deleteTask(10,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w10_eng_1" data-w="10" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w10_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="10" data-col="eng" data-i="1">写作40min</div>
+      <button class="task-del" onclick="deleteTask(10,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(10,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">能独立选最优区间</div><div class="node-item">BST手写实现☑</div>
+    </td></tr><tr class="ph2">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">11</div>
+        <div class="wdate">5/20</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">5/20</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb2">第二阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="11" data-col="stat" data-field="lec">MIT18.650 Lec14-18</div>
+    <div class="task-list" data-w="11" data-col="stat">
+      <div class="task" data-id="ck_w11_stat_0" data-w="11" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w11_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="stat" data-i="0">假设检验框架</div>
+      <button class="task-del" onclick="deleteTask(11,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w11_stat_1" data-w="11" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w11_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="stat" data-i="1">Neyman-Pearson引理（⭐⭐）</div>
+      <button class="task-del" onclick="deleteTask(11,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w11_stat_2" data-w="11" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w11_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="stat" data-i="2">UMP检验·单边双边</div>
+      <button class="task-del" onclick="deleteTask(11,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(11,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="11" data-col="calc" data-field="lec">MIT18.06 Lec5-11</div>
+    <div class="task-list" data-w="11" data-col="calc">
+      <div class="task" data-id="ck_w11_calc_0" data-w="11" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w11_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="calc" data-i="0">矩阵运算·行变换</div>
+      <button class="task-del" onclick="deleteTask(11,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w11_calc_1" data-w="11" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w11_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="calc" data-i="1">行列式性质</div>
+      <button class="task-del" onclick="deleteTask(11,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w11_calc_2" data-w="11" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w11_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="calc" data-i="2">四大子空间</div>
+      <button class="task-del" onclick="deleteTask(11,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(11,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="11" data-col="prog" data-field="lec">CS61B Lec16-20</div>
+    <div class="task-list" data-w="11" data-col="prog">
+      <div class="task" data-id="ck_w11_prog_0" data-w="11" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w11_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="prog" data-i="0">B树·红黑树原理</div>
+      <button class="task-del" onclick="deleteTask(11,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w11_prog_1" data-w="11" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w11_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="prog" data-i="1">哈希表实现（1天）</div>
+      <button class="task-del" onclick="deleteTask(11,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(11,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="11" data-col="db" data-field="lec">LeetCode中等题</div>
+    <div class="task-list" data-w="11" data-col="db">
+      <div class="task" data-id="ck_w11_db_0" data-w="11" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w11_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="db" data-i="0">数据库中等难度</div>
+      <button class="task-del" onclick="deleteTask(11,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w11_db_1" data-w="11" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w11_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="db" data-i="1">隔天30min</div>
+      <button class="task-del" onclick="deleteTask(11,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(11,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="11" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="11" data-col="eng">
+      <div class="task" data-id="ck_w11_eng_0" data-w="11" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w11_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="eng" data-i="0">单词+阅读30min</div>
+      <button class="task-del" onclick="deleteTask(11,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w11_eng_1" data-w="11" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w11_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="11" data-col="eng" data-i="1">写作40min（写作用上）</div>
+      <button class="task-del" onclick="deleteTask(11,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(11,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">假设检验能规范表述</div><div class="node-item">哈希表独立实现☑</div>
+    </td></tr><tr class="ph2">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">12</div>
+        <div class="wdate">5/27</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">5/27</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb2">第二阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="12" data-col="stat" data-field="lec">MIT18.650 Lec19-24</div>
+    <div class="task-list" data-w="12" data-col="stat">
+      <div class="task" data-id="ck_w12_stat_0" data-w="12" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w12_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="stat" data-i="0">线性回归·最小二乘</div>
+      <button class="task-del" onclick="deleteTask(12,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w12_stat_1" data-w="12" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w12_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="stat" data-i="1">回归系数检验</div>
+      <button class="task-del" onclick="deleteTask(12,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w12_stat_2" data-w="12" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w12_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="stat" data-i="2">方差分析ANOVA</div>
+      <button class="task-del" onclick="deleteTask(12,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(12,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="12" data-col="calc" data-field="lec">MIT18.06 Lec12-18</div>
+    <div class="task-list" data-w="12" data-col="calc">
+      <div class="task" data-id="ck_w12_calc_0" data-w="12" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w12_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="calc" data-i="0">正交投影·Gram-Schmidt</div>
+      <button class="task-del" onclick="deleteTask(12,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w12_calc_1" data-w="12" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w12_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="calc" data-i="1">最小二乘法</div>
+      <button class="task-del" onclick="deleteTask(12,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w12_calc_2" data-w="12" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w12_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="calc" data-i="2">特征值初步</div>
+      <button class="task-del" onclick="deleteTask(12,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(12,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="12" data-col="prog" data-field="lec">CS61B Lec21-25</div>
+    <div class="task-list" data-w="12" data-col="prog">
+      <div class="task" data-id="ck_w12_prog_0" data-w="12" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w12_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="prog" data-i="0">图结构·BFS/DFS</div>
+      <button class="task-del" onclick="deleteTask(12,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w12_prog_1" data-w="12" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w12_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="prog" data-i="1">最短路·Dijkstra（1天）</div>
+      <button class="task-del" onclick="deleteTask(12,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(12,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="12" data-col="db" data-field="lec">数据库综合复习</div>
+    <div class="task-list" data-w="12" data-col="db">
+      <div class="task" data-id="ck_w12_db_0" data-w="12" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w12_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="db" data-i="0">第四周简答题刷完</div>
+      <button class="task-del" onclick="deleteTask(12,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w12_db_1" data-w="12" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w12_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="db" data-i="1">SQL综合练习</div>
+      <button class="task-del" onclick="deleteTask(12,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(12,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="12" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="12" data-col="eng">
+      <div class="task" data-id="ck_w12_eng_0" data-w="12" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w12_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="eng" data-i="0">5/31词背完☑（7161词）</div>
+      <button class="task-del" onclick="deleteTask(12,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w12_eng_1" data-w="12" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w12_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="12" data-col="eng" data-i="1">写作力提高</div>
+      <button class="task-del" onclick="deleteTask(12,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(12,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">数理统计完成☑</div><div class="node-item">7161词全部完成☑</div>
+    </td></tr><tr class="ph3">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">13</div>
+        <div class="wdate">6/3</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">6/3</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb3">第三阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="13" data-col="stat" data-field="lec">茆诗松 1-5章 题目</div>
+    <div class="task-list" data-w="13" data-col="stat">
+      <div class="task" data-id="ck_w13_stat_0" data-w="13" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w13_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="stat" data-i="0">概率论经典题专攻</div>
+      <button class="task-del" onclick="deleteTask(13,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w13_stat_1" data-w="13" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w13_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="stat" data-i="1">条件概率·全概率难题</div>
+      <button class="task-del" onclick="deleteTask(13,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w13_stat_2" data-w="13" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w13_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="stat" data-i="2">随机变量变换题</div>
+      <button class="task-del" onclick="deleteTask(13,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(13,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="13" data-col="calc" data-field="lec">MIT18.06 Lec19-25</div>
+    <div class="task-list" data-w="13" data-col="calc">
+      <div class="task" data-id="ck_w13_calc_0" data-w="13" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w13_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="calc" data-i="0">特征值·特征向量</div>
+      <button class="task-del" onclick="deleteTask(13,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w13_calc_1" data-w="13" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w13_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="calc" data-i="1">SVD分解</div>
+      <button class="task-del" onclick="deleteTask(13,'calc',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w13_calc_2" data-w="13" data-col="calc" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w13_calc_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="calc" data-i="2">正定矩阵</div>
+      <button class="task-del" onclick="deleteTask(13,'calc',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(13,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="13" data-col="prog" data-field="lec">CS61B Lec26-30</div>
+    <div class="task-list" data-w="13" data-col="prog">
+      <div class="task" data-id="ck_w13_prog_0" data-w="13" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w13_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="prog" data-i="0">数据结构收尾</div>
+      <button class="task-del" onclick="deleteTask(13,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w13_prog_1" data-w="13" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w13_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="prog" data-i="1">CS61B完成☑</div>
+      <button class="task-del" onclick="deleteTask(13,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(13,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="13" data-col="db" data-field="lec">数据库复试准备</div>
+    <div class="task-list" data-w="13" data-col="db">
+      <div class="task" data-id="ck_w13_db_0" data-w="13" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w13_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="db" data-i="0">口头表达整理</div>
+      <button class="task-del" onclick="deleteTask(13,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w13_db_1" data-w="13" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w13_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="db" data-i="1">问答题模板背诵</div>
+      <button class="task-del" onclick="deleteTask(13,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(13,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="13" data-col="eng" data-field="lec">⚠️ 六级冲刺</div>
+    <div class="task-list" data-w="13" data-col="eng">
+      <div class="task" data-id="ck_w13_eng_0" data-w="13" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w13_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="eng" data-i="0">每天写1篇作文</div>
+      <button class="task-del" onclick="deleteTask(13,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w13_eng_1" data-w="13" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w13_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="13" data-col="eng" data-i="1">阅读专项强化</div>
+      <button class="task-del" onclick="deleteTask(13,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(13,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">⚠️ 数学物理方程期末</div><div class="node-item">18.06完成☑</div><div class="node-item">CS61B完成☑</div>
+    </td></tr><tr class="ph3">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">14</div>
+        <div class="wdate">6/10</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">6/10</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb3">第三阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="14" data-col="stat" data-field="lec">茆诗松 6-9章 题目</div>
+    <div class="task-list" data-w="14" data-col="stat">
+      <div class="task" data-id="ck_w14_stat_0" data-w="14" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w14_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="stat" data-i="0">统计推断核心题</div>
+      <button class="task-del" onclick="deleteTask(14,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w14_stat_1" data-w="14" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w14_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="stat" data-i="1">估计量性质辨析</div>
+      <button class="task-del" onclick="deleteTask(14,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w14_stat_2" data-w="14" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w14_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="stat" data-i="2">假设检验综合题</div>
+      <button class="task-del" onclick="deleteTask(14,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(14,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="14" data-col="calc" data-field="lec">MIT18.06 Lec26-34</div>
+    <div class="task-list" data-w="14" data-col="calc">
+      <div class="task" data-id="ck_w14_calc_0" data-w="14" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w14_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="calc" data-i="0">线性代数收尾</div>
+      <button class="task-del" onclick="deleteTask(14,'calc',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w14_calc_1" data-w="14" data-col="calc" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w14_calc_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="calc" data-i="1">18.06完成</div>
+      <button class="task-del" onclick="deleteTask(14,'calc',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(14,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="14" data-col="prog" data-field="lec">LeetCode 数据结构</div>
+    <div class="task-list" data-w="14" data-col="prog">
+      <div class="task" data-id="ck_w14_prog_0" data-w="14" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w14_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="prog" data-i="0">数组·链表·栈</div>
+      <button class="task-del" onclick="deleteTask(14,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w14_prog_1" data-w="14" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w14_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="prog" data-i="1">矩阵题·滑动窗口</div>
+      <button class="task-del" onclick="deleteTask(14,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(14,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="14" data-col="db" data-field="lec">复试数据库</div>
+    <div class="task-list" data-w="14" data-col="db">
+      <div class="task" data-id="ck_w14_db_0" data-w="14" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w14_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="db" data-i="0">口头表达练习</div>
+      <button class="task-del" onclick="deleteTask(14,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w14_db_1" data-w="14" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w14_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="db" data-i="1">数据库设计题</div>
+      <button class="task-del" onclick="deleteTask(14,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(14,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="14" data-col="eng" data-field="lec">⚠️ 六级冲刺最后1周</div>
+    <div class="task-list" data-w="14" data-col="eng">
+      <div class="task" data-id="ck_w14_eng_0" data-w="14" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w14_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="eng" data-i="0">作文模板熟练</div>
+      <button class="task-del" onclick="deleteTask(14,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w14_eng_1" data-w="14" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w14_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="14" data-col="eng" data-i="1">6/13 六级考试☑</div>
+      <button class="task-del" onclick="deleteTask(14,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(14,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">⚠️ 现代优化期末</div><div class="node-item">⚠️ 6/13 六级考试</div>
+    </td></tr><tr class="ph3">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">15</div>
+        <div class="wdate">6/17</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">6/17</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb3">第三阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="15" data-col="stat" data-field="lec">茆诗松 10-11章 题目</div>
+    <div class="task-list" data-w="15" data-col="stat">
+      <div class="task" data-id="ck_w15_stat_0" data-w="15" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w15_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="stat" data-i="0">回归分析综合</div>
+      <button class="task-del" onclick="deleteTask(15,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w15_stat_1" data-w="15" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w15_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="stat" data-i="1">方差分析ANOVA题</div>
+      <button class="task-del" onclick="deleteTask(15,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w15_stat_2" data-w="15" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w15_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="stat" data-i="2">（按需）1.5h</div>
+      <button class="task-del" onclick="deleteTask(15,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(15,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="15" data-col="calc" data-field="lec">（按需）</div>
+    <div class="task-list" data-w="15" data-col="calc">
+      <div class="task" data-id="ck_w15_calc_0" data-w="15" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w15_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="calc" data-i="0">针对薄弱点复习</div>
+      <button class="task-del" onclick="deleteTask(15,'calc',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(15,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="15" data-col="prog" data-field="lec">LeetCode 树+图</div>
+    <div class="task-list" data-w="15" data-col="prog">
+      <div class="task" data-id="ck_w15_prog_0" data-w="15" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w15_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="prog" data-i="0">树的遍历·路径题</div>
+      <button class="task-del" onclick="deleteTask(15,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w15_prog_1" data-w="15" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w15_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="prog" data-i="1">图的BFS/DFS综合</div>
+      <button class="task-del" onclick="deleteTask(15,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w15_prog_2" data-w="15" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w15_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="prog" data-i="2">（按需 1h）</div>
+      <button class="task-del" onclick="deleteTask(15,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(15,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="15" data-col="db" data-field="lec">SQL综合练习</div>
+    <div class="task-list" data-w="15" data-col="db">
+      <div class="task" data-id="ck_w15_db_0" data-w="15" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w15_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="db" data-i="0">复杂SQL查询</div>
+      <button class="task-del" onclick="deleteTask(15,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w15_db_1" data-w="15" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w15_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="db" data-i="1">窗口函数综合</div>
+      <button class="task-del" onclick="deleteTask(15,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(15,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="15" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="15" data-col="eng">
+      <div class="task" data-id="ck_w15_eng_0" data-w="15" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w15_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="eng" data-i="0">六级已完成☑</div>
+      <button class="task-del" onclick="deleteTask(15,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w15_eng_1" data-w="15" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w15_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="eng" data-i="1">英语降至45min</div>
+      <button class="task-del" onclick="deleteTask(15,'eng',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w15_eng_2" data-w="15" data-col="eng" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w15_eng_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="15" data-col="eng" data-i="2">阅读保持手感</div>
+      <button class="task-del" onclick="deleteTask(15,'eng',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(15,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">全部完成率≥80%</div><div class="node-item">编程恢复1.5h</div>
+    </td></tr><tr class="ph3">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">16</div>
+        <div class="wdate">6/24</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">6/24</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb3">第三阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="16" data-col="stat" data-field="lec">综合模拟</div>
+    <div class="task-list" data-w="16" data-col="stat">
+      <div class="task" data-id="ck_w16_stat_0" data-w="16" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w16_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="stat" data-i="0">历年432真题训练</div>
+      <button class="task-del" onclick="deleteTask(16,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w16_stat_1" data-w="16" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w16_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="stat" data-i="1">限时3小时模拟</div>
+      <button class="task-del" onclick="deleteTask(16,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w16_stat_2" data-w="16" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w16_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="stat" data-i="2">错题整理</div>
+      <button class="task-del" onclick="deleteTask(16,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(16,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="16" data-col="calc" data-field="lec">（按需）</div>
+    <div class="task-list" data-w="16" data-col="calc">
+      <div class="task" data-id="ck_w16_calc_0" data-w="16" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w16_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="calc" data-i="0">针对薄弱点</div>
+      <button class="task-del" onclick="deleteTask(16,'calc',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(16,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="16" data-col="prog" data-field="lec">LeetCode 动态规划</div>
+    <div class="task-list" data-w="16" data-col="prog">
+      <div class="task" data-id="ck_w16_prog_0" data-w="16" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w16_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="prog" data-i="0">DP经典题20道</div>
+      <button class="task-del" onclick="deleteTask(16,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w16_prog_1" data-w="16" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w16_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="prog" data-i="1">Python数据分析练习</div>
+      <button class="task-del" onclick="deleteTask(16,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(16,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="16" data-col="db" data-field="lec">SQL综合练习</div>
+    <div class="task-list" data-w="16" data-col="db">
+      <div class="task" data-id="ck_w16_db_0" data-w="16" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w16_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="db" data-i="0">综合复杂查询</div>
+      <button class="task-del" onclick="deleteTask(16,'db',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(16,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="16" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="16" data-col="eng">
+      <div class="task" data-id="ck_w16_eng_0" data-w="16" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w16_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="eng" data-i="0">英语阅读练习</div>
+      <button class="task-del" onclick="deleteTask(16,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w16_eng_1" data-w="16" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w16_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="16" data-col="eng" data-i="1">保持手感</div>
+      <button class="task-del" onclick="deleteTask(16,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(16,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">⚠️ 拓扑学期末</div><div class="node-item">限时完成综合题☑</div>
+    </td></tr><tr class="ph3">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">17</div>
+        <div class="wdate">7/1</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">7/1</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb3">第三阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="17" data-col="stat" data-field="lec">查漏补缺</div>
+    <div class="task-list" data-w="17" data-col="stat">
+      <div class="task" data-id="ck_w17_stat_0" data-w="17" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w17_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="stat" data-i="0">薄弱章节第二轮</div>
+      <button class="task-del" onclick="deleteTask(17,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w17_stat_1" data-w="17" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w17_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="stat" data-i="1">重点公式归纳</div>
+      <button class="task-del" onclick="deleteTask(17,'stat',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(17,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="17" data-col="calc" data-field="lec">（按需）</div>
+    <div class="task-list" data-w="17" data-col="calc">
+      <div class="task" data-id="ck_w17_calc_0" data-w="17" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w17_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="calc" data-i="0">针对薄弱点</div>
+      <button class="task-del" onclick="deleteTask(17,'calc',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(17,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="17" data-col="prog" data-field="lec">完成数据分析项目</div>
+    <div class="task-list" data-w="17" data-col="prog">
+      <div class="task" data-id="ck_w17_prog_0" data-w="17" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w17_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="prog" data-i="0">Pandas数据处理</div>
+      <button class="task-del" onclick="deleteTask(17,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w17_prog_1" data-w="17" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w17_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="prog" data-i="1">matplotlib可视化</div>
+      <button class="task-del" onclick="deleteTask(17,'prog',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w17_prog_2" data-w="17" data-col="prog" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w17_prog_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="prog" data-i="2">项目README整理</div>
+      <button class="task-del" onclick="deleteTask(17,'prog',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(17,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="17" data-col="db" data-field="lec">数据库收尾</div>
+    <div class="task-list" data-w="17" data-col="db">
+      <div class="task" data-id="ck_w17_db_0" data-w="17" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w17_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="db" data-i="0">数据库☑</div>
+      <button class="task-del" onclick="deleteTask(17,'db',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w17_db_1" data-w="17" data-col="db" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w17_db_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="db" data-i="1">王珊第四题（有余力）</div>
+      <button class="task-del" onclick="deleteTask(17,'db',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(17,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="17" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="17" data-col="eng">
+      <div class="task" data-id="ck_w17_eng_0" data-w="17" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w17_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="17" data-col="eng" data-i="0">英语阅读练习</div>
+      <button class="task-del" onclick="deleteTask(17,'eng',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(17,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">学校课程全部结束☑</div><div class="node-item">完成数据分析项目☑</div>
+    </td></tr><tr class="ph3">
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">18</div>
+        <div class="wdate">7/8</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">7/8</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge pb3">第三阶段</span>
+      </td><td class="cs">
+    <div class="cell-lec" contenteditable="false" data-w="18" data-col="stat" data-field="lec">制作个人公式手册</div>
+    <div class="task-list" data-w="18" data-col="stat">
+      <div class="task" data-id="ck_w18_stat_0" data-w="18" data-col="stat" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w18_stat_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="stat" data-i="0">知识图谱整理</div>
+      <button class="task-del" onclick="deleteTask(18,'stat',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w18_stat_1" data-w="18" data-col="stat" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w18_stat_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="stat" data-i="1">公式手册完成</div>
+      <button class="task-del" onclick="deleteTask(18,'stat',1)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w18_stat_2" data-w="18" data-col="stat" data-i="2">
+      <div class="tcb" onclick="toggleCheck('ck_w18_stat_2',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="stat" data-i="2">最终复习</div>
+      <button class="task-del" onclick="deleteTask(18,'stat',2)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(18,'stat')">＋ 添加任务</button>
+  </td><td class="cc">
+    <div class="cell-lec" contenteditable="false" data-w="18" data-col="calc" data-field="lec">（按需）</div>
+    <div class="task-list" data-w="18" data-col="calc">
+      <div class="task" data-id="ck_w18_calc_0" data-w="18" data-col="calc" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w18_calc_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="calc" data-i="0">针对薄弱点</div>
+      <button class="task-del" onclick="deleteTask(18,'calc',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(18,'calc')">＋ 添加任务</button>
+  </td><td class="cp">
+    <div class="cell-lec" contenteditable="false" data-w="18" data-col="prog" data-field="lec">复试编程准备</div>
+    <div class="task-list" data-w="18" data-col="prog">
+      <div class="task" data-id="ck_w18_prog_0" data-w="18" data-col="prog" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w18_prog_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="prog" data-i="0">口头表达练习</div>
+      <button class="task-del" onclick="deleteTask(18,'prog',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w18_prog_1" data-w="18" data-col="prog" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w18_prog_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="prog" data-i="1">代码题练习</div>
+      <button class="task-del" onclick="deleteTask(18,'prog',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(18,'prog')">＋ 添加任务</button>
+  </td><td class="cd">
+    <div class="cell-lec" contenteditable="false" data-w="18" data-col="db" data-field="lec">复试数据库</div>
+    <div class="task-list" data-w="18" data-col="db">
+      <div class="task" data-id="ck_w18_db_0" data-w="18" data-col="db" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w18_db_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="db" data-i="0">口头表达练习</div>
+      <button class="task-del" onclick="deleteTask(18,'db',0)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(18,'db')">＋ 添加任务</button>
+  </td><td class="ce">
+    <div class="cell-lec" contenteditable="false" data-w="18" data-col="eng" data-field="lec">英语</div>
+    <div class="task-list" data-w="18" data-col="eng">
+      <div class="task" data-id="ck_w18_eng_0" data-w="18" data-col="eng" data-i="0">
+      <div class="tcb" onclick="toggleCheck('ck_w18_eng_0',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="eng" data-i="0">阅读练习</div>
+      <button class="task-del" onclick="deleteTask(18,'eng',0)" title="删除此任务">✕</button>
+    </div><div class="task" data-id="ck_w18_eng_1" data-w="18" data-col="eng" data-i="1">
+      <div class="tcb" onclick="toggleCheck('ck_w18_eng_1',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="18" data-col="eng" data-i="1">开始真题</div>
+      <button class="task-del" onclick="deleteTask(18,'eng',1)" title="删除此任务">✕</button>
+    </div>
+    </div>
+    <button class="add-task-btn" onclick="addTask(18,'eng')">＋ 添加任务</button>
+  </td><td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      <div class="node-item">⭐ 全部课程收尾</div><div class="node-item">⭐ 进入复试冲刺</div>
+    </td></tr></tbody>
 </table>
 </div>
 
@@ -310,132 +1904,836 @@ tr.exam-week td{outline:2px solid #e74c3c;outline-offset:-1px}
 <script>
 // ─── Default Data ──────────────────────────────────────────────
 const DEFAULT_W = [
-  {w:1,d:'3/11',p:1,
-   stat:{lec:'Stat110 Lec1-4',tasks:['随机事件·样本空间','条件概率·独立性','贝叶斯定理与全概率']},
-   calc:{lec:'乐经良 第1章',tasks:['函数与极限（每天30~60min）']},
-   prog:{lec:'CS61A Lec1-4',tasks:['Python基础·函数','Lab1/HW1/Disc1']},
-   db:  {lec:'CMU Lec01',tasks:['关系模型与关系代数','SQLZoo Section1-3']},
-   eng: {lec:'英语',tasks:['单词App开始','每日109词']},
-   node:['Day1正式开始！','能推导贝叶斯公式']},
-  {w:2,d:'3/18',p:1,
-   stat:{lec:'Stat110 Lec5-8',tasks:['离散随机变量·PMF','二项/几何/超几何分布','常见离散分布汇总']},
-   calc:{lec:'乐经良 第2章',tasks:['导数定义与四则运算','链式法则·隐函数求导']},
-   prog:{lec:'CS61A Lec5-8',tasks:['高阶函数·Lambda·闭包','Lab2/HW2/Disc2']},
-   db:  {lec:'CMU Lec02 Modern SQL',tasks:['Widom Lec01 ER图','SQLZoo Section4-6','窗口函数·CTE练习']},
-   eng: {lec:'英语',tasks:['109词/天','复习错词']},
-   node:['能写出二项分布PMF','能用lambda与高阶函数']},
-  {w:3,d:'3/25',p:1,
-   stat:{lec:'Stat110 Lec9-13',tasks:['连续随机变量·PDF/CDF','正态分布·标准化','指数分布·无记忆性']},
-   calc:{lec:'乐经良 第3章',tasks:['微分中值定理','洛必达法则','导数应用·单调极值']},
-   prog:{lec:'CS61A Lec9-12',tasks:['递归·递归应用','迭代器·生成器','Lab3/HW3/Disc3']},
-   db:  {lec:'Widom Lec27-32',tasks:['范式理论·函数依赖','BCNF分解','3NF综合练习']},
-   eng: {lec:'英语',tasks:['109词/天','复习错词']},
-   node:['拓扑学开课','正态分布能手算标准化']},
-  {w:4,d:'4/1',p:1,
-   stat:{lec:'Stat110 Lec14-18',tasks:['多维联合分布·边缘分布','条件分布·独立性判断','协方差·相关系数']},
-   calc:{lec:'乐经良 第4章',tasks:['不定积分·基本公式','换元积分·分部积分','（第5章难度已跳过✓）']},
-   prog:{lec:'CS61A Lec13-16',tasks:['OOP·类与继承','多态·特殊方法','Lab4/HW4/Disc4']},
-   db:  {lec:'CMU Lec03 06 07 08 09',tasks:['存储层·Page布局','内存管理·缓冲池','B+树索引原理']},
-   eng: {lec:'英语',tasks:['109词/天','复习错词']},
-   node:['18.01完成☑','能从联合PDF推导边缘分布']},
-  {w:5,d:'4/8',p:1,
-   stat:{lec:'Stat110 Lec19-23',tasks:['数学期望·线性性质','方差·标准差','矩·MGF定义与应用']},
-   calc:{lec:'乐经良 第5章',tasks:['定积分定义·性质','定积分计算','广义积分']},
-   prog:{lec:'CS61A Lec17-20',tasks:['解释器·Scheme基础','尾递归·定积分近似','Lab5/HW5/Disc5']},
-   db:  {lec:'CMU Lec11-15',tasks:['查询处理流程','排序算法·外排序','Join算法优化']},
-   eng: {lec:'英语',tasks:['109词/天','复习错词']},
-   node:['能推导MGF求矩','Stanford DB全部完成☑']},
-  {w:6,d:'4/15',p:1,
-   stat:{lec:'Stat110 Lec24-34',tasks:['大数定律（弱/强）','中心极限定理','CLT近似计算练习','概率论收尾']},
-   calc:{lec:'乐经良 第6-7章',tasks:['定积分应用（面积/体积）','常微分方程基础','可分离变量·一阶线性']},
-   prog:{lec:'CS61A Lec21-25',tasks:['数据处理·流','SQL基础（CS61A）','Lab6/HW6，CS61A收尾']},
-   db:  {lec:'CMU Lec53-68',tasks:['事务·ACID','并发控制·锁','UNDO/REDO恢复','Widom 约束·触发器·视图']},
-   eng: {lec:'英语',tasks:['109词/天','复习错词']},
-   node:['概率论基础完成☑','能用CLT正确近似☑']},
-  {w:7,d:'4/22',p:2,exam:true,
-   stat:{lec:'MIT18.650 Lec1-4',tasks:['统计量·抽样分布','χ²分布·t分布·F分布','数理统计开始']},
-   calc:{lec:'乐经良 第7章',tasks:['微分方程继续','差分方程补充（1~2h）']},
-   prog:{lec:'CS61A Lec26-30',tasks:['逻辑回归原理','HW7，CS61A完成']},
-   db:  {lec:'⚠️ 期末冲刺（考前3天）',tasks:['停Stanford/CMU视频','只刷学校数据库PPT','考后降至隔天30min']},
-   eng: {lec:'英语',tasks:['109词/天']},
-   node:['⚠️ 数据库期末（4/22前后）','CS61A完成☑']},
-  {w:8,d:'4/29',p:2,
-   stat:{lec:'MIT18.650 Lec5-7',tasks:['矩估计法','最大似然估计MLE（⭐⭐）','MLE性质·渐进正态']},
-   calc:{lec:'乐经良 第8章',tasks:['多元函数·偏导数','梯度·方向导数','极值·拉格朗日乘数']},
-   prog:{lec:'CS61B Lec1-8',tasks:['Java基础·数据类型','链表·引用·递归','CS61B正式开始']},
-   db:  {lec:'数据库复习（约30页）',tasks:['数据库笔记整理','隔天30min维持']},
-   eng: {lec:'英语备考开始',tasks:['单词20词+/天','阅读30min','写作40min']},
-   node:['建立独立MLE推导能力','CS61B正式开始','英语全面备考开始']},
-  {w:9,d:'5/6',p:2,
-   stat:{lec:'MIT18.650 Lec8-10',tasks:['充分统计量','UMVUE·完全统计量（⭐⭐）','Rao-Blackwell定理']},
-   calc:{lec:'乐经良 第10章',tasks:['二重积分（直角/极坐标）','第11章 曲线积分（必须过✓）']},
-   prog:{lec:'CS61B Lec6-10',tasks:['泛型·迭代器','ArrayList·LinkedList','1天完成']},
-   db:  {lec:'SQL简答题练习',tasks:['隔天30min','复杂查询练习']},
-   eng: {lec:'英语',tasks:['单词+阅读30min','写作40min']},
-   node:['18.02完成☑','能应用Rao-Blackwell定理']},
-  {w:10,d:'5/13',p:2,
-   stat:{lec:'MIT18.650 Lec11-13',tasks:['区间估计理论','枢轴量法','正态总体置信区间']},
-   calc:{lec:'乐经良 第12章',tasks:['无穷级数·收敛判别','幂级数·收敛半径','Taylor展开']},
-   prog:{lec:'CS61B Lec11-15',tasks:['BST实现与分析','渐进分析·大O','排序算法（1天）']},
-   db:  {lec:'数据库知识查漏',tasks:['复习常见简答题','整理问答题模板']},
-   eng: {lec:'英语',tasks:['单词+阅读30min','写作40min']},
-   node:['能独立选最优区间','BST手写实现☑']},
-  {w:11,d:'5/20',p:2,
-   stat:{lec:'MIT18.650 Lec14-18',tasks:['假设检验框架','Neyman-Pearson引理（⭐⭐）','UMP检验·单边双边']},
-   calc:{lec:'18.06 Lec5-11',tasks:['矩阵运算·行变换','行列式性质','四大子空间']},
-   prog:{lec:'CS61B Lec16-20',tasks:['B树·红黑树原理','哈希表实现（1天）']},
-   db:  {lec:'LeetCode中等题',tasks:['数据库中等难度','隔天30min']},
-   eng: {lec:'英语',tasks:['单词+阅读30min','写作40min（写作用上）']},
-   node:['假设检验能规范表述','哈希表独立实现☑']},
-  {w:12,d:'5/27',p:2,
-   stat:{lec:'MIT18.650 Lec19-24',tasks:['线性回归·最小二乘','回归系数检验','方差分析ANOVA']},
-   calc:{lec:'18.06 Lec12-18',tasks:['正交投影·Gram-Schmidt','最小二乘法','特征值初步']},
-   prog:{lec:'CS61B Lec21-25',tasks:['图结构·BFS/DFS','最短路·Dijkstra（1天）']},
-   db:  {lec:'数据库综合复习',tasks:['第四周简答题刷完','SQL综合练习']},
-   eng: {lec:'英语',tasks:['5/31词背完☑（7161词）','写作力提高']},
-   node:['数理统计完成☑','7161词全部完成☑']},
-  {w:13,d:'6/3',p:3,
-   stat:{lec:'茆诗松 1-5章 题目',tasks:['概率论经典题专攻','条件概率·全概率难题','随机变量变换题']},
-   calc:{lec:'18.06 Lec19-25',tasks:['特征值·特征向量','SVD分解','正定矩阵']},
-   prog:{lec:'CS61B Lec26-30',tasks:['数据结构收尾','CS61B完成☑']},
-   db:  {lec:'数据库复试准备',tasks:['口头表达整理','问答题模板背诵']},
-   eng: {lec:'⚠️ 六级冲刺',tasks:['每天写1篇作文','阅读专项强化']},
-   node:['⚠️ 数学物理方程期末','18.06完成☑','CS61B完成☑']},
-  {w:14,d:'6/10',p:3,
-   stat:{lec:'茆诗松 6-9章 题目',tasks:['统计推断核心题','估计量性质辨析','假设检验综合题']},
-   calc:{lec:'18.06 Lec26-34',tasks:['线性代数收尾','18.06完成']},
-   prog:{lec:'LeetCode 数据结构',tasks:['数组·链表·栈','矩阵题·滑动窗口']},
-   db:  {lec:'复试数据库',tasks:['口头表达练习','数据库设计题']},
-   eng: {lec:'⚠️ 六级冲刺最后1周',tasks:['作文模板熟练','6/13 六级考试☑']},
-   node:['⚠️ 现代优化期末','⚠️ 6/13 六级考试']},
-  {w:15,d:'6/17',p:3,
-   stat:{lec:'茆诗松 10-11章 题目',tasks:['回归分析综合','方差分析ANOVA题','（按需）1.5h']},
-   calc:{lec:'（按需）',tasks:['针对薄弱点复习']},
-   prog:{lec:'LeetCode 树+图',tasks:['树的遍历·路径题','图的BFS/DFS综合','（按需 1h）']},
-   db:  {lec:'SQL综合练习',tasks:['复杂SQL查询','窗口函数综合']},
-   eng: {lec:'英语',tasks:['六级已完成☑','英语降至45min','阅读保持手感']},
-   node:['全部完成率≥80%','编程恢复1.5h']},
-  {w:16,d:'6/24',p:3,
-   stat:{lec:'综合模拟',tasks:['历年432真题训练','限时3小时模拟','错题整理']},
-   calc:{lec:'（按需）',tasks:['针对薄弱点']},
-   prog:{lec:'LeetCode 动态规划',tasks:['DP经典题20道','Python数据分析练习']},
-   db:  {lec:'SQL综合练习',tasks:['综合复杂查询']},
-   eng: {lec:'英语',tasks:['英语阅读练习','保持手感']},
-   node:['⚠️ 拓扑学期末','限时完成综合题☑']},
-  {w:17,d:'7/1',p:3,
-   stat:{lec:'查漏补缺',tasks:['薄弱章节第二轮','重点公式归纳']},
-   calc:{lec:'（按需）',tasks:['针对薄弱点']},
-   prog:{lec:'完成数据分析项目',tasks:['Pandas数据处理','matplotlib可视化','项目README整理']},
-   db:  {lec:'数据库收尾',tasks:['数据库☑','王珊第四题（有余力）']},
-   eng: {lec:'英语',tasks:['英语阅读练习']},
-   node:['学校课程全部结束☑','完成数据分析项目☑']},
-  {w:18,d:'7/8',p:3,
-   stat:{lec:'制作个人公式手册',tasks:['知识图谱整理','公式手册完成','最终复习']},
-   calc:{lec:'（按需）',tasks:['针对薄弱点']},
-   prog:{lec:'复试编程准备',tasks:['口头表达练习','代码题练习']},
-   db:  {lec:'复试数据库',tasks:['口头表达练习']},
-   eng: {lec:'英语',tasks:['阅读练习','开始真题']},
-   node:['⭐ 全部课程收尾','⭐ 进入复试冲刺']}
+  {
+    "w": 1,
+    "d": "3/11",
+    "p": 1,
+    "stat": {
+      "lec": "Stat110 Lec1-4",
+      "tasks": [
+        "随机事件·样本空间",
+        "条件概率·独立性",
+        "贝叶斯定理与全概率"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第1章",
+      "tasks": [
+        "函数与极限（每天30~60min）"
+      ]
+    },
+    "prog": {
+      "lec": "CS61A Lec1-4",
+      "tasks": [
+        "Python基础·函数",
+        "Lab1/HW1/Disc1"
+      ]
+    },
+    "db": {
+      "lec": "CMU Lec01-04",
+      "tasks": [
+        "关系模型与关系代数",
+        "SQLZoo Section1-3"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "单词App开始",
+        "每日109词"
+      ]
+    },
+    "node": [
+      "Day1正式开始！",
+      "能推导贝叶斯公式"
+    ]
+  },
+  {
+    "w": 2,
+    "d": "3/18",
+    "p": 1,
+    "stat": {
+      "lec": "Stat110 Lec5-8",
+      "tasks": [
+        "离散随机变量·PMF",
+        "二项/几何/超几何分布",
+        "常见离散分布汇总"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第2章",
+      "tasks": [
+        "导数定义与四则运算",
+        "链式法则·隐函数求导"
+      ]
+    },
+    "prog": {
+      "lec": "CS61A Lec5-8",
+      "tasks": [
+        "高阶函数·Lambda·闭包",
+        "Lab2/HW2/Disc2"
+      ]
+    },
+    "db": {
+      "lec": "CMU Lec05-09",
+      "tasks": [
+        "SQLZoo Section4-6",
+        "窗口函数·CTE练习"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "109词/天",
+        "复习错词"
+      ]
+    },
+    "node": [
+      "能写出二项分布PMF",
+      "能用lambda与高阶函数"
+    ]
+  },
+  {
+    "w": 3,
+    "d": "3/25",
+    "p": 1,
+    "stat": {
+      "lec": "Stat110 Lec9-13",
+      "tasks": [
+        "连续随机变量·PDF/CDF",
+        "正态分布·标准化",
+        "指数分布·无记忆性"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第3章",
+      "tasks": [
+        "微分中值定理",
+        "洛必达法则",
+        "导数应用·单调极值"
+      ]
+    },
+    "prog": {
+      "lec": "CS61A Lec9-12",
+      "tasks": [
+        "递归·递归应用",
+        "迭代器·生成器",
+        "Lab3/HW3/Disc3"
+      ]
+    },
+    "db": {
+      "lec": "CMU Lec10-14",
+      "tasks": [
+        "范式理论·函数依赖",
+        "BCNF分解",
+        "3NF综合练习"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "109词/天",
+        "复习错词"
+      ]
+    },
+    "node": [
+      "拓扑学开课",
+      "正态分布能手算标准化"
+    ]
+  },
+  {
+    "w": 4,
+    "d": "4/1",
+    "p": 1,
+    "stat": {
+      "lec": "Stat110 Lec14-18",
+      "tasks": [
+        "多维联合分布·边缘分布",
+        "条件分布·独立性判断",
+        "协方差·相关系数"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第4章",
+      "tasks": [
+        "不定积分·基本公式",
+        "换元积分·分部积分",
+        "（第5章难度已跳过✓）"
+      ]
+    },
+    "prog": {
+      "lec": "CS61A Lec13-16",
+      "tasks": [
+        "OOP·类与继承",
+        "多态·特殊方法",
+        "Lab4/HW4/Disc4"
+      ]
+    },
+    "db": {
+      "lec": "CMU Lec15-18",
+      "tasks": [
+        "存储层·Page布局",
+        "内存管理·缓冲池",
+        "B+树索引原理"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "109词/天",
+        "复习错词"
+      ]
+    },
+    "node": [
+      "18.01完成☑",
+      "能从联合PDF推导边缘分布"
+    ]
+  },
+  {
+    "w": 5,
+    "d": "4/8",
+    "p": 1,
+    "stat": {
+      "lec": "Stat110 Lec19-23",
+      "tasks": [
+        "数学期望·线性性质",
+        "方差·标准差",
+        "矩·MGF定义与应用"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第5章",
+      "tasks": [
+        "定积分定义·性质",
+        "定积分计算",
+        "广义积分"
+      ]
+    },
+    "prog": {
+      "lec": "CS61A Lec17-20",
+      "tasks": [
+        "解释器·Scheme基础",
+        "尾递归·定积分近似",
+        "Lab5/HW5/Disc5"
+      ]
+    },
+    "db": {
+      "lec": "CMU Lec19-22",
+      "tasks": [
+        "查询处理流程",
+        "排序算法·外排序",
+        "Join算法优化"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "109词/天",
+        "复习错词"
+      ]
+    },
+    "node": [
+      "能推导MGF求矩",
+      "Stanford DB全部完成☑"
+    ]
+  },
+  {
+    "w": 6,
+    "d": "4/15",
+    "p": 1,
+    "stat": {
+      "lec": "Stat110 Lec24-34",
+      "tasks": [
+        "大数定律（弱/强）",
+        "中心极限定理",
+        "CLT近似计算练习",
+        "概率论收尾"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第6-7章",
+      "tasks": [
+        "定积分应用（面积/体积）",
+        "常微分方程基础",
+        "可分离变量·一阶线性"
+      ]
+    },
+    "prog": {
+      "lec": "CS61A Lec21-25",
+      "tasks": [
+        "数据处理·流",
+        "SQL基础（CS61A）",
+        "Lab6/HW6，CS61A收尾"
+      ]
+    },
+    "db": {
+      "lec": "CMU Lec23-25",
+      "tasks": [
+        "事务·ACID",
+        "并发控制·锁",
+        "UNDO/REDO恢复",
+        "Widom 约束·触发器·视图"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "109词/天",
+        "复习错词"
+      ]
+    },
+    "node": [
+      "概率论基础完成☑",
+      "能用CLT正确近似☑"
+    ]
+  },
+  {
+    "w": 7,
+    "d": "4/22",
+    "p": 2,
+    "exam": true,
+    "stat": {
+      "lec": "MIT18.650 Lec1-4",
+      "tasks": [
+        "统计量·抽样分布",
+        "χ²分布·t分布·F分布",
+        "数理统计开始"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第7章",
+      "tasks": [
+        "微分方程继续",
+        "差分方程补充（1~2h）"
+      ]
+    },
+    "prog": {
+      "lec": "CS61A Lec26-30",
+      "tasks": [
+        "逻辑回归原理",
+        "HW7，CS61A完成"
+      ]
+    },
+    "db": {
+      "lec": "⚠️ 期末冲刺（考前3天）",
+      "tasks": [
+        "停Stanford/CMU视频",
+        "只刷学校数据库PPT",
+        "考后降至隔天30min"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "109词/天"
+      ]
+    },
+    "node": [
+      "⚠️ 数据库期末（4/22前后）",
+      "CS61A完成☑"
+    ]
+  },
+  {
+    "w": 8,
+    "d": "4/29",
+    "p": 2,
+    "stat": {
+      "lec": "MIT18.650 Lec5-7",
+      "tasks": [
+        "矩估计法",
+        "最大似然估计MLE（⭐⭐）",
+        "MLE性质·渐进正态"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第8章",
+      "tasks": [
+        "多元函数·偏导数",
+        "梯度·方向导数",
+        "极值·拉格朗日乘数"
+      ]
+    },
+    "prog": {
+      "lec": "CS61B Lec1-8",
+      "tasks": [
+        "Java基础·数据类型",
+        "链表·引用·递归",
+        "CS61B正式开始"
+      ]
+    },
+    "db": {
+      "lec": "数据库复习（约30页）",
+      "tasks": [
+        "数据库笔记整理",
+        "隔天30min维持"
+      ]
+    },
+    "eng": {
+      "lec": "英语备考开始",
+      "tasks": [
+        "单词20词+/天",
+        "阅读30min",
+        "写作40min"
+      ]
+    },
+    "node": [
+      "建立独立MLE推导能力",
+      "CS61B正式开始",
+      "英语全面备考开始"
+    ]
+  },
+  {
+    "w": 9,
+    "d": "5/6",
+    "p": 2,
+    "stat": {
+      "lec": "MIT18.650 Lec8-10",
+      "tasks": [
+        "充分统计量",
+        "UMVUE·完全统计量（⭐⭐）",
+        "Rao-Blackwell定理"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第10章",
+      "tasks": [
+        "二重积分（直角/极坐标）",
+        "第11章 曲线积分（必须过✓）"
+      ]
+    },
+    "prog": {
+      "lec": "CS61B Lec6-10",
+      "tasks": [
+        "泛型·迭代器",
+        "ArrayList·LinkedList",
+        "1天完成"
+      ]
+    },
+    "db": {
+      "lec": "SQL简答题练习",
+      "tasks": [
+        "隔天30min",
+        "复杂查询练习"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "单词+阅读30min",
+        "写作40min"
+      ]
+    },
+    "node": [
+      "18.02完成☑",
+      "能应用Rao-Blackwell定理"
+    ]
+  },
+  {
+    "w": 10,
+    "d": "5/13",
+    "p": 2,
+    "stat": {
+      "lec": "MIT18.650 Lec11-13",
+      "tasks": [
+        "区间估计理论",
+        "枢轴量法",
+        "正态总体置信区间"
+      ]
+    },
+    "calc": {
+      "lec": "乐经良 第12章",
+      "tasks": [
+        "无穷级数·收敛判别",
+        "幂级数·收敛半径",
+        "Taylor展开"
+      ]
+    },
+    "prog": {
+      "lec": "CS61B Lec11-15",
+      "tasks": [
+        "BST实现与分析",
+        "渐进分析·大O",
+        "排序算法（1天）"
+      ]
+    },
+    "db": {
+      "lec": "数据库知识查漏",
+      "tasks": [
+        "复习常见简答题",
+        "整理问答题模板"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "单词+阅读30min",
+        "写作40min"
+      ]
+    },
+    "node": [
+      "能独立选最优区间",
+      "BST手写实现☑"
+    ]
+  },
+  {
+    "w": 11,
+    "d": "5/20",
+    "p": 2,
+    "stat": {
+      "lec": "MIT18.650 Lec14-18",
+      "tasks": [
+        "假设检验框架",
+        "Neyman-Pearson引理（⭐⭐）",
+        "UMP检验·单边双边"
+      ]
+    },
+    "calc": {
+      "lec": "MIT18.06 Lec5-11",
+      "tasks": [
+        "矩阵运算·行变换",
+        "行列式性质",
+        "四大子空间"
+      ]
+    },
+    "prog": {
+      "lec": "CS61B Lec16-20",
+      "tasks": [
+        "B树·红黑树原理",
+        "哈希表实现（1天）"
+      ]
+    },
+    "db": {
+      "lec": "LeetCode中等题",
+      "tasks": [
+        "数据库中等难度",
+        "隔天30min"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "单词+阅读30min",
+        "写作40min（写作用上）"
+      ]
+    },
+    "node": [
+      "假设检验能规范表述",
+      "哈希表独立实现☑"
+    ]
+  },
+  {
+    "w": 12,
+    "d": "5/27",
+    "p": 2,
+    "stat": {
+      "lec": "MIT18.650 Lec19-24",
+      "tasks": [
+        "线性回归·最小二乘",
+        "回归系数检验",
+        "方差分析ANOVA"
+      ]
+    },
+    "calc": {
+      "lec": "MIT18.06 Lec12-18",
+      "tasks": [
+        "正交投影·Gram-Schmidt",
+        "最小二乘法",
+        "特征值初步"
+      ]
+    },
+    "prog": {
+      "lec": "CS61B Lec21-25",
+      "tasks": [
+        "图结构·BFS/DFS",
+        "最短路·Dijkstra（1天）"
+      ]
+    },
+    "db": {
+      "lec": "数据库综合复习",
+      "tasks": [
+        "第四周简答题刷完",
+        "SQL综合练习"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "5/31词背完☑（7161词）",
+        "写作力提高"
+      ]
+    },
+    "node": [
+      "数理统计完成☑",
+      "7161词全部完成☑"
+    ]
+  },
+  {
+    "w": 13,
+    "d": "6/3",
+    "p": 3,
+    "stat": {
+      "lec": "茆诗松 1-5章 题目",
+      "tasks": [
+        "概率论经典题专攻",
+        "条件概率·全概率难题",
+        "随机变量变换题"
+      ]
+    },
+    "calc": {
+      "lec": "MIT18.06 Lec19-25",
+      "tasks": [
+        "特征值·特征向量",
+        "SVD分解",
+        "正定矩阵"
+      ]
+    },
+    "prog": {
+      "lec": "CS61B Lec26-30",
+      "tasks": [
+        "数据结构收尾",
+        "CS61B完成☑"
+      ]
+    },
+    "db": {
+      "lec": "数据库复试准备",
+      "tasks": [
+        "口头表达整理",
+        "问答题模板背诵"
+      ]
+    },
+    "eng": {
+      "lec": "⚠️ 六级冲刺",
+      "tasks": [
+        "每天写1篇作文",
+        "阅读专项强化"
+      ]
+    },
+    "node": [
+      "⚠️ 数学物理方程期末",
+      "18.06完成☑",
+      "CS61B完成☑"
+    ]
+  },
+  {
+    "w": 14,
+    "d": "6/10",
+    "p": 3,
+    "stat": {
+      "lec": "茆诗松 6-9章 题目",
+      "tasks": [
+        "统计推断核心题",
+        "估计量性质辨析",
+        "假设检验综合题"
+      ]
+    },
+    "calc": {
+      "lec": "MIT18.06 Lec26-34",
+      "tasks": [
+        "线性代数收尾",
+        "18.06完成"
+      ]
+    },
+    "prog": {
+      "lec": "LeetCode 数据结构",
+      "tasks": [
+        "数组·链表·栈",
+        "矩阵题·滑动窗口"
+      ]
+    },
+    "db": {
+      "lec": "复试数据库",
+      "tasks": [
+        "口头表达练习",
+        "数据库设计题"
+      ]
+    },
+    "eng": {
+      "lec": "⚠️ 六级冲刺最后1周",
+      "tasks": [
+        "作文模板熟练",
+        "6/13 六级考试☑"
+      ]
+    },
+    "node": [
+      "⚠️ 现代优化期末",
+      "⚠️ 6/13 六级考试"
+    ]
+  },
+  {
+    "w": 15,
+    "d": "6/17",
+    "p": 3,
+    "stat": {
+      "lec": "茆诗松 10-11章 题目",
+      "tasks": [
+        "回归分析综合",
+        "方差分析ANOVA题",
+        "（按需）1.5h"
+      ]
+    },
+    "calc": {
+      "lec": "（按需）",
+      "tasks": [
+        "针对薄弱点复习"
+      ]
+    },
+    "prog": {
+      "lec": "LeetCode 树+图",
+      "tasks": [
+        "树的遍历·路径题",
+        "图的BFS/DFS综合",
+        "（按需 1h）"
+      ]
+    },
+    "db": {
+      "lec": "SQL综合练习",
+      "tasks": [
+        "复杂SQL查询",
+        "窗口函数综合"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "六级已完成☑",
+        "英语降至45min",
+        "阅读保持手感"
+      ]
+    },
+    "node": [
+      "全部完成率≥80%",
+      "编程恢复1.5h"
+    ]
+  },
+  {
+    "w": 16,
+    "d": "6/24",
+    "p": 3,
+    "stat": {
+      "lec": "综合模拟",
+      "tasks": [
+        "历年432真题训练",
+        "限时3小时模拟",
+        "错题整理"
+      ]
+    },
+    "calc": {
+      "lec": "（按需）",
+      "tasks": [
+        "针对薄弱点"
+      ]
+    },
+    "prog": {
+      "lec": "LeetCode 动态规划",
+      "tasks": [
+        "DP经典题20道",
+        "Python数据分析练习"
+      ]
+    },
+    "db": {
+      "lec": "SQL综合练习",
+      "tasks": [
+        "综合复杂查询"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "英语阅读练习",
+        "保持手感"
+      ]
+    },
+    "node": [
+      "⚠️ 拓扑学期末",
+      "限时完成综合题☑"
+    ]
+  },
+  {
+    "w": 17,
+    "d": "7/1",
+    "p": 3,
+    "stat": {
+      "lec": "查漏补缺",
+      "tasks": [
+        "薄弱章节第二轮",
+        "重点公式归纳"
+      ]
+    },
+    "calc": {
+      "lec": "（按需）",
+      "tasks": [
+        "针对薄弱点"
+      ]
+    },
+    "prog": {
+      "lec": "完成数据分析项目",
+      "tasks": [
+        "Pandas数据处理",
+        "matplotlib可视化",
+        "项目README整理"
+      ]
+    },
+    "db": {
+      "lec": "数据库收尾",
+      "tasks": [
+        "数据库☑",
+        "王珊第四题（有余力）"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "英语阅读练习"
+      ]
+    },
+    "node": [
+      "学校课程全部结束☑",
+      "完成数据分析项目☑"
+    ]
+  },
+  {
+    "w": 18,
+    "d": "7/8",
+    "p": 3,
+    "stat": {
+      "lec": "制作个人公式手册",
+      "tasks": [
+        "知识图谱整理",
+        "公式手册完成",
+        "最终复习"
+      ]
+    },
+    "calc": {
+      "lec": "（按需）",
+      "tasks": [
+        "针对薄弱点"
+      ]
+    },
+    "prog": {
+      "lec": "复试编程准备",
+      "tasks": [
+        "口头表达练习",
+        "代码题练习"
+      ]
+    },
+    "db": {
+      "lec": "复试数据库",
+      "tasks": [
+        "口头表达练习"
+      ]
+    },
+    "eng": {
+      "lec": "英语",
+      "tasks": [
+        "阅读练习",
+        "开始真题"
+      ]
+    },
+    "node": [
+      "⭐ 全部课程收尾",
+      "⭐ 进入复试冲刺"
+    ]
+  }
 ];
 
 // ─── Storage helpers ───────────────────────────────────────────
@@ -753,24 +3051,19 @@ function showToastMsg(msg, color) {
 </script>
 
 <!-- GitHub Token Modal -->
-<div id="gh-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;align-items:center;justify-content:center;padding:20px">
+<div id="gh-modal" style="display: none; position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.5); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
   <div style="background:#fff;border-radius:14px;padding:28px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3)">
     <div style="font-size:16px;font-weight:700;color:#1a1e2e;margin-bottom:6px">🔑 输入 GitHub Token</div>
     <div style="font-size:12px;color:#6b7280;margin-bottom:16px;line-height:1.6">
       Token 只存在你的浏览器本地，不会上传任何服务器。<br>
       获取方式：GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → 勾选 <strong>repo</strong> 权限
     </div>
-    <input id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
-      style="width:100%;padding:10px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:13px;font-family:monospace;outline:none;margin-bottom:12px"
-      onkeydown="if(event.key==='Enter')saveTokenAndSync()"
-      onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#d1d5db'">
+    <input id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="width: 100%; padding: 10px 12px; border: 1.5px solid rgb(209, 213, 219); border-radius: 8px; font-size: 13px; font-family: monospace; outline: none; margin-bottom: 12px;" onkeydown="if(event.key==='Enter')saveTokenAndSync()" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#d1d5db'">
     <div style="display:flex;gap:8px">
-      <button onclick="saveTokenAndSync()"
-        style="flex:1;padding:10px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">
+      <button onclick="saveTokenAndSync()" style="flex:1;padding:10px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">
         保存并同步
       </button>
-      <button onclick="closeModal()"
-        style="padding:10px 16px;background:#f3f4f6;color:#374151;border:none;border-radius:8px;font-size:13px;cursor:pointer">
+      <button onclick="closeModal()" style="padding:10px 16px;background:#f3f4f6;color:#374151;border:none;border-radius:8px;font-size:13px;cursor:pointer">
         取消
       </button>
     </div>
@@ -781,5 +3074,6 @@ function showToastMsg(msg, color) {
     </div>
   </div>
 </div>
-</body>
-</html>
+
+
+</body></html>
