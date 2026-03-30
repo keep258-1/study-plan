@@ -194,7 +194,18 @@
 </head>
 <body>
 
-<h1>概率统计：理论 × 编程实践 周期表</h1>
+<!-- Nav bar -->
+<div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.1);padding:10px 24px;display:flex;align-items:center;gap:10px;">
+  <a href="index.html" style="font-size:12px;font-weight:600;color:#2563EB;text-decoration:none;padding:5px 12px;background:#e8f0fe;border-radius:7px;">🏠 目录</a>
+  <span style="font-size:13px;font-weight:600;color:#1a1e2e;flex:1">概率统计：理论 × 实践周期表</span>
+  <button onclick="syncToGitHub()" id="syncBtn"
+    style="font-size:12px;font-weight:600;color:#15803d;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.35);padding:5px 14px;border-radius:7px;cursor:pointer;">
+    ☁️ 同步到 GitHub
+  </button>
+</div>
+
+
+<h1 style="padding-top:16px">概率统计：理论 × 编程实践 周期表</h1>
 <p class="subtitle">每 3–4 天一个小周期 · 适合考研备考 + 科研项目并行学习</p>
 
 <!-- Cycle -->
@@ -349,8 +360,71 @@
     <li><b>贝叶斯那一周务必联系项目：</b>摔倒检测的 precision-recall 本质是贝叶斯问题，当周就能感受到学有所用</li>
   </ul>
 </div>
-  
-<script src="script.js"></script>
-  
+
+
+<div id="toast" style="position:fixed;bottom:24px;right:24px;background:#1e40af;color:#fff;padding:8px 18px;border-radius:8px;font-size:12px;font-weight:600;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;z-index:999;box-shadow:0 4px 16px rgba(37,99,235,0.35);">已保存 ✓</div>
+
+<!-- GitHub Token Modal -->
+<div id="gh-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:14px;padding:28px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3)">
+    <div style="font-size:16px;font-weight:700;color:#1a1e2e;margin-bottom:6px">🔑 输入 GitHub Token</div>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;line-height:1.6">
+      Token 只存在你的浏览器本地。<br>
+      获取：GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → 勾选 <strong>repo</strong>
+    </div>
+    <input id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+      style="width:100%;padding:10px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:13px;font-family:monospace;outline:none;margin-bottom:12px"
+      onkeydown="if(event.key==='Enter')saveTokenAndSync()"
+      onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#d1d5db'">
+    <div style="display:flex;gap:8px">
+      <button onclick="saveTokenAndSync()" style="flex:1;padding:10px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">保存并同步</button>
+      <button onclick="closeModal()" style="padding:10px 16px;background:#f3f4f6;color:#374151;border:none;border-radius:8px;font-size:13px;cursor:pointer">取消</button>
+    </div>
+    <div style="margin-top:10px;text-align:center">
+      <button onclick="clearToken()" style="background:none;border:none;font-size:11px;color:#9ca3af;cursor:pointer;text-decoration:underline">清除已保存的 Token</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const GH_TOKEN_KEY = 'gh_token_studyplan';
+function syncToGitHub() {
+  const saved = localStorage.getItem(GH_TOKEN_KEY);
+  if (!saved) { showTokenModal(); } else { doSync(saved); }
+}
+function showTokenModal() { document.getElementById('gh-modal').style.display='flex'; document.getElementById('gh-token-input').focus(); }
+function closeModal() { document.getElementById('gh-modal').style.display='none'; }
+function saveTokenAndSync() {
+  const token = document.getElementById('gh-token-input').value.trim();
+  if (!token) { alert('请输入 Token'); return; }
+  localStorage.setItem(GH_TOKEN_KEY, token); closeModal(); doSync(token);
+}
+function clearToken() { localStorage.removeItem(GH_TOKEN_KEY); showToastMsg('已清除 Token','#dc2626'); }
+async function doSync(token) {
+  const btn = document.getElementById('syncBtn');
+  btn.textContent = '⏳ 同步中…'; btn.disabled = true;
+  const file = 'prob_stats_theory_practice_cycle.html';
+  try {
+    const shaRes = await fetch(`https://api.github.com/repos/keep258-1/study-plan/contents/${file}?ref=main`,
+      { headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' } });
+    if (!shaRes.ok) throw new Error('无法获取文件，请检查 Token');
+    const { sha } = await shaRes.json();
+    const encoded = btoa(unescape(encodeURIComponent(document.documentElement.outerHTML)));
+    const pushRes = await fetch(`https://api.github.com/repos/keep258-1/study-plan/contents/${file}`,
+      { method:'PUT', headers:{'Authorization':`token ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},
+        body: JSON.stringify({ message:`Update ${file} via web editor`, content:encoded, sha, branch:'main' }) });
+    if (!pushRes.ok) { const e = await pushRes.json(); throw new Error(e.message||'推送失败'); }
+    showToastMsg('✅ 已同步到 GitHub！','#16a34a');
+  } catch(e) { showToastMsg('❌ '+e.message,'#dc2626'); }
+  finally { btn.textContent='☁️ 同步到 GitHub'; btn.disabled=false; }
+}
+let _tt;
+function showToastMsg(msg,color){
+  const t=document.getElementById('toast'); t.textContent=msg; t.style.background=color||'#1e40af';
+  t.style.opacity='1'; t.style.transform='translateY(0)';
+  clearTimeout(_tt); _tt=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(8px)';},3000);
+}
+</script>
+
 </body>
 </html>
