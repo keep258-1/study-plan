@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>每日时间表 · 第1–7周</title>
@@ -278,7 +276,7 @@ td.dc.day-inactive{ opacity:0.35; }
 
 </style>
 </head>
-<body>
+<body class="">
 
 <div class="header">
   <div class="header-left">
@@ -287,7 +285,7 @@ td.dc.day-inactive{ opacity:0.35; }
   </div>
   <div class="header-right">
     <button class="edit-mode-btn" id="editBtn" onclick="toggleEditMode()">✏️ 编辑任务</button>
-    <button class="edit-mode-btn" id="syncBtn" onclick="syncToGitHub()" style="background:rgba(34,197,94,0.2);border-color:rgba(34,197,94,0.4)">☁️ 同步到 GitHub</button>
+    <button class="edit-mode-btn" id="syncBtn" onclick="syncToGitHub()" style="background:rgba(34,197,94,0.2);border-color:rgba(34,197,94,0.4)" disabled="">⏳ 同步中…</button>
     <a class="link-btn" href="daily_w8-12.html">第8–12周 →</a><a class="link-btn" href="index.html">🏠 目录</a> <a class="link-btn" href="18week_overview.html">← 18周总览</a>
   </div>
 </div>
@@ -299,7 +297,7 @@ td.dc.day-inactive{ opacity:0.35; }
 
 <div class="progress-wrap">
   <span class="p-label">今日完成</span>
-  <div class="day-selector" id="daySelector"></div>
+  <div class="day-selector" id="daySelector"><button class="day-btn">周一</button><button class="day-btn">周二</button><button class="day-btn">周三</button><button class="day-btn">周四</button><button class="day-btn">周五</button><button class="day-btn">周六</button><button class="day-btn">周日</button></div>
   <div class="p-track" style="flex:1"><div class="p-fill" id="pfill" style="width:0%"></div></div>
   <span class="p-pct" id="ppct">—</span>
   <span class="p-count" id="pcount">请选择今天是星期几</span>
@@ -335,7 +333,801 @@ td.dc.day-inactive{ opacity:0.35; }
   <th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th><th>周日</th>
 </tr>
 </thead>
-<tbody id="tbody1"></tbody>
+<tbody id="tbody1"><tr class="r-morning"><td class="slot-col">
+      <div class="slot-label"><span>☀️ 上午</span>精力最佳</div>
+    </td>
+    <td><div class="time-str">9:00–12:00</div></td>
+    <td style="text-align:center"><span class="dur">2.5~3h</span></td><td class="dc" data-prefix="w17_r0_d0" data-color="var(--stat)" data-di="0"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--stat)" contenteditable="false" data-ri="0" data-edit-key="w17_r0_d0_e0">概率统计</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r0_d0_0" onclick="toggleIfNotEditing(event,this,'w17_r0_d0_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r0_d0_e1">Stat110视频</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r0_d0_1" onclick="toggleIfNotEditing(event,this,'w17_r0_d0_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r0_d0_e2">茆诗松精读</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="3" data-type="task" data-id="w17_r0_d0_2" onclick="toggleIfNotEditing(event,this,'w17_r0_d0_2')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="3" data-edit-key="w17_r0_d0_e3">练习题</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r0_d0','var(--stat)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r0_d1" data-color="var(--stat)" data-di="1"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--stat)" contenteditable="false" data-ri="0" data-edit-key="w17_r0_d1_e0">概率统计</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r0_d1_0" onclick="toggleIfNotEditing(event,this,'w17_r0_d1_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r0_d1_e1">Stat110视频</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r0_d1_1" onclick="toggleIfNotEditing(event,this,'w17_r0_d1_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r0_d1_e2">茆诗松精读</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r0_d1','var(--stat)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r0_d2" data-color="var(--stat)" data-di="2"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--stat)" contenteditable="false" data-ri="0" data-edit-key="w17_r0_d2_e0">概率统计</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r0_d2_0" onclick="toggleIfNotEditing(event,this,'w17_r0_d2_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r0_d2_e1">Stat110视频</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r0_d2_1" onclick="toggleIfNotEditing(event,this,'w17_r0_d2_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r0_d2_e2">茆诗松精读</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="3" data-type="task" data-id="w17_r0_d2_2" onclick="toggleIfNotEditing(event,this,'w17_r0_d2_2')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="3" data-edit-key="w17_r0_d2_e3">练习题</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r0_d2','var(--stat)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r0_d3" data-color="var(--stat)" data-di="3"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--stat)" contenteditable="false" data-ri="0" data-edit-key="w17_r0_d3_e0">概率统计</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r0_d3_0" onclick="toggleIfNotEditing(event,this,'w17_r0_d3_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r0_d3_e1">Stat110视频</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r0_d3_1" onclick="toggleIfNotEditing(event,this,'w17_r0_d3_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r0_d3_e2">茆诗松精读</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r0_d3','var(--stat)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r0_d4" data-color="var(--stat)" data-di="4"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--stat)" contenteditable="false" data-ri="0" data-edit-key="w17_r0_d4_e0">概率统计</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r0_d4_0" onclick="toggleIfNotEditing(event,this,'w17_r0_d4_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r0_d4_e1">Stat110视频</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r0_d4_1" onclick="toggleIfNotEditing(event,this,'w17_r0_d4_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r0_d4_e2">茆诗松精读</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r0_d4','var(--stat)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r0_d5" data-color="var(--stat)" data-di="5"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--stat)" contenteditable="false" data-ri="0" data-edit-key="w17_r0_d5_e0">概率统计</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r0_d5_0" onclick="toggleIfNotEditing(event,this,'w17_r0_d5_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r0_d5_e1">重点习题</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r0_d5_1" onclick="toggleIfNotEditing(event,this,'w17_r0_d5_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r0_d5_e2">错题回顾</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r0_d5','var(--stat)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r0_d6" data-color="var(--stat)" data-di="6"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--stat)" contenteditable="false" data-ri="0" data-edit-key="w17_r0_d6_e0">概率统计</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r0_d6_0" onclick="toggleIfNotEditing(event,this,'w17_r0_d6_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r0_d6_e1">重点习题</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r0_d6_1" onclick="toggleIfNotEditing(event,this,'w17_r0_d6_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r0_d6_e2">错题回顾</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r0_d6','var(--stat)')">＋ 添加行</button></td></tr><tr class="r-school"><td class="slot-col">
+      <div class="slot-label"><span>🏫 学校课</span>（固定）</div>
+    </td>
+    <td><div class="time-str">课表时间</div></td>
+    <td style="text-align:center"><span class="dur">视课表</span></td><td class="dc" data-prefix="w17_r1_d0" data-color="var(--school)" data-di="0"><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r1_d0_0" onclick="toggleIfNotEditing(event,this,'w17_r1_d0_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r1_d0_e1">现代优化方法</div>
+      </div>
+    </div><div class="row-wrap task" data-type="task" data-id="w17_r1_d0_dyn_1774867464970" onclick="toggleIfNotEditing(event,this,'w17_r1_d0_dyn_1774867464970')">
+    <div class="row-ctrl">
+      <button class="type-btn" onclick="toggleType(this)">→ 标题</button>
+      <button class="del-btn" onclick="deleteRow(this)">✕</button>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:5px">
+      <div class="tcb"></div>
+      <div class="ttext editable" contenteditable="false">数学物理方程</div>
+    </div></div><button class="add-row-btn" onclick="addRow(this,'w17_r1_d0','var(--school)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r1_d1" data-color="var(--school)" data-di="1"><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r1_d1_0" onclick="toggleIfNotEditing(event,this,'w17_r1_d1_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r1_d1_e1">拓扑学</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r1_d1','var(--school)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r1_d2" data-color="var(--school)" data-di="2"><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r1_d2_0" onclick="toggleIfNotEditing(event,this,'w17_r1_d2_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r1_d2_e1">现代优化方法</div>
+      </div>
+    </div><div class="row-wrap task" data-type="task" data-id="w17_r1_d2_dyn_1774867488533" onclick="toggleIfNotEditing(event,this,'w17_r1_d2_dyn_1774867488533')">
+    <div class="row-ctrl">
+      <button class="type-btn" onclick="toggleType(this)">→ 标题</button>
+      <button class="del-btn" onclick="deleteRow(this)">✕</button>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:5px">
+      <div class="tcb"></div>
+      <div class="ttext editable" contenteditable="false">数学物理方程</div>
+    </div></div><button class="add-row-btn" onclick="addRow(this,'w17_r1_d2','var(--school)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r1_d3" data-color="var(--school)" data-di="3"><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r1_d3_0" onclick="toggleIfNotEditing(event,this,'w17_r1_d3_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r1_d3_e1">拓扑学</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r1_d3','var(--school)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r1_d4" data-color="var(--school)" data-di="4"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--school)" contenteditable="false" data-ri="0" data-edit-key="w17_r1_d4_e0">（无固定课）</div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r1_d4','var(--school)')">＋ 添加行</button></td><td class="wknd" data-di="5">—</td><td class="wknd" data-di="6">—</td></tr><tr class="r-aft1"><td class="slot-col">
+      <div class="slot-label"><span>🌤 下午</span>前段</div>
+    </td>
+    <td><div class="time-str">13:30–14:15</div></td>
+    <td style="text-align:center"><span class="dur">45min</span></td><td class="dc" data-prefix="w17_r2_d0" data-color="var(--eng)" data-di="0"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--eng)" contenteditable="false" data-ri="0" data-edit-key="w17_r2_d0_e0">英语单词</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r2_d0_0" onclick="toggleIfNotEditing(event,this,'w17_r2_d0_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r2_d0_e1">109词/天</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r2_d0_1" onclick="toggleIfNotEditing(event,this,'w17_r2_d0_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r2_d0_e2">复习错词（App）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r2_d0','var(--eng)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r2_d1" data-color="var(--eng)" data-di="1"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--eng)" contenteditable="false" data-ri="0" data-edit-key="w17_r2_d1_e0">英语单词</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r2_d1_0" onclick="toggleIfNotEditing(event,this,'w17_r2_d1_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r2_d1_e1">109词/天</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r2_d1_1" onclick="toggleIfNotEditing(event,this,'w17_r2_d1_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r2_d1_e2">复习错词（App）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r2_d1','var(--eng)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r2_d2" data-color="var(--eng)" data-di="2"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--eng)" contenteditable="false" data-ri="0" data-edit-key="w17_r2_d2_e0">英语单词</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r2_d2_0" onclick="toggleIfNotEditing(event,this,'w17_r2_d2_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r2_d2_e1">109词/天</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r2_d2_1" onclick="toggleIfNotEditing(event,this,'w17_r2_d2_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r2_d2_e2">复习错词（App）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r2_d2','var(--eng)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r2_d3" data-color="var(--eng)" data-di="3"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--eng)" contenteditable="false" data-ri="0" data-edit-key="w17_r2_d3_e0">英语单词</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r2_d3_0" onclick="toggleIfNotEditing(event,this,'w17_r2_d3_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r2_d3_e1">109词/天</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r2_d3_1" onclick="toggleIfNotEditing(event,this,'w17_r2_d3_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r2_d3_e2">复习错词（App）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r2_d3','var(--eng)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r2_d4" data-color="var(--eng)" data-di="4"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--eng)" contenteditable="false" data-ri="0" data-edit-key="w17_r2_d4_e0">英语单词</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r2_d4_0" onclick="toggleIfNotEditing(event,this,'w17_r2_d4_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r2_d4_e1">109词/天</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r2_d4_1" onclick="toggleIfNotEditing(event,this,'w17_r2_d4_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r2_d4_e2">复习错词（App）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r2_d4','var(--eng)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r2_d5" data-color="var(--eng)" data-di="5"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--eng)" contenteditable="false" data-ri="0" data-edit-key="w17_r2_d5_e0">英语单词</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r2_d5_0" onclick="toggleIfNotEditing(event,this,'w17_r2_d5_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r2_d5_e1">109词/天（周末不断）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r2_d5','var(--eng)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r2_d6" data-color="var(--eng)" data-di="6"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--eng)" contenteditable="false" data-ri="0" data-edit-key="w17_r2_d6_e0">英语单词</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r2_d6_0" onclick="toggleIfNotEditing(event,this,'w17_r2_d6_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r2_d6_e1">109词/天（周末不断）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r2_d6','var(--eng)')">＋ 添加行</button></td></tr><tr class="r-aft2"><td class="slot-col">
+      <div class="slot-label"><span>🟠 下午</span>中段</div>
+    </td>
+    <td><div class="time-str">14:15–15:45</div></td>
+    <td style="text-align:center"><span class="dur">1.5h</span></td><td class="dc" data-prefix="w17_r3_d0" data-color="var(--prog)" data-di="0"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--prog)" contenteditable="false" data-ri="0" data-edit-key="w17_r3_d0_e0">编程</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r3_d0_0" onclick="toggleIfNotEditing(event,this,'w17_r3_d0_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r3_d0_e1">CS61A/B视频</div>
+      </div>
+    </div><span class="chip chip-p">+ Disc</span><button class="add-row-btn" onclick="addRow(this,'w17_r3_d0','var(--prog)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r3_d1" data-color="var(--prog)" data-di="1"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--prog)" contenteditable="false" data-ri="0" data-edit-key="w17_r3_d1_e0">编程</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r3_d1_0" onclick="toggleIfNotEditing(event,this,'w17_r3_d1_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r3_d1_e1">CS61A/B视频</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r3_d1','var(--prog)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r3_d2" data-color="var(--prog)" data-di="2"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--prog)" contenteditable="false" data-ri="0" data-edit-key="w17_r3_d2_e0">编程</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r3_d2_0" onclick="toggleIfNotEditing(event,this,'w17_r3_d2_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r3_d2_e1">CS61A/B视频</div>
+      </div>
+    </div><span class="chip chip-p">+ Lab</span><button class="add-row-btn" onclick="addRow(this,'w17_r3_d2','var(--prog)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r3_d3" data-color="var(--prog)" data-di="3"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--prog)" contenteditable="false" data-ri="0" data-edit-key="w17_r3_d3_e0">编程</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r3_d3_0" onclick="toggleIfNotEditing(event,this,'w17_r3_d3_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r3_d3_e1">CS61A/B视频</div>
+      </div>
+    </div><span class="chip chip-p">+ HW</span><button class="add-row-btn" onclick="addRow(this,'w17_r3_d3','var(--prog)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r3_d4" data-color="var(--prog)" data-di="4"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--prog)" contenteditable="false" data-ri="0" data-edit-key="w17_r3_d4_e0">编程</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r3_d4_0" onclick="toggleIfNotEditing(event,this,'w17_r3_d4_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r3_d4_e1">CS61A/B视频</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r3_d4','var(--prog)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r3_d5" data-color="var(--prog)" data-di="5"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--prog)" contenteditable="false" data-ri="0" data-edit-key="w17_r3_d5_e0">编程练习</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r3_d5_0" onclick="toggleIfNotEditing(event,this,'w17_r3_d5_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r3_d5_e1">Lab/HW补充</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r3_d5','var(--prog)')">＋ 添加行</button></td><td class="wknd" data-di="6">休息·运动<br>社交·散步</td></tr><tr class="r-aft3"><td class="slot-col">
+      <div class="slot-label"><span>🔷 下午</span>后段</div>
+    </td>
+    <td><div class="time-str">15:45–16:30</div></td>
+    <td style="text-align:center"><span class="dur">45min</span></td><td class="dc" data-prefix="w17_r4_d0" data-color="var(--db)" data-di="0"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--db)" contenteditable="false" data-ri="0" data-edit-key="w17_r4_d0_e0">数据库</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r4_d0_0" onclick="toggleIfNotEditing(event,this,'w17_r4_d0_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r4_d0_e1">CMU视频</div>
+      </div>
+    </div><span class="chip chip-d">+CMU Homework</span><button class="add-row-btn" onclick="addRow(this,'w17_r4_d0','var(--db)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r4_d1" data-color="var(--db)" data-di="1"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--db)" contenteditable="false" data-ri="0" data-edit-key="w17_r4_d1_e0">数据库</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r4_d1_0" onclick="toggleIfNotEditing(event,this,'w17_r4_d1_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r4_d1_e1">Stanford Widom视频</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r4_d1','var(--db)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r4_d2" data-color="var(--db)" data-di="2"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--db)" contenteditable="false" data-ri="0" data-edit-key="w17_r4_d2_e0">数据库</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r4_d2_0" onclick="toggleIfNotEditing(event,this,'w17_r4_d2_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r4_d2_e1">CMU视频</div>
+      </div>
+    </div><span class="chip chip-d">+CMU Homework</span><button class="add-row-btn" onclick="addRow(this,'w17_r4_d2','var(--db)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r4_d3" data-color="var(--db)" data-di="3"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--db)" contenteditable="false" data-ri="0" data-edit-key="w17_r4_d3_e0">数据库</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r4_d3_0" onclick="toggleIfNotEditing(event,this,'w17_r4_d3_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r4_d3_e1">Stanford Widom视频</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r4_d3','var(--db)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r4_d4" data-color="var(--db)" data-di="4"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--db)" contenteditable="false" data-ri="0" data-edit-key="w17_r4_d4_e0">数据库</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r4_d4_0" onclick="toggleIfNotEditing(event,this,'w17_r4_d4_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r4_d4_e1">CMU视频</div>
+      </div>
+    </div><span class="chip chip-d">+SQL 练习</span><button class="add-row-btn" onclick="addRow(this,'w17_r4_d4','var(--db)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r4_d5" data-color="var(--db)" data-di="5"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--db)" contenteditable="false" data-ri="0" data-edit-key="w17_r4_d5_e0">数据库复习</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r4_d5_0" onclick="toggleIfNotEditing(event,this,'w17_r4_d5_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r4_d5_e1">本周内容巩固</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r4_d5','var(--db)')">＋ 添加行</button></td><td class="wknd" data-di="6">休息·自由</td></tr><tr class="r-eve1"><td class="slot-col">
+      <div class="slot-label"><span>🌆 傍晚</span></div>
+    </td>
+    <td><div class="time-str">17:00–17:45</div></td>
+    <td style="text-align:center"><span class="dur">30~60min</span></td><td class="dc" data-prefix="w17_r5_d0" data-color="var(--calc)" data-di="0"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--calc)" contenteditable="false" data-ri="0" data-edit-key="w17_r5_d0_e0">高数/线代</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r5_d0_0" onclick="toggleIfNotEditing(event,this,'w17_r5_d0_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r5_d0_e1">乐经良视频（放松课）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r5_d0','var(--calc)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r5_d1" data-color="var(--calc)" data-di="1"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--calc)" contenteditable="false" data-ri="0" data-edit-key="w17_r5_d1_e0">高数/线代</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r5_d1_0" onclick="toggleIfNotEditing(event,this,'w17_r5_d1_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r5_d1_e1">乐经良视频（放松课）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r5_d1','var(--calc)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r5_d2" data-color="var(--calc)" data-di="2"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--calc)" contenteditable="false" data-ri="0" data-edit-key="w17_r5_d2_e0">高数/线代</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r5_d2_0" onclick="toggleIfNotEditing(event,this,'w17_r5_d2_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r5_d2_e1">乐经良视频（放松课）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r5_d2','var(--calc)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r5_d3" data-color="var(--calc)" data-di="3"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--calc)" contenteditable="false" data-ri="0" data-edit-key="w17_r5_d3_e0">高数/线代</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r5_d3_0" onclick="toggleIfNotEditing(event,this,'w17_r5_d3_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r5_d3_e1">乐经良视频（放松课）</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r5_d3','var(--calc)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r5_d4" data-color="var(--calc)" data-di="4"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--calc)" contenteditable="false" data-ri="0" data-edit-key="w17_r5_d4_e0">高数/线代</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r5_d4_0" onclick="toggleIfNotEditing(event,this,'w17_r5_d4_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r5_d4_e1">乐经良视频</div>
+      </div>
+    </div><span class="chip chip-c">+作业</span><button class="add-row-btn" onclick="addRow(this,'w17_r5_d4','var(--calc)')">＋ 添加行</button></td><td class="wknd" data-di="5">休息·运动<br>散步</td><td class="wknd" data-di="6">休息·运动<br>散步</td></tr><tr class="r-eve2"><td class="slot-col">
+      <div class="slot-label"><span>🌙 晚上</span></div>
+    </td>
+    <td><div class="time-str">19:00–21:30</div></td>
+    <td style="text-align:center"><span class="dur">视情况</span></td><td class="dc" data-prefix="w17_r6_d0" data-color="var(--school)" data-di="0"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--school)" contenteditable="false" data-ri="0" data-edit-key="w17_r6_d0_e0">学校作业</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r6_d0_0" onclick="toggleIfNotEditing(event,this,'w17_r6_d0_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r6_d0_e1">数学物理方程HW</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r6_d0_1" onclick="toggleIfNotEditing(event,this,'w17_r6_d0_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r6_d0_e2">现代优化HW</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="3" data-type="task" data-id="w17_r6_d0_2" onclick="toggleIfNotEditing(event,this,'w17_r6_d0_2')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="3" data-edit-key="w17_r6_d0_e3">拓扑预习</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r6_d0','var(--school)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r6_d1" data-color="var(--school)" data-di="1"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--school)" contenteditable="false" data-ri="0" data-edit-key="w17_r6_d1_e0">学校作业</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r6_d1_0" onclick="toggleIfNotEditing(event,this,'w17_r6_d1_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r6_d1_e1">拓扑HW/预习</div>
+      </div>
+    </div><span class="chip chip-s">+ Stat HW</span><button class="add-row-btn" onclick="addRow(this,'w17_r6_d1','var(--school)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r6_d2" data-color="var(--school)" data-di="2"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--school)" contenteditable="false" data-ri="0" data-edit-key="w17_r6_d2_e0">学校作业</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r6_d2_0" onclick="toggleIfNotEditing(event,this,'w17_r6_d2_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r6_d2_e1">数学物理方程HW</div>
+      </div>
+    </div><div class="row-wrap task" data-ri="2" data-type="task" data-id="w17_r6_d2_1" onclick="toggleIfNotEditing(event,this,'w17_r6_d2_1')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="2" data-edit-key="w17_r6_d2_e2">现代优化HW</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r6_d2','var(--school)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r6_d3" data-color="var(--school)" data-di="3"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--school)" contenteditable="false" data-ri="0" data-edit-key="w17_r6_d3_e0">学校作业</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r6_d3_0" onclick="toggleIfNotEditing(event,this,'w17_r6_d3_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r6_d3_e1">拓扑HW/预习</div>
+      </div>
+    </div><span class="chip chip-s">+ Stat HW</span><button class="add-row-btn" onclick="addRow(this,'w17_r6_d3','var(--school)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r6_d4" data-color="var(--prog)" data-di="4"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--prog)" contenteditable="false" data-ri="0" data-edit-key="w17_r6_d4_e0">CS61A HW</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r6_d4_0" onclick="toggleIfNotEditing(event,this,'w17_r6_d4_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r6_d4_e1">自由复习</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r6_d4','var(--prog)')">＋ 添加行</button></td><td class="dc" data-prefix="w17_r6_d5" data-color="var(--stat)" data-di="5"><div class="row-wrap" data-ri="0" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:var(--stat)" contenteditable="false" data-ri="0" data-edit-key="w17_r6_d5_e0">Stat 习题</div>
+    </div><div class="row-wrap task" data-ri="1" data-type="task" data-id="w17_r6_d5_0" onclick="toggleIfNotEditing(event,this,'w17_r6_d5_0')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="1" data-edit-key="w17_r6_d5_e1">巩固本周内容</div>
+      </div>
+    </div><button class="add-row-btn" onclick="addRow(this,'w17_r6_d5','var(--stat)')">＋ 添加行</button></td><td class="wknd" data-di="6">自由安排<br>充分休息</td></tr></tbody>
 </table>
 
 <div class="note">
@@ -811,17 +1603,12 @@ function showToastMsg(msg, color) {
       Token 只存在你的浏览器本地，不会上传任何服务器。<br>
       获取方式：GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → 勾选 <strong>repo</strong> 权限
     </div>
-    <input id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
-      style="width:100%;padding:10px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:13px;font-family:monospace;outline:none;margin-bottom:12px"
-      onkeydown="if(event.key==='Enter')saveTokenAndSync()"
-      onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#d1d5db'">
+    <input id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="width:100%;padding:10px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:13px;font-family:monospace;outline:none;margin-bottom:12px" onkeydown="if(event.key==='Enter')saveTokenAndSync()" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#d1d5db'">
     <div style="display:flex;gap:8px">
-      <button onclick="saveTokenAndSync()"
-        style="flex:1;padding:10px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">
+      <button onclick="saveTokenAndSync()" style="flex:1;padding:10px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">
         保存并同步
       </button>
-      <button onclick="closeModal()"
-        style="padding:10px 16px;background:#f3f4f6;color:#374151;border:none;border-radius:8px;font-size:13px;cursor:pointer">
+      <button onclick="closeModal()" style="padding:10px 16px;background:#f3f4f6;color:#374151;border:none;border-radius:8px;font-size:13px;cursor:pointer">
         取消
       </button>
     </div>
@@ -833,5 +1620,6 @@ function showToastMsg(msg, color) {
   </div>
 </div>
 
-</body>
-</html>
+
+
+</body></html>
