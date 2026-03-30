@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日时间表 · 第1–7周</title>
+<title>每日时间表 · 第8–12周</title>
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
@@ -282,12 +282,13 @@ td.dc.day-inactive{ opacity:0.35; }
 
 <div class="header">
   <div class="header-left">
-    <div class="title">🗓 每日时间表 · 第1–7周</div>
-    <div class="sub">3月11日–4月26日 · 数据库期末冲刺期</div>
+    <div class="title">🗓 每日时间表 · 第8–12周</div>
+    <div class="sub">4月29日–5月31日 · 英语备考全面开始</div>
   </div>
   <div class="header-right">
     <button class="edit-mode-btn" id="editBtn" onclick="toggleEditMode()">✏️ 编辑任务</button>
-    <a class="link-btn" href="daily_w8-12.html">第8–12周 →</a><a class="link-btn" href="18week_overview.html">← 18周总览</a>
+    <button class="edit-mode-btn" id="syncBtn" onclick="syncToGitHub()" style="background:rgba(34,197,94,0.2);border-color:rgba(34,197,94,0.4)">☁️ 同步到 GitHub</button>
+    <a class="link-btn" href="daily_w1-7.html">← 第1–7周</a><a class="link-btn" href="daily_w13-18.html">第13–18周 →</a><a class="link-btn" href="index.html">🏠 目录</a> <a class="link-btn" href="18week_overview.html">← 18周总览</a>
   </div>
 </div>
 
@@ -304,7 +305,7 @@ td.dc.day-inactive{ opacity:0.35; }
   <span class="p-count" id="pcount">请选择今天是星期几</span>
 </div>
 
-<div style="padding:6px 24px;background:var(--surface);border-bottom:1px solid var(--border);font-size:11px;color:var(--text3);display:flex;gap:10px;align-items:center"><span>切换阶段：</span><a href="daily_w8-12.html" style="color:var(--header);text-decoration:none;font-weight:600">第8–12周</a><a href="daily_w13-18.html" style="color:var(--header);text-decoration:none;font-weight:600">第13–18周</a></div>
+<div style="padding:6px 24px;background:var(--surface);border-bottom:1px solid var(--border);font-size:11px;color:var(--text3);display:flex;gap:10px;align-items:center"><span>切换阶段：</span><a href="daily_w1-7.html" style="color:var(--header);text-decoration:none;font-weight:600">第1–7周</a><a href="daily_w13-18.html" style="color:var(--header);text-decoration:none;font-weight:600">第13–18周</a></div>
 
 <div class="legend">
   <div class="li"><div class="ld" style="background:var(--stat)"></div>概率统计</div>
@@ -319,11 +320,11 @@ td.dc.day-inactive{ opacity:0.35; }
 <div class="main">
 <div class="section-head">
   <div>
-    <div class="section-title">第1–7周 · 3月11日–4月26日</div>
-    <div class="section-sub">优先级：学校课 › 英语单词 › 概率统计 › 数据库期末 › 高数线代 › 编程</div>
+    <div class="section-title">第8–12周 · 4月29日–5月31日</div>
+    <div class="section-sub">优先级：学校课 › 英语备考 › 概率统计 › 高数线代 › 数据库 › 编程</div>
   </div>
 </div>
-<div class="priority-note">⚠️ <strong>第7周（4月22日）数据库期末考前3天</strong>：停所有Stanford/CMU视频，只刷学校数据库PPT，其他科目正常进行。考完后数据库降至隔天30min。</div>
+<div class="priority-note">📌 <strong>英语全面备考开始</strong>（第8周）：单词维持，增加阅读30min+写作40min。CS61B开始（每次约1天集中学）。5月31日完成7161词。</div>
 
 <table class="dt">
 <thead>
@@ -334,30 +335,30 @@ td.dc.day-inactive{ opacity:0.35; }
   <th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th><th>周日</th>
 </tr>
 </thead>
-<tbody id="tbody1"></tbody>
+<tbody id="tbody2"></tbody>
 </table>
 
 <div class="note">
   <div class="nt">📌 说明</div>
-  <ol><li>CS61A 的 Lab/Discussion/HW 在下午中段编程时间（14:15–15:45）内完成</li><li>CMU Homework 在下午后段数据库时间（15:45–16:30）内完成</li><li>周末学校作业在晚上完成；周六下午编程为自由补充时间</li><li>高数/线代为放松课，进度压力低，可根据当天状态调整时长</li><li>周日晚自由安排，充分休息，不强制安排学习内容</li></ol>
+  <ol><li>CS61B 集中在周一、周三各学1天，包含 Lec + 练习</li><li>英语写作每天傍晚40min，阅读在下午后段30min（周二、周四）</li><li>高数/线代（18.06）为放松课，周四周五穿插，进度压力低</li><li>周末编程补充：Lab/HW 收尾，周日不强制安排</li><li>5月31日完成7161单词目标，6月起进入真题练习</li></ol>
 </div>
 </div>
 
 <div class="toast" id="toast">已保存 ✓</div>
 
 <script>
-const FILE_KEY = 'ds_w17';
-const SLOTS_W17 = [
+const FILE_KEY = 'ds_w812';
+const SLOTS_W812 = [
   {
     slot:'☀️ 上午\n精力最佳', time:'9:00–12:00', dur:'2.5~3h', row:'r-morning',
     days:[
-      {subj:'概率统计',color:'stat',tasks:['Stat110视频','茆诗松精读','练习题']},
-      {subj:'概率统计',color:'stat',tasks:['Stat110视频','茆诗松精读']},
-      {subj:'概率统计',color:'stat',tasks:['Stat110视频','茆诗松精读','练习题']},
-      {subj:'概率统计',color:'stat',tasks:['Stat110视频','茆诗松精读']},
-      {subj:'概率统计',color:'stat',tasks:['Stat110视频','茆诗松精读']},
-      {subj:'概率统计',color:'stat',tasks:['重点习题','错题回顾']},
-      {subj:'概率统计',color:'stat',tasks:['重点习题','错题回顾']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读','练习题']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读','练习题']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读']},
+      {subj:'概率统计',color:'stat',tasks:['重点习题','错题整理']},
+      {subj:'概率统计',color:'stat',tasks:['重点习题','错题整理']},
     ]
   },
   {
@@ -375,35 +376,35 @@ const SLOTS_W17 = [
   {
     slot:'🌤 下午\n前段', time:'13:30–14:15', dur:'45min', row:'r-aft1',
     days:[
-      {subj:'英语单词',color:'eng',tasks:['109词/天','复习错词（App）']},
-      {subj:'英语单词',color:'eng',tasks:['109词/天','复习错词（App）']},
-      {subj:'英语单词',color:'eng',tasks:['109词/天','复习错词（App）']},
-      {subj:'英语单词',color:'eng',tasks:['109词/天','复习错词（App）']},
-      {subj:'英语单词',color:'eng',tasks:['109词/天','复习错词（App）']},
-      {subj:'英语单词',color:'eng',tasks:['109词/天（周末不断）']},
-      {subj:'英语单词',color:'eng',tasks:['109词/天（周末不断）']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语',color:'eng',tasks:['单词（周末不断）']},
+      {subj:'英语',color:'eng',tasks:['单词（周末不断）']},
     ]
   },
   {
     slot:'🟠 下午\n中段', time:'14:15–15:45', dur:'1.5h', row:'r-aft2',
     days:[
-      {subj:'编程',color:'prog',tasks:['CS61A/B视频'],chips:[{label:'+ Disc',cls:'chip-p'}]},
-      {subj:'编程',color:'prog',tasks:['CS61A/B视频']},
-      {subj:'编程',color:'prog',tasks:['CS61A/B视频'],chips:[{label:'+ Lab',cls:'chip-p'}]},
-      {subj:'编程',color:'prog',tasks:['CS61A/B视频'],chips:[{label:'+ HW',cls:'chip-p'}]},
-      {subj:'编程',color:'prog',tasks:['CS61A/B视频']},
-      {subj:'编程练习',color:'prog',tasks:['Lab/HW补充']},
-      {weekend:true,text:'休息·运动\n社交·散步'},
+      {subj:'CS61B（集中日）',color:'prog',tasks:['集中学1天（周一）','Lec + 练习']},
+      {subj:'高数/线代',color:'calc',tasks:['18.06视频（放松课）']},
+      {subj:'CS61B（集中日）',color:'prog',tasks:['集中学1天（周三）','Lec + 练习']},
+      {subj:'高数/线代',color:'calc',tasks:['18.06视频（放松课）']},
+      {subj:'高数/线代',color:'calc',tasks:['18.06视频'],chips:[{label:'+作业',cls:'chip-c'}]},
+      {subj:'编程补充',color:'prog',tasks:['Lab/HW补充']},
+      {weekend:true,text:'休息·运动\n散步'},
     ]
   },
   {
     slot:'🔷 下午\n后段', time:'15:45–16:30', dur:'45min', row:'r-aft3',
     days:[
-      {subj:'数据库',color:'db',tasks:['CMU视频'],chips:[{label:'+CMU Homework',cls:'chip-d'}]},
+      {subj:'英语',color:'eng',tasks:['阅读30min']},
       {subj:'数据库',color:'db',tasks:['Stanford Widom视频']},
-      {subj:'数据库',color:'db',tasks:['CMU视频'],chips:[{label:'+CMU Homework',cls:'chip-d'}]},
+      {subj:'英语',color:'eng',tasks:['阅读30min']},
       {subj:'数据库',color:'db',tasks:['Stanford Widom视频']},
-      {subj:'数据库',color:'db',tasks:['CMU视频'],chips:[{label:'+SQL 练习',cls:'chip-d'}]},
+      {subj:'数据库',color:'db',tasks:['SQL练习（隔天30min）']},
       {subj:'数据库复习',color:'db',tasks:['本周内容巩固']},
       {weekend:true,text:'休息·自由'},
     ]
@@ -411,11 +412,11 @@ const SLOTS_W17 = [
   {
     slot:'🌆 傍晚', time:'17:00–17:45', dur:'30~60min', row:'r-eve1',
     days:[
-      {subj:'高数/线代',color:'calc',tasks:['乐经良视频（放松课）']},
-      {subj:'高数/线代',color:'calc',tasks:['乐经良视频（放松课）']},
-      {subj:'高数/线代',color:'calc',tasks:['乐经良视频（放松课）']},
-      {subj:'高数/线代',color:'calc',tasks:['乐经良视频（放松课）']},
-      {subj:'高数/线代',color:'calc',tasks:['乐经良视频'],chips:[{label:'+作业',cls:'chip-c'}]},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
       {weekend:true,text:'休息·运动\n散步'},
       {weekend:true,text:'休息·运动\n散步'},
     ]
@@ -427,7 +428,7 @@ const SLOTS_W17 = [
       {subj:'学校作业',color:'school',tasks:['拓扑HW/预习'],chips:[{label:'+ Stat HW',cls:'chip-s'}]},
       {subj:'学校作业',color:'school',tasks:['数学物理方程HW','现代优化HW']},
       {subj:'学校作业',color:'school',tasks:['拓扑HW/预习'],chips:[{label:'+ Stat HW',cls:'chip-s'}]},
-      {subj:'CS61A HW',color:'prog',tasks:['自由复习']},
+      {subj:'CS61B HW',color:'prog',tasks:['自由复习']},
       {subj:'Stat 习题',color:'stat',tasks:['巩固本周内容']},
       {weekend:true,text:'自由安排\n充分休息'},
     ]
@@ -710,7 +711,7 @@ function showToast() {
 }
 
 
-renderTable(SLOTS_W17, 'tbody1', 'w17');
+renderTable(SLOTS_W812, 'tbody2', 'w812');
 
 // Attach di to wknd cells too
 document.querySelectorAll('td.wknd').forEach(td => {
@@ -721,7 +722,116 @@ assignEditKeys();
 applyStoredEdits();
 initDaySelector();
 recalcProgress();
+
+// ─── GitHub Sync ────────────────────────────────────────────────
+const GH_TOKEN_KEY = 'gh_token_studyplan';
+
+function syncToGitHub() {
+  const saved = localStorage.getItem(GH_TOKEN_KEY);
+  if (!saved) { showTokenModal(); } else { doSync(saved); }
+}
+function showTokenModal() {
+  document.getElementById('gh-modal').style.display = 'flex';
+  document.getElementById('gh-token-input').focus();
+}
+function closeModal() { document.getElementById('gh-modal').style.display = 'none'; }
+function saveTokenAndSync() {
+  const token = document.getElementById('gh-token-input').value.trim();
+  if (!token) { alert('请输入 Token'); return; }
+  localStorage.setItem(GH_TOKEN_KEY, token);
+  closeModal();
+  doSync(token);
+}
+function clearToken() {
+  localStorage.removeItem(GH_TOKEN_KEY);
+  showToastMsg('已清除 Token', '#dc2626');
+}
+async function doSync(token) {
+  const btn = document.getElementById('syncBtn');
+  btn.textContent = '⏳ 同步中…';
+  btn.disabled = true;
+  const owner = 'keep258-1';
+  const repo  = 'study-plan';
+  const file  = window.location.pathname.split('/').pop() || (FILE_KEY + '.html');
+  const branch = 'main';
+  try {
+    const shaRes = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${file}?ref=${branch}`,
+      { headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' } }
+    );
+    if (!shaRes.ok) throw new Error('无法获取文件，请检查 Token');
+    const shaData = await shaRes.json();
+    const sha = shaData.sha;
+    const encoded = btoa(unescape(encodeURIComponent(document.documentElement.outerHTML)));
+    const pushRes = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${file}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${token}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: `Update ${file} via web editor`,
+          content: encoded, sha: sha, branch: branch
+        })
+      }
+    );
+    if (!pushRes.ok) { const e = await pushRes.json(); throw new Error(e.message||'推送失败'); }
+    showToastMsg('✅ 已同步到 GitHub！', '#16a34a');
+  } catch(e) {
+    console.error(e);
+    showToastMsg('❌ ' + e.message, '#dc2626');
+  } finally {
+    btn.textContent = '☁️ 同步到 GitHub';
+    btn.disabled = false;
+  }
+}
+let toastTimer2;
+function showToastMsg(msg, color) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = color || '#1e40af';
+  t.classList.add('show');
+  clearTimeout(toastTimer2);
+  toastTimer2 = setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => { t.textContent = '已保存 ✓'; t.style.background=''; }, 300);
+  }, 3000);
+}
+
 </script>
-<script src="script.js"></script>
+
+<!-- GitHub Token Modal -->
+<div id="gh-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:14px;padding:28px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3)">
+    <div style="font-size:16px;font-weight:700;color:#1a1e2e;margin-bottom:6px">🔑 输入 GitHub Token</div>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:16px;line-height:1.6">
+      Token 只存在你的浏览器本地，不会上传任何服务器。<br>
+      获取方式：GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → 勾选 <strong>repo</strong> 权限
+    </div>
+    <input id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+      style="width:100%;padding:10px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:13px;font-family:monospace;outline:none;margin-bottom:12px"
+      onkeydown="if(event.key==='Enter')saveTokenAndSync()"
+      onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#d1d5db'">
+    <div style="display:flex;gap:8px">
+      <button onclick="saveTokenAndSync()"
+        style="flex:1;padding:10px;background:#2563EB;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">
+        保存并同步
+      </button>
+      <button onclick="closeModal()"
+        style="padding:10px 16px;background:#f3f4f6;color:#374151;border:none;border-radius:8px;font-size:13px;cursor:pointer">
+        取消
+      </button>
+    </div>
+    <div style="margin-top:10px;text-align:center">
+      <button onclick="clearToken()" style="background:none;border:none;font-size:11px;color:#9ca3af;cursor:pointer;text-decoration:underline">
+        清除已保存的 Token
+      </button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
