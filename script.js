@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(button);
 
     // 2. 使页面内容可编辑
-    document.body.contentEditable = true;
+   document.querySelectorAll('td, .content, p, h2, h3, li').forEach(el => {
+    el.contentEditable = true;
+});
 
     // 3. 保存逻辑
     button.addEventListener('click', async () => {
