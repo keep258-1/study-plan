@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考研备考导航 · 18周全科计划</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+:root {
+  --bg:        #f0f4ff;
+  --surface:   #ffffff;
+  --surface2:  #e8edf8;
+  --border:    #d0d8ef;
+  --border2:   #b0bcd8;
+  --text:      #1a1e2e;
+  --text2:     #4a5272;
+  --text3:     #8a94b8;
+  --blue:      #2563EB;
+  --blue2:     #1d4ed8;
+  --blue-pale: #e8f0fe;
+  --purple:    #7c6fcd;
+  --purple-bg: #f0eefb;
+  --green:     #3a9e6e;
+  --green-bg:  #eaf6f0;
+  --amber:     #d4652a;
+  --amber-bg:  #fdf0e8;
+  --font: 'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  --serif: 'DM Serif Display', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Background decoration ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 10%, rgba(37,99,235,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(124,111,205,0.07) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Hero header ── */
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 64px 32px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-pale);
+  border: 1px solid rgba(37,99,235,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 6px;
+  letter-spacing: -.01em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--blue);
+}
+
+.hero-sub {
+  font-size: 14px;
+  color: var(--text3);
+  margin-top: 12px;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* Progress bar decoration */
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.meta-label {
+  font-size: 11px;
+  color: var(--text3);
+}
+
+.meta-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+
+/* ── Cards ── */
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 32px 64px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 14px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.card {
+  display: flex;
+  align-items: stretch;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow .2s, transform .15s, border-color .2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37,99,235,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  border-color: var(--border2);
+}
+
+.card:active {
+  transform: translateY(0);
+}
+
+/* accent bar */
+.card-accent {
+  width: 4px;
+  flex-shrink: 0;
+}
+
+.card-body {
+  flex: 1;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--surface2);
+}
+
+.card-info {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+.card-tags {
+  display: flex;
+  gap: 5px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.card-arrow {
+  flex-shrink: 0;
+  padding: 0 18px 0 12px;
+  display: flex;
+  align-items: center;
+  color: var(--text3);
+  font-size: 18px;
+  transition: transform .2s, color .2s;
+}
+
+.card:hover .card-arrow {
+  transform: translateX(3px);
+  color: var(--blue);
+}
+
+/* Color variants */
+.c-blue  .card-accent { background: linear-gradient(180deg, #2563EB, #60a5fa); }
+.c-blue  .card-icon   { background: #e8f0fe; }
+.c-blue  .card-title  { color: #1a3a8f; }
+
+.c-green  .card-accent { background: linear-gradient(180deg, #3a9e6e, #6ee7b7); }
+.c-green  .card-icon   { background: #eaf6f0; }
+.c-green  .card-title  { color: #1a5c3a; }
+
+.c-amber  .card-accent { background: linear-gradient(180deg, #d4652a, #fbbf24); }
+.c-amber  .card-icon   { background: #fdf0e8; }
+.c-amber  .card-title  { color: #7c3011; }
+
+.c-purple .card-accent { background: linear-gradient(180deg, #7c6fcd, #c4b5fd); }
+.c-purple .card-icon   { background: #f0eefb; }
+.c-purple .card-title  { color: #3c2e8a; }
+
+.t-blue   { background: #e8f0fe; color: #1d4ed8; }
+.t-green  { background: #eaf6f0; color: #1a5c3a; }
+.t-amber  { background: #fdf0e8; color: #7c3011; }
+.t-purple { background: #f0eefb; color: #3c2e8a; }
+
+/* ── Footer note ── */
+.footer-note {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 32px 48px;
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.7;
+}
+
+.footer-note strong {
+  color: var(--text2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px 32px; }
+  .section { padding: 0 20px 48px; }
+  .footer-note { padding: 0 20px 40px; }
+  .card-desc { display: none; }
+  .card-tags { display: none; }
+  .hero-meta { gap: 16px; }
+}
+
+/* entrance animation */
+.hero, .section, .footer-note {
+  animation: fadeUp .5s ease both;
+}
+.section { animation-delay: .1s; }
+.footer-note { animation-delay: .2s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  animation: fadeUp .4s ease both;
+}
+.card:nth-child(1) { animation-delay: .12s; }
+.card:nth-child(2) { animation-delay: .18s; }
+.card:nth-child(3) { animation-delay: .24s; }
+.card:nth-child(4) { animation-delay: .30s; }
+.card:nth-child(5) { animation-delay: .36s; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">考研备考 2025–2026</div>
+  <h1>18周<em>全科</em><br>并行计划</h1>
+  <p class="hero-sub">复旦应用统计 · 学校课程 × 概率统计 × 数据库 × 编程<br>按优先级并行推进，18周冲刺</p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-num">18</span>
+      <span class="meta-label">总周数</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-num">5</span>
+      <span class="meta-label">科目并行</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-num">3</span>
+      <span class="meta-label">阶段分段</span>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <span class="meta-num">6·13</span>
+      <span class="meta-label">CET-6 日期</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+
+  <div class="section-label">总览 &amp; 框架</div>
+  <div class="cards">
+    <a class="card c-blue" href="18week_overview.html">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon">🗂️</div>
+        <div class="card-info">
+          <div class="card-title">18周全科并行计划 · 总览</div>
+          <div class="card-desc">三阶段全局视图：基础奠定（W1–6）、强化冲刺（W7–12）、考前决战（W13–18）。包含每周各科时间分配与里程碑节点。</div>
+          <div class="card-tags">
+            <span class="tag t-blue">全局视图</span>
+            <span class="tag t-blue">时间分配</span>
+            <span class="tag t-blue">里程碑</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a class="card c-purple" href="prob_stats_theory_practice_cycle.html">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon">🔁</div>
+        <div class="card-info">
+          <div class="card-title">概率统计：理论 × 实践周期表</div>
+          <div class="card-desc">3–4天一个小周期：看理论 → 做纸上题 → 写模拟 → 联系项目 → 总结。含各模块 Python 实践任务与项目对照表。</div>
+          <div class="card-tags">
+            <span class="tag t-purple">Stat110</span>
+            <span class="tag t-purple">Python模拟</span>
+            <span class="tag t-purple">贝叶斯</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+  </div>
+
+  <div class="section-label">每日时间表 · 按阶段分段</div>
+  <div class="cards">
+    <a class="card c-green" href="daily_w1-7.html">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon">🌱</div>
+        <div class="card-info">
+          <div class="card-title">每日时间表 · 第 1–7 周</div>
+          <div class="card-desc">基础奠定阶段。优先建立各科学习节奏，重点铺垫概率统计与数据库基础，兼顾学校课程与 CET-6 词汇积累。</div>
+          <div class="card-tags">
+            <span class="tag t-green">W1–7</span>
+            <span class="tag t-green">基础奠定</span>
+            <span class="tag t-green">数据库期中</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a class="card c-amber" href="daily_w8-12.html">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon">🔥</div>
+        <div class="card-info">
+          <div class="card-title">每日时间表 · 第 8–12 周</div>
+          <div class="card-desc">强化冲刺阶段。各科全面铺开，CET-6 考前冲刺（6月13日），加强真题练习与薄弱点攻克。</div>
+          <div class="card-tags">
+            <span class="tag t-amber">W8–12</span>
+            <span class="tag t-amber">强化冲刺</span>
+            <span class="tag t-amber">CET-6</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a class="card c-blue" href="daily_w13-18.html">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon">🎯</div>
+        <div class="card-info">
+          <div class="card-title">每日时间表 · 第 13–18 周</div>
+          <div class="card-desc">考前决战阶段。聚焦考研核心科目，高强度真题模拟，系统性查漏补缺，冲刺复旦应用统计。</div>
+          <div class="card-tags">
+            <span class="tag t-blue">W13–18</span>
+            <span class="tag t-blue">考前决战</span>
+            <span class="tag t-blue">真题冲刺</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+  </div>
+
+</div>
+
+<div class="footer-note">
+  <strong>使用方法：</strong>将此 index.html 与其余五个文件放在同一文件夹内，直接用浏览器打开即可本地导航。点击卡片跳转对应页面，浏览器返回键回到此页。
+</div>
+
+</body>
+</html>

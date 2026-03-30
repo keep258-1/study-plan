@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18周全科并行计划 · 总览</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg:        #f0f4ff;
+  --surface:   #ffffff;
+  --surface2:  #e8edf8;
+  --border:    #d0d8ef;
+  --border2:   #b0bcd8;
+  --text:      #1a1e2e;
+  --text2:     #4a5272;
+  --text3:     #8a94b8;
+
+  --header:    #2563EB;
+  --header2:   #1d4ed8;
+  --header-txt:#ffffff;
+
+  --stat:    #7c6fcd; --stat-bg: #f0eefb;
+  --calc:    #3a9e6e; --calc-bg: #eaf6f0;
+  --prog:    #d4652a; --prog-bg: #fdf0e8;
+  --db:      #2e7fc4; --db-bg:   #e8f2fb;
+  --eng:     #c07f1e; --eng-bg:  #fdf4e0;
+  --node:    #c0392b; --node-bg: #ffecea;
+
+  --phase1:#e8f5e9; --phase1b:#2e7d32;
+  --phase2:#fff8e1; --phase2b:#f57f17;
+  --phase3:#fce4ec; --phase3b:#c62828;
+  --radius:8px;
+  --font:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13px;min-height:100vh}
+
+/* ── Header ── */
+.header{
+  background:linear-gradient(135deg,var(--header) 0%,var(--header2) 100%);
+  color:var(--header-txt);
+  padding:16px 24px 12px;
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  box-shadow:0 2px 16px rgba(37,99,235,0.3);
+}
+.header-left .title{font-size:16px;font-weight:700;letter-spacing:.02em}
+.header-left .sub{font-size:11px;color:rgba(255,255,255,0.7);margin-top:2px}
+.header-right{display:flex;align-items:center;gap:8px}
+.link-btn{
+  background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);
+  color:#fff;font-family:var(--font);font-size:11px;font-weight:500;
+  padding:6px 14px;border-radius:7px;cursor:pointer;text-decoration:none;
+  transition:all .2s;white-space:nowrap;
+}
+.link-btn:hover{background:rgba(255,255,255,0.28)}
+.edit-mode-btn{
+  background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);
+  color:#fff;font-family:var(--font);font-size:11px;font-weight:600;
+  padding:6px 14px;border-radius:7px;cursor:pointer;
+  transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:5px;
+}
+.edit-mode-btn.active{background:rgba(255,255,0,0.25);border-color:rgba(255,255,0,0.5);color:#ffe066}
+.edit-mode-btn:hover{background:rgba(255,255,255,0.25)}
+
+/* ── Progress bar ── */
+.progress-wrap{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:9px 24px;display:flex;align-items:center;gap:12px;
+}
+.progress-label{font-size:11px;color:var(--text3);white-space:nowrap}
+.progress-track{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--stat),var(--db));border-radius:3px;transition:width .35s ease}
+.progress-pct{font-size:12px;font-weight:700;color:var(--text2);min-width:36px;text-align:right}
+.progress-count{font-size:11px;color:var(--text3)}
+
+/* ── Legend ── */
+.legend{
+  padding:8px 24px;display:flex;flex-wrap:wrap;gap:12px;
+  background:var(--surface);border-bottom:1px solid var(--border);
+}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2)}
+.legend-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.legend-hint{margin-left:auto;font-size:11px;color:var(--text3)}
+
+/* ── Priority ── */
+.priority-row{
+  background:#1e3a8a;padding:7px 24px;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.p-label{font-size:11px;color:#93c5fd}
+.p-item{font-size:11px;font-weight:600;padding:2px 9px;border-radius:9px;white-space:nowrap}
+
+/* ── Edit hint bar ── */
+.edit-hint{
+  display:none;padding:7px 24px;
+  background:#fffbeb;border-bottom:1px solid #fcd34d;
+  font-size:11px;color:#92400e;
+  align-items:center;gap:8px;
+}
+.edit-hint.visible{display:flex}
+.edit-hint strong{font-weight:700}
+
+/* ── Table wrap ── */
+.table-wrap{padding:20px 24px 48px;overflow-x:auto}
+.week-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  background:var(--surface);border-radius:var(--radius);
+  overflow:hidden;border:1px solid var(--border);min-width:960px;
+}
+.week-table thead th{
+  background:#1e40af;color:#fff;
+  padding:10px 10px;font-size:11px;font-weight:600;
+  text-align:center;border-right:1px solid rgba(255,255,255,0.12);
+  white-space:nowrap;line-height:1.4;
+}
+.week-table thead th:last-child{border-right:none}
+.week-table thead th small{font-weight:400;opacity:.6;display:block;font-size:10px;margin-top:1px}
+
+.week-table tbody tr:hover td{filter:brightness(.97)}
+.week-table td{
+  padding:9px 10px;border-bottom:1px solid var(--border);
+  border-right:1px solid var(--border);vertical-align:top;line-height:1.55;
+}
+.week-table td:last-child{border-right:none}
+.week-table tbody tr:last-child td{border-bottom:none}
+
+/* Phase colors */
+tr.ph1 td:nth-child(1),tr.ph1 td:nth-child(3){background:var(--phase1)}
+tr.ph2 td:nth-child(1),tr.ph2 td:nth-child(3){background:var(--phase2)}
+tr.ph3 td:nth-child(1),tr.ph3 td:nth-child(3){background:var(--phase3)}
+
+.phase-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:4px}
+.pb1{background:var(--phase1);color:var(--phase1b)}
+.pb2{background:var(--phase2);color:var(--phase2b)}
+.pb3{background:var(--phase3);color:var(--phase3b)}
+
+/* Subject cells */
+.cs{background:var(--stat-bg)}
+.cc{background:var(--calc-bg)}
+.cp{background:var(--prog-bg)}
+.cd{background:var(--db-bg)}
+.ce{background:var(--eng-bg)}
+.cn{background:var(--node-bg)}
+
+.cell-lec{font-size:11px;font-weight:700;letter-spacing:.04em;margin-bottom:4px}
+.cs .cell-lec{color:var(--stat)}
+.cc .cell-lec{color:var(--calc)}
+.cp .cell-lec{color:var(--prog)}
+.cd .cell-lec{color:var(--db)}
+.ce .cell-lec{color:var(--eng)}
+.cn .cell-lec{color:var(--node)}
+
+/* ── Task items ── */
+.task{display:flex;align-items:flex-start;gap:6px;margin-bottom:4px;user-select:none}
+.task:last-child{margin-bottom:0}
+
+/* checkbox — only clickable when NOT in edit mode */
+.tcb{
+  width:14px;height:14px;flex-shrink:0;margin-top:2px;
+  border:1.5px solid var(--border2);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;transition:all .15s;cursor:pointer;
+}
+.task.done .tcb{background:var(--stat);border-color:var(--stat)}
+.task.done .tcb::after{content:'✓';font-size:9px;color:#fff;font-weight:800}
+.task.done .ttext{text-decoration:line-through;color:var(--text3)}
+
+/* text — editable in edit mode */
+.ttext{
+  font-size:11px;color:var(--text2);line-height:1.5;flex:1;
+  border-radius:3px;padding:1px 3px;margin:-1px -3px;
+  transition:background .15s;
+}
+body.editing .ttext{
+  cursor:text;
+  outline:none;
+}
+body.editing .ttext:hover{background:rgba(37,99,235,0.07)}
+body.editing .ttext:focus{background:#fff;box-shadow:0 0 0 2px var(--header);outline:none}
+
+/* Delete button (edit mode only) */
+.task-del{
+  display:none;width:14px;height:14px;flex-shrink:0;
+  background:#fee2e2;border:none;border-radius:3px;
+  color:#dc2626;font-size:11px;font-weight:700;
+  cursor:pointer;align-items:center;justify-content:center;
+  margin-top:2px;line-height:1;padding:0;
+  transition:background .15s;
+}
+.task-del:hover{background:#fecaca}
+body.editing .task-del{display:flex}
+body.editing .tcb{cursor:default;pointer-events:none}
+
+/* Add task button (edit mode only) */
+.add-task-btn{
+  display:none;width:100%;margin-top:5px;
+  background:rgba(37,99,235,0.06);border:1px dashed rgba(37,99,235,0.3);
+  border-radius:4px;padding:4px 8px;
+  font-family:var(--font);font-size:11px;color:var(--header);
+  cursor:pointer;text-align:left;transition:all .15s;
+}
+.add-task-btn:hover{background:rgba(37,99,235,0.12);border-color:var(--header)}
+body.editing .add-task-btn{display:block}
+
+/* Lec label — editable */
+body.editing .cell-lec{
+  cursor:text;border-radius:3px;padding:1px 3px;margin:-1px -3px;
+}
+body.editing .cell-lec:hover{background:rgba(37,99,235,0.08)}
+body.editing .cell-lec:focus{background:#fff;box-shadow:0 0 0 2px var(--header);outline:none}
+
+/* Node items */
+.node-item{display:flex;align-items:flex-start;gap:5px;margin-bottom:4px;font-size:11px;color:var(--node);font-weight:500;line-height:1.4}
+.node-item::before{content:'⚑';font-size:10px;margin-top:1px;flex-shrink:0}
+
+.wnum{font-size:22px;font-weight:800;color:var(--text3);text-align:center;line-height:1}
+.wdate{font-size:10px;color:var(--text3);text-align:center;margin-top:2px}
+tr.exam-week td{outline:2px solid #e74c3c;outline-offset:-1px}
+
+/* Save toast */
+.toast{
+  position:fixed;bottom:24px;right:24px;
+  background:#1e40af;color:#fff;
+  padding:8px 18px;border-radius:8px;
+  font-size:12px;font-weight:600;
+  opacity:0;transform:translateY(8px);
+  transition:all .25s;pointer-events:none;z-index:999;
+  box-shadow:0 4px 16px rgba(37,99,235,0.35);
+}
+.toast.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="title">📊 18周全科并行计划 · 总览</div>
+    <div class="sub">3月11日 — 7月13日 · 工作日每天按色块推进</div>
+  </div>
+  <div class="header-right">
+    <button class="edit-mode-btn" id="editBtn" onclick="toggleEditMode()">✏️ 编辑任务</button>
+    <a class="link-btn" href="daily_schedule.html">🗓 每日时间表 →</a>
+  </div>
+</div>
+
+<div class="priority-row">
+  <span class="p-label">优先级：</span>
+  <span class="p-item" style="background:#1e3a8a;color:#93c5fd">学校课程</span>
+  <span style="color:#3b82f6">›</span>
+  <span class="p-item" style="background:#402a06;color:#fbbf24">英语 CET-6</span>
+  <span style="color:#3b82f6">›</span>
+  <span class="p-item" style="background:#2a1f52;color:#a78bfa">概率统计</span>
+  <span style="color:#3b82f6">›</span>
+  <span class="p-item" style="background:#0e2c42;color:#60a5fa">数据库</span>
+  <span style="color:#3b82f6">›</span>
+  <span class="p-item" style="background:#0f3020;color:#34d399">高数/线代</span>
+  <span style="color:#3b82f6">›</span>
+  <span class="p-item" style="background:#3a1a06;color:#fb923c">编程</span>
+</div>
+
+<div class="edit-hint" id="editHint">
+  <span>✏️ <strong>编辑模式已开启</strong> — 双击文字直接修改，点击 <strong>＋添加任务</strong> 新增，点击 <strong>✕</strong> 删除任务</span>
+  <span style="margin-left:auto;color:#b45309">修改后自动保存</span>
+</div>
+
+<div class="progress-wrap">
+  <span class="progress-label">完成进度</span>
+  <div class="progress-track">
+    <div class="progress-fill" id="pfill" style="width:0%"></div>
+  </div>
+  <span class="progress-pct" id="ppct">0%</span>
+  <span class="progress-count" id="pcount"></span>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--stat)"></div>概率统计</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--calc)"></div>高数/线代</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--prog)"></div>编程</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--db)"></div>数据库</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--eng)"></div>英语</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--node)"></div>节点/考试</div>
+  <div class="legend-hint">✅ 点击勾选完成 &nbsp;|&nbsp; ✏️ 点右上角按钮编辑内容</div>
+</div>
+
+<div class="table-wrap">
+<table class="week-table">
+<thead>
+<tr>
+  <th style="width:52px">周<br><small>Week</small></th>
+  <th style="width:52px">日期</th>
+  <th style="width:80px">阶段</th>
+  <th style="width:168px">🔵 概率统计<small>30–60min/天</small></th>
+  <th style="width:148px">🟢 高数/线代<small>30–60min/天</small></th>
+  <th style="width:152px">🟠 编程 CS61A/B<small>1.5h → 约1h</small></th>
+  <th style="width:152px">🔷 数据库<small>45min → 隔天30min</small></th>
+  <th style="width:120px">🔶 英语<small>109词/天</small></th>
+  <th style="width:148px">⚑ 节点 / 完成标志</th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+
+<div class="toast" id="toast">已保存 ✓</div>
+
+<script>
+// ─── Default Data ──────────────────────────────────────────────
+const DEFAULT_W = [
+  {w:1,d:'3/11',p:1,
+   stat:{lec:'Stat110 Lec1-4',tasks:['随机事件·样本空间','条件概率·独立性','贝叶斯定理与全概率']},
+   calc:{lec:'乐经良 第1章',tasks:['函数与极限（每天30~60min）']},
+   prog:{lec:'CS61A Lec1-4',tasks:['Python基础·函数','Lab1/HW1/Disc1']},
+   db:  {lec:'CMU Lec01',tasks:['关系模型与关系代数','SQLZoo Section1-3']},
+   eng: {lec:'英语',tasks:['单词App开始','每日109词']},
+   node:['Day1正式开始！','能推导贝叶斯公式']},
+  {w:2,d:'3/18',p:1,
+   stat:{lec:'Stat110 Lec5-8',tasks:['离散随机变量·PMF','二项/几何/超几何分布','常见离散分布汇总']},
+   calc:{lec:'乐经良 第2章',tasks:['导数定义与四则运算','链式法则·隐函数求导']},
+   prog:{lec:'CS61A Lec5-8',tasks:['高阶函数·Lambda·闭包','Lab2/HW2/Disc2']},
+   db:  {lec:'CMU Lec02 Modern SQL',tasks:['Widom Lec01 ER图','SQLZoo Section4-6','窗口函数·CTE练习']},
+   eng: {lec:'英语',tasks:['109词/天','复习错词']},
+   node:['能写出二项分布PMF','能用lambda与高阶函数']},
+  {w:3,d:'3/25',p:1,
+   stat:{lec:'Stat110 Lec9-13',tasks:['连续随机变量·PDF/CDF','正态分布·标准化','指数分布·无记忆性']},
+   calc:{lec:'乐经良 第3章',tasks:['微分中值定理','洛必达法则','导数应用·单调极值']},
+   prog:{lec:'CS61A Lec9-12',tasks:['递归·递归应用','迭代器·生成器','Lab3/HW3/Disc3']},
+   db:  {lec:'Widom Lec27-32',tasks:['范式理论·函数依赖','BCNF分解','3NF综合练习']},
+   eng: {lec:'英语',tasks:['109词/天','复习错词']},
+   node:['拓扑学开课','正态分布能手算标准化']},
+  {w:4,d:'4/1',p:1,
+   stat:{lec:'Stat110 Lec14-18',tasks:['多维联合分布·边缘分布','条件分布·独立性判断','协方差·相关系数']},
+   calc:{lec:'乐经良 第4章',tasks:['不定积分·基本公式','换元积分·分部积分','（第5章难度已跳过✓）']},
+   prog:{lec:'CS61A Lec13-16',tasks:['OOP·类与继承','多态·特殊方法','Lab4/HW4/Disc4']},
+   db:  {lec:'CMU Lec03 06 07 08 09',tasks:['存储层·Page布局','内存管理·缓冲池','B+树索引原理']},
+   eng: {lec:'英语',tasks:['109词/天','复习错词']},
+   node:['18.01完成☑','能从联合PDF推导边缘分布']},
+  {w:5,d:'4/8',p:1,
+   stat:{lec:'Stat110 Lec19-23',tasks:['数学期望·线性性质','方差·标准差','矩·MGF定义与应用']},
+   calc:{lec:'乐经良 第5章',tasks:['定积分定义·性质','定积分计算','广义积分']},
+   prog:{lec:'CS61A Lec17-20',tasks:['解释器·Scheme基础','尾递归·定积分近似','Lab5/HW5/Disc5']},
+   db:  {lec:'CMU Lec11-15',tasks:['查询处理流程','排序算法·外排序','Join算法优化']},
+   eng: {lec:'英语',tasks:['109词/天','复习错词']},
+   node:['能推导MGF求矩','Stanford DB全部完成☑']},
+  {w:6,d:'4/15',p:1,
+   stat:{lec:'Stat110 Lec24-34',tasks:['大数定律（弱/强）','中心极限定理','CLT近似计算练习','概率论收尾']},
+   calc:{lec:'乐经良 第6-7章',tasks:['定积分应用（面积/体积）','常微分方程基础','可分离变量·一阶线性']},
+   prog:{lec:'CS61A Lec21-25',tasks:['数据处理·流','SQL基础（CS61A）','Lab6/HW6，CS61A收尾']},
+   db:  {lec:'CMU Lec53-68',tasks:['事务·ACID','并发控制·锁','UNDO/REDO恢复','Widom 约束·触发器·视图']},
+   eng: {lec:'英语',tasks:['109词/天','复习错词']},
+   node:['概率论基础完成☑','能用CLT正确近似☑']},
+  {w:7,d:'4/22',p:2,exam:true,
+   stat:{lec:'MIT18.650 Lec1-4',tasks:['统计量·抽样分布','χ²分布·t分布·F分布','数理统计开始']},
+   calc:{lec:'乐经良 第7章',tasks:['微分方程继续','差分方程补充（1~2h）']},
+   prog:{lec:'CS61A Lec26-30',tasks:['逻辑回归原理','HW7，CS61A完成']},
+   db:  {lec:'⚠️ 期末冲刺（考前3天）',tasks:['停Stanford/CMU视频','只刷学校数据库PPT','考后降至隔天30min']},
+   eng: {lec:'英语',tasks:['109词/天']},
+   node:['⚠️ 数据库期末（4/22前后）','CS61A完成☑']},
+  {w:8,d:'4/29',p:2,
+   stat:{lec:'MIT18.650 Lec5-7',tasks:['矩估计法','最大似然估计MLE（⭐⭐）','MLE性质·渐进正态']},
+   calc:{lec:'乐经良 第8章',tasks:['多元函数·偏导数','梯度·方向导数','极值·拉格朗日乘数']},
+   prog:{lec:'CS61B Lec1-8',tasks:['Java基础·数据类型','链表·引用·递归','CS61B正式开始']},
+   db:  {lec:'数据库复习（约30页）',tasks:['数据库笔记整理','隔天30min维持']},
+   eng: {lec:'英语备考开始',tasks:['单词20词+/天','阅读30min','写作40min']},
+   node:['建立独立MLE推导能力','CS61B正式开始','英语全面备考开始']},
+  {w:9,d:'5/6',p:2,
+   stat:{lec:'MIT18.650 Lec8-10',tasks:['充分统计量','UMVUE·完全统计量（⭐⭐）','Rao-Blackwell定理']},
+   calc:{lec:'乐经良 第10章',tasks:['二重积分（直角/极坐标）','第11章 曲线积分（必须过✓）']},
+   prog:{lec:'CS61B Lec6-10',tasks:['泛型·迭代器','ArrayList·LinkedList','1天完成']},
+   db:  {lec:'SQL简答题练习',tasks:['隔天30min','复杂查询练习']},
+   eng: {lec:'英语',tasks:['单词+阅读30min','写作40min']},
+   node:['18.02完成☑','能应用Rao-Blackwell定理']},
+  {w:10,d:'5/13',p:2,
+   stat:{lec:'MIT18.650 Lec11-13',tasks:['区间估计理论','枢轴量法','正态总体置信区间']},
+   calc:{lec:'乐经良 第12章',tasks:['无穷级数·收敛判别','幂级数·收敛半径','Taylor展开']},
+   prog:{lec:'CS61B Lec11-15',tasks:['BST实现与分析','渐进分析·大O','排序算法（1天）']},
+   db:  {lec:'数据库知识查漏',tasks:['复习常见简答题','整理问答题模板']},
+   eng: {lec:'英语',tasks:['单词+阅读30min','写作40min']},
+   node:['能独立选最优区间','BST手写实现☑']},
+  {w:11,d:'5/20',p:2,
+   stat:{lec:'MIT18.650 Lec14-18',tasks:['假设检验框架','Neyman-Pearson引理（⭐⭐）','UMP检验·单边双边']},
+   calc:{lec:'18.06 Lec5-11',tasks:['矩阵运算·行变换','行列式性质','四大子空间']},
+   prog:{lec:'CS61B Lec16-20',tasks:['B树·红黑树原理','哈希表实现（1天）']},
+   db:  {lec:'LeetCode中等题',tasks:['数据库中等难度','隔天30min']},
+   eng: {lec:'英语',tasks:['单词+阅读30min','写作40min（写作用上）']},
+   node:['假设检验能规范表述','哈希表独立实现☑']},
+  {w:12,d:'5/27',p:2,
+   stat:{lec:'MIT18.650 Lec19-24',tasks:['线性回归·最小二乘','回归系数检验','方差分析ANOVA']},
+   calc:{lec:'18.06 Lec12-18',tasks:['正交投影·Gram-Schmidt','最小二乘法','特征值初步']},
+   prog:{lec:'CS61B Lec21-25',tasks:['图结构·BFS/DFS','最短路·Dijkstra（1天）']},
+   db:  {lec:'数据库综合复习',tasks:['第四周简答题刷完','SQL综合练习']},
+   eng: {lec:'英语',tasks:['5/31词背完☑（7161词）','写作力提高']},
+   node:['数理统计完成☑','7161词全部完成☑']},
+  {w:13,d:'6/3',p:3,
+   stat:{lec:'茆诗松 1-5章 题目',tasks:['概率论经典题专攻','条件概率·全概率难题','随机变量变换题']},
+   calc:{lec:'18.06 Lec19-25',tasks:['特征值·特征向量','SVD分解','正定矩阵']},
+   prog:{lec:'CS61B Lec26-30',tasks:['数据结构收尾','CS61B完成☑']},
+   db:  {lec:'数据库复试准备',tasks:['口头表达整理','问答题模板背诵']},
+   eng: {lec:'⚠️ 六级冲刺',tasks:['每天写1篇作文','阅读专项强化']},
+   node:['⚠️ 数学物理方程期末','18.06完成☑','CS61B完成☑']},
+  {w:14,d:'6/10',p:3,
+   stat:{lec:'茆诗松 6-9章 题目',tasks:['统计推断核心题','估计量性质辨析','假设检验综合题']},
+   calc:{lec:'18.06 Lec26-34',tasks:['线性代数收尾','18.06完成']},
+   prog:{lec:'LeetCode 数据结构',tasks:['数组·链表·栈','矩阵题·滑动窗口']},
+   db:  {lec:'复试数据库',tasks:['口头表达练习','数据库设计题']},
+   eng: {lec:'⚠️ 六级冲刺最后1周',tasks:['作文模板熟练','6/13 六级考试☑']},
+   node:['⚠️ 现代优化期末','⚠️ 6/13 六级考试']},
+  {w:15,d:'6/17',p:3,
+   stat:{lec:'茆诗松 10-11章 题目',tasks:['回归分析综合','方差分析ANOVA题','（按需）1.5h']},
+   calc:{lec:'（按需）',tasks:['针对薄弱点复习']},
+   prog:{lec:'LeetCode 树+图',tasks:['树的遍历·路径题','图的BFS/DFS综合','（按需 1h）']},
+   db:  {lec:'SQL综合练习',tasks:['复杂SQL查询','窗口函数综合']},
+   eng: {lec:'英语',tasks:['六级已完成☑','英语降至45min','阅读保持手感']},
+   node:['全部完成率≥80%','编程恢复1.5h']},
+  {w:16,d:'6/24',p:3,
+   stat:{lec:'综合模拟',tasks:['历年432真题训练','限时3小时模拟','错题整理']},
+   calc:{lec:'（按需）',tasks:['针对薄弱点']},
+   prog:{lec:'LeetCode 动态规划',tasks:['DP经典题20道','Python数据分析练习']},
+   db:  {lec:'SQL综合练习',tasks:['综合复杂查询']},
+   eng: {lec:'英语',tasks:['英语阅读练习','保持手感']},
+   node:['⚠️ 拓扑学期末','限时完成综合题☑']},
+  {w:17,d:'7/1',p:3,
+   stat:{lec:'查漏补缺',tasks:['薄弱章节第二轮','重点公式归纳']},
+   calc:{lec:'（按需）',tasks:['针对薄弱点']},
+   prog:{lec:'完成数据分析项目',tasks:['Pandas数据处理','matplotlib可视化','项目README整理']},
+   db:  {lec:'数据库收尾',tasks:['数据库☑','王珊第四题（有余力）']},
+   eng: {lec:'英语',tasks:['英语阅读练习']},
+   node:['学校课程全部结束☑','完成数据分析项目☑']},
+  {w:18,d:'7/8',p:3,
+   stat:{lec:'制作个人公式手册',tasks:['知识图谱整理','公式手册完成','最终复习']},
+   calc:{lec:'（按需）',tasks:['针对薄弱点']},
+   prog:{lec:'复试编程准备',tasks:['口头表达练习','代码题练习']},
+   db:  {lec:'复试数据库',tasks:['口头表达练习']},
+   eng: {lec:'英语',tasks:['阅读练习','开始真题']},
+   node:['⭐ 全部课程收尾','⭐ 进入复试冲刺']}
+];
+
+// ─── Storage helpers ───────────────────────────────────────────
+const STORAGE_KEY = 'studyplan_data_v2';
+const CHECK_KEY   = 'studyplan_checks_v2';
+
+function loadData() {
+  try {
+    const s = localStorage.getItem(STORAGE_KEY);
+    return s ? JSON.parse(s) : JSON.parse(JSON.stringify(DEFAULT_W));
+  } catch(e) { return JSON.parse(JSON.stringify(DEFAULT_W)); }
+}
+function saveData(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  showToast();
+}
+function getChecks() {
+  try { return JSON.parse(localStorage.getItem(CHECK_KEY)||'{}'); }
+  catch(e) { return {}; }
+}
+function setCheck(id, val) {
+  const c = getChecks(); c[id] = val;
+  localStorage.setItem(CHECK_KEY, JSON.stringify(c));
+}
+
+// ─── State ──────────────────────────────────────────────────────
+let W = loadData();
+let editMode = false;
+
+// ─── Render ─────────────────────────────────────────────────────
+const phN={1:'第一阶段',2:'第二阶段',3:'第三阶段'};
+const phC={1:'pb1',2:'pb2',3:'pb3'};
+const phR={1:'ph1',2:'ph2',3:'ph3'};
+const cols=['stat','calc','prog','db','eng'];
+const cls ={stat:'cs',calc:'cc',prog:'cp',db:'cd',eng:'ce'};
+
+function tid(w,col,i){return`ck_w${w}_${col}_${i}`}
+
+function renderTaskList(wnum, col, tasks) {
+  const checks = getChecks();
+  return tasks.map((t,i)=>{
+    const id = tid(wnum,col,i);
+    const done = checks[id]==='1';
+    return `<div class="task${done?' done':''}" data-id="${id}" data-w="${wnum}" data-col="${col}" data-i="${i}">
+      <div class="tcb" onclick="toggleCheck('${id}',this.parentElement)"></div>
+      <div class="ttext" contenteditable="false" data-w="${wnum}" data-col="${col}" data-i="${i}">${t}</div>
+      <button class="task-del" onclick="deleteTask(${wnum},'${col}',${i})" title="删除此任务">✕</button>
+    </div>`;
+  }).join('');
+}
+
+function renderCell(wnum, col, data) {
+  const c = cls[col];
+  return `<td class="${c}">
+    <div class="cell-lec" contenteditable="false" data-w="${wnum}" data-col="${col}" data-field="lec">${data.lec}</div>
+    <div class="task-list" data-w="${wnum}" data-col="${col}">
+      ${renderTaskList(wnum, col, data.tasks)}
+    </div>
+    <button class="add-task-btn" onclick="addTask(${wnum},'${col}')">＋ 添加任务</button>
+  </td>`;
+}
+
+function render() {
+  const tb = document.getElementById('tbody');
+  tb.innerHTML = '';
+  W.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.className = phR[r.p] + (r.exam?' exam-week':'');
+    let html = `
+      <td style="text-align:center;vertical-align:middle">
+        <div class="wnum">${r.w}</div>
+        <div class="wdate">${r.d}</div>
+      </td>
+      <td style="text-align:center;font-size:11px;color:var(--text2);vertical-align:middle">${r.d}</td>
+      <td style="text-align:center;vertical-align:middle">
+        <span class="phase-badge ${phC[r.p]}">${phN[r.p]}</span>
+      </td>`;
+    cols.forEach(col => { html += renderCell(r.w, col, r[col]); });
+    html += `<td class="cn">
+      <div class="cell-lec" style="color:var(--node)">节点</div>
+      ${r.node.map(n=>`<div class="node-item">${n}</div>`).join('')}
+    </td>`;
+    tr.innerHTML = html;
+    tb.appendChild(tr);
+  });
+  updateProgress();
+  applyEditMode();
+}
+
+// ─── Check toggle ────────────────────────────────────────────────
+function toggleCheck(id, taskEl) {
+  if (editMode) return;
+  const done = taskEl.classList.toggle('done');
+  setCheck(id, done?'1':'0');
+  updateProgress();
+}
+
+function updateProgress() {
+  const checks = getChecks();
+  let total=0, done=0;
+  W.forEach(r => {
+    cols.forEach(col => {
+      r[col].tasks.forEach((_,i) => {
+        total++;
+        if (checks[tid(r.w,col,i)]==='1') done++;
+      });
+    });
+  });
+  const pct = total ? Math.round(done/total*100):0;
+  document.getElementById('pfill').style.width=pct+'%';
+  document.getElementById('ppct').textContent=pct+'%';
+  document.getElementById('pcount').textContent=`${done} / ${total} 项`;
+}
+
+// ─── Edit mode ───────────────────────────────────────────────────
+function toggleEditMode() {
+  editMode = !editMode;
+  applyEditMode();
+  const btn = document.getElementById('editBtn');
+  const hint = document.getElementById('editHint');
+  btn.textContent = editMode ? '✅ 退出编辑' : '✏️ 编辑任务';
+  btn.classList.toggle('active', editMode);
+  hint.classList.toggle('visible', editMode);
+}
+
+function applyEditMode() {
+  document.body.classList.toggle('editing', editMode);
+  // set contenteditable on all ttext and cell-lec
+  document.querySelectorAll('.ttext, .cell-lec[data-field]').forEach(el => {
+    el.contentEditable = editMode ? 'true' : 'false';
+  });
+}
+
+// Save on blur of ttext
+document.addEventListener('blur', function(e) {
+  if (!editMode) return;
+  const el = e.target;
+  if (el.classList.contains('ttext')) {
+    const w = +el.dataset.w, col = el.dataset.col, i = +el.dataset.i;
+    const row = W.find(r=>r.w===w);
+    if (row) {
+      row[col].tasks[i] = el.textContent.trim() || row[col].tasks[i];
+      saveData(W);
+    }
+  }
+  if (el.classList.contains('cell-lec') && el.dataset.field==='lec') {
+    const w = +el.dataset.w, col = el.dataset.col;
+    const row = W.find(r=>r.w===w);
+    if (row) {
+      row[col].lec = el.textContent.trim() || row[col].lec;
+      saveData(W);
+    }
+  }
+}, true);
+
+// Prevent newlines in contenteditable
+document.addEventListener('keydown', function(e) {
+  if (e.key==='Enter' && (e.target.classList.contains('ttext')||e.target.classList.contains('cell-lec'))) {
+    e.preventDefault();
+    e.target.blur();
+  }
+});
+
+// ─── Add / Delete tasks ─────────────────────────────────────────
+function addTask(wnum, col) {
+  const row = W.find(r=>r.w===wnum);
+  if (!row) return;
+  const text = '新任务（双击编辑）';
+  row[col].tasks.push(text);
+  saveData(W);
+  // re-render just this task list
+  const listEl = document.querySelector(`.task-list[data-w="${wnum}"][data-col="${col}"]`);
+  if (listEl) {
+    listEl.innerHTML = renderTaskList(wnum, col, row[col].tasks);
+    applyEditMode();
+  }
+  updateProgress();
+}
+
+function deleteTask(wnum, col, idx) {
+  const row = W.find(r=>r.w===wnum);
+  if (!row) return;
+  row[col].tasks.splice(idx,1);
+  saveData(W);
+  const listEl = document.querySelector(`.task-list[data-w="${wnum}"][data-col="${col}"]`);
+  if (listEl) {
+    listEl.innerHTML = renderTaskList(wnum, col, row[col].tasks);
+    applyEditMode();
+  }
+  updateProgress();
+}
+
+// ─── Toast ──────────────────────────────────────────────────────
+let toastTimer;
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+// ─── Init ───────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日时间表 · 第8–12周</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg:      #f0f4ff;
+  --surface: #ffffff;
+  --surface2:#e8edf8;
+  --border:  #d0d8ef;
+  --border2: #b0bcd8;
+  --text:    #1a1e2e;
+  --text2:   #4a5272;
+  --text3:   #8a94b8;
+
+  --header:  #2563EB;
+  --header2: #1d4ed8;
+
+  --stat:    #7c6fcd; --stat-bg: #f0eefb;
+  --calc:    #3a9e6e; --calc-bg: #eaf6f0;
+  --prog:    #d4652a; --prog-bg: #fdf0e8;
+  --db:      #2e7fc4; --db-bg:   #e8f2fb;
+  --eng:     #c07f1e; --eng-bg:  #fdf4e0;
+  --school:  #555;    --school-bg:#f0eff8;
+
+  --radius:8px;
+  --font:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13px;min-height:100vh}
+
+/* Header */
+.header{
+  background:linear-gradient(135deg,#2563EB 0%,#1d4ed8 100%);
+  color:#fff;
+  padding:16px 24px 12px;
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  box-shadow:0 2px 16px rgba(37,99,235,0.3);
+}
+.header-left .title{font-size:16px;font-weight:700;letter-spacing:.02em}
+.header-left .sub{font-size:11px;color:rgba(255,255,255,0.7);margin-top:2px}
+.header-right{display:flex;align-items:center;gap:8px}
+.link-btn{
+  background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);
+  color:#fff;font-family:var(--font);font-size:11px;font-weight:500;
+  padding:6px 14px;border-radius:7px;cursor:pointer;text-decoration:none;
+  transition:all .2s;white-space:nowrap;
+}
+.link-btn:hover{background:rgba(255,255,255,0.28)}
+.edit-mode-btn{
+  background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);
+  color:#fff;font-family:var(--font);font-size:11px;font-weight:600;
+  padding:6px 14px;border-radius:7px;cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.edit-mode-btn.active{background:rgba(255,255,0,0.25);border-color:rgba(255,255,0,0.5);color:#ffe066}
+.edit-mode-btn:hover{background:rgba(255,255,255,0.25)}
+.edit-hint{
+  display:none;padding:7px 24px;
+  background:#fffbeb;border-bottom:1px solid #fcd34d;
+  font-size:11px;color:#92400e;
+  align-items:center;gap:8px;
+}
+.edit-hint.visible{display:flex}
+
+/* Progress */
+.progress-wrap{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:9px 24px;display:flex;align-items:center;gap:12px;
+}
+.p-label{font-size:11px;color:var(--text3);white-space:nowrap}
+.p-track{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.p-fill{height:100%;background:linear-gradient(90deg,var(--stat),var(--db));border-radius:3px;transition:width .35s}
+.p-pct{font-size:12px;font-weight:700;color:var(--text2);min-width:36px;text-align:right}
+.p-count{font-size:11px;color:var(--text3)}
+
+/* Legend */
+.legend{
+  padding:8px 24px;display:flex;flex-wrap:wrap;gap:12px;
+  background:var(--surface);border-bottom:1px solid var(--border);
+}
+.li{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2)}
+.ld{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.l-hint{margin-left:auto;font-size:11px;color:var(--text3)}
+
+/* Main wrap */
+.main{padding:20px 24px 48px;overflow-x:auto}
+
+/* Section heading */
+.section-head{
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.section-title{font-size:15px;font-weight:700;color:var(--text)}
+.section-sub{font-size:12px;color:var(--text3)}
+.priority-note{
+  background:#fffbf0;border:1px solid #f0d88a;
+  border-radius:var(--radius);padding:7px 14px;
+  font-size:11px;color:#8a6a00;margin-bottom:16px;
+  line-height:1.6;
+}
+
+/* Table */
+.dt{
+  width:100%;border-collapse:separate;border-spacing:0;
+  background:var(--surface);border-radius:var(--radius);
+  overflow:hidden;border:1px solid var(--border);min-width:920px;
+  margin-bottom:20px;
+}
+.dt thead th{
+  background:var(--text);color:#fff;
+  padding:10px 9px;font-size:11px;font-weight:600;
+  text-align:center;border-right:1px solid rgba(255,255,255,0.1);
+  white-space:nowrap;
+}
+.dt thead th:last-child{border-right:none}
+.dt td{
+  padding:10px 10px;
+  border-bottom:1px solid var(--border);border-right:1px solid var(--border);
+  vertical-align:top;line-height:1.55;font-size:12px;
+}
+.dt td:last-child{border-right:none}
+.dt tbody tr:last-child td{border-bottom:none}
+
+/* Slot label col */
+.slot-col{min-width:72px}
+.slot-label{font-size:12px;font-weight:700;color:var(--text);line-height:1.3}
+.slot-label span{font-size:18px;display:block;margin-bottom:2px}
+.time-str{font-size:11px;color:var(--text2);margin-top:2px}
+.dur{
+  display:inline-block;background:var(--surface2);border:1px solid var(--border);
+  border-radius:6px;font-size:10px;color:var(--text3);padding:1px 6px;
+  font-weight:600;white-space:nowrap;
+}
+
+/* Day cells */
+.dc{color:var(--text2)}
+.dc .subj{font-weight:700;font-size:11px;margin-bottom:3px}
+.dc .det{font-size:11px;color:var(--text2);line-height:1.55}
+
+/* Highlight chips */
+.chip{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:4px;margin-top:3px;
+}
+.chip-s{background:var(--stat-bg);color:var(--stat)}
+.chip-c{background:var(--calc-bg);color:var(--calc)}
+.chip-p{background:var(--prog-bg);color:var(--prog)}
+.chip-d{background:var(--db-bg);color:var(--db)}
+.chip-e{background:var(--eng-bg);color:var(--eng)}
+
+/* Row colors */
+tr.r-morning td{background:#fffdf5}
+tr.r-school  td{background:#f4f8ff}
+tr.r-aft1    td{background:#fdf9ff}
+tr.r-aft2    td{background:#fff8f3}
+tr.r-aft3    td{background:#f3f8ff}
+tr.r-eve1    td{background:#f4fbf7}
+tr.r-eve2    td{background:#fdfcf5}
+
+/* Weekend cells */
+td.wknd{background:#f5f4f0!important;color:var(--text3);font-style:italic;text-align:center;vertical-align:middle}
+
+/* Task checkbox style for day cells */
+.task{
+  display:flex;align-items:flex-start;gap:5px;
+  margin-bottom:3px;cursor:pointer;user-select:none;
+}
+.task:last-child{margin-bottom:0}
+.tcb{
+  width:13px;height:13px;flex-shrink:0;margin-top:1px;
+  border:1.5px solid var(--border2);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;transition:all .15s;
+}
+.task.done .tcb{background:var(--stat);border-color:var(--stat)}
+.task.done .tcb::after{content:'✓';font-size:8px;color:#fff;font-weight:800}
+.task.done .ttext{text-decoration:line-through;color:var(--text3)}
+.ttext{font-size:11px;color:var(--text2);line-height:1.5;flex:1}
+
+/* Note box */
+.note{
+  background:#fffbf0;border:1px solid #f0d88a;
+  border-radius:var(--radius);padding:14px 18px;
+  font-size:12px;color:var(--text2);line-height:1.75;
+}
+.note .nt{font-weight:700;color:#b8860b;margin-bottom:8px;font-size:13px}
+.note ol{padding-left:20px}
+.note ol li{margin-bottom:4px}
+
+/* Divider between sections */
+.section-divider{
+  border:none;border-top:2px dashed var(--border);
+  margin:32px 0 24px;
+}
+
+/* Edit mode */
+body.editing .editable{
+  cursor:text;border-radius:3px;outline:none;
+}
+body.editing .editable:hover{ background:rgba(37,99,235,0.07) }
+body.editing .editable:focus{ background:#fff;box-shadow:0 0 0 2px #2563EB;outline:none }
+
+/* Row controls shown only in edit mode */
+.row-ctrl{ display:none; align-items:center; gap:4px; margin-bottom:2px; }
+body.editing .row-ctrl{ display:flex; }
+
+/* Type toggle button */
+.type-btn{
+  font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;border:none;cursor:pointer;
+  background:rgba(37,99,235,0.12);color:#2563EB;font-family:var(--font);
+  transition:background .15s;white-space:nowrap;flex-shrink:0;
+}
+.type-btn:hover{ background:rgba(37,99,235,0.22); }
+
+/* Delete row button */
+.del-btn{
+  font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;border:none;cursor:pointer;
+  background:rgba(220,38,38,0.1);color:#dc2626;font-family:var(--font);
+  transition:background .15s;margin-left:auto;flex-shrink:0;
+}
+.del-btn:hover{ background:rgba(220,38,38,0.22); }
+
+/* Add row button – edit mode only */
+.add-row-btn{
+  display:none;width:100%;margin-top:4px;
+  background:rgba(37,99,235,0.06);border:1px dashed rgba(37,99,235,0.3);
+  border-radius:4px;padding:3px 8px;
+  font-family:var(--font);font-size:11px;color:#2563EB;
+  cursor:pointer;text-align:left;transition:all .15s;
+}
+.add-row-btn:hover{ background:rgba(37,99,235,0.12);border-color:#2563EB; }
+body.editing .add-row-btn{ display:block; }
+
+/* In edit mode, checkboxes not clickable */
+body.editing .tcb{ pointer-events:none; cursor:default; }
+
+/* Toast */
+.toast{
+  position:fixed;bottom:24px;right:24px;
+  background:#2563EB;color:#fff;
+  padding:8px 18px;border-radius:8px;
+  font-size:12px;font-weight:600;
+  opacity:0;transform:translateY(8px);
+  transition:all .25s;pointer-events:none;z-index:999;
+  box-shadow:0 4px 16px rgba(37,99,235,0.35);
+}
+.toast.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:700px){
+  .main{padding:12px 8px 32px}
+  .header{flex-direction:column;align-items:flex-start}
+}
+
+
+/* Day selector */
+.day-selector{
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+}
+.day-btn{
+  background:var(--surface2);border:1.5px solid var(--border);
+  color:var(--text2);font-family:var(--font);font-size:11px;font-weight:600;
+  padding:4px 10px;border-radius:6px;cursor:pointer;transition:all .18s;
+  white-space:nowrap;
+}
+.day-btn:hover{background:var(--border2);color:var(--text)}
+.day-btn.active{
+  background:var(--header);border-color:var(--header);color:#fff;
+}
+/* Highlight active column */
+td.dc.day-active{ outline:2px solid rgba(37,99,235,0.25); outline-offset:-1px; }
+td.dc.day-inactive{ opacity:0.35; }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="title">🗓 每日时间表 · 第8–12周</div>
+    <div class="sub">4月29日–5月31日 · 英语备考全面开始</div>
+  </div>
+  <div class="header-right">
+    <button class="edit-mode-btn" id="editBtn" onclick="toggleEditMode()">✏️ 编辑任务</button>
+    <a class="link-btn" href="daily_w1-7.html">← 第1–7周</a><a class="link-btn" href="daily_w13-18.html">第13–18周 →</a><a class="link-btn" href="18week_overview.html">← 18周总览</a>
+  </div>
+</div>
+
+<div class="edit-hint" id="editHint">
+  ✏️ <strong>编辑模式已开启</strong> — 单击任意文字修改；「→ 待办/标题」切换类型；「✕」删除行；「＋ 添加行」新增；退出时自动保存
+  <span style="margin-left:auto;color:#b45309">退出时自动保存</span>
+</div>
+
+<div class="progress-wrap">
+  <span class="p-label">今日完成</span>
+  <div class="day-selector" id="daySelector"></div>
+  <div class="p-track" style="flex:1"><div class="p-fill" id="pfill" style="width:0%"></div></div>
+  <span class="p-pct" id="ppct">—</span>
+  <span class="p-count" id="pcount">请选择今天是星期几</span>
+</div>
+
+<div style="padding:6px 24px;background:var(--surface);border-bottom:1px solid var(--border);font-size:11px;color:var(--text3);display:flex;gap:10px;align-items:center"><span>切换阶段：</span><a href="daily_w1-7.html" style="color:var(--header);text-decoration:none;font-weight:600">第1–7周</a><a href="daily_w13-18.html" style="color:var(--header);text-decoration:none;font-weight:600">第13–18周</a></div>
+
+<div class="legend">
+  <div class="li"><div class="ld" style="background:var(--stat)"></div>概率统计</div>
+  <div class="li"><div class="ld" style="background:var(--calc)"></div>高数/线代</div>
+  <div class="li"><div class="ld" style="background:var(--prog)"></div>编程</div>
+  <div class="li"><div class="ld" style="background:var(--db)"></div>数据库</div>
+  <div class="li"><div class="ld" style="background:var(--eng)"></div>英语</div>
+  <div class="li"><div class="ld" style="background:#888"></div>学校课</div>
+  <div class="l-hint">选择今天 · 点任务打勾 · 自动保存</div>
+</div>
+
+<div class="main">
+<div class="section-head">
+  <div>
+    <div class="section-title">第8–12周 · 4月29日–5月31日</div>
+    <div class="section-sub">优先级：学校课 › 英语备考 › 概率统计 › 高数线代 › 数据库 › 编程</div>
+  </div>
+</div>
+<div class="priority-note">📌 <strong>英语全面备考开始</strong>（第8周）：单词维持，增加阅读30min+写作40min。CS61B开始（每次约1天集中学）。5月31日完成7161词。</div>
+
+<table class="dt">
+<thead>
+<tr>
+  <th class="slot-col">时段</th>
+  <th style="width:82px">时间</th>
+  <th style="width:52px">时长</th>
+  <th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th><th>周日</th>
+</tr>
+</thead>
+<tbody id="tbody2"></tbody>
+</table>
+
+<div class="note">
+  <div class="nt">📌 说明</div>
+  <ol><li>CS61B 集中在周一、周三各学1天，包含 Lec + 练习</li><li>英语写作每天傍晚40min，阅读在下午后段30min（周二、周四）</li><li>高数/线代（18.06）为放松课，周四周五穿插，进度压力低</li><li>周末编程补充：Lab/HW 收尾，周日不强制安排</li><li>5月31日完成7161单词目标，6月起进入真题练习</li></ol>
+</div>
+</div>
+
+<div class="toast" id="toast">已保存 ✓</div>
+
+<script>
+const FILE_KEY = 'ds_w812';
+const SLOTS_W812 = [
+  {
+    slot:'☀️ 上午\n精力最佳', time:'9:00–12:00', dur:'2.5~3h', row:'r-morning',
+    days:[
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读','练习题']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读','练习题']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读']},
+      {subj:'概率统计',color:'stat',tasks:['MIT18.650视频','茆诗松精读']},
+      {subj:'概率统计',color:'stat',tasks:['重点习题','错题整理']},
+      {subj:'概率统计',color:'stat',tasks:['重点习题','错题整理']},
+    ]
+  },
+  {
+    slot:'🏫 学校课\n（固定）', time:'课表时间', dur:'视课表', row:'r-school',
+    days:[
+      {subj:'◇ 数学物理方程',color:'school',tasks:['◇ 现代优化方法（固定2节）']},
+      {subj:'◇ 拓扑学',color:'school',tasks:['（固定）']},
+      {subj:'◇ 数学物理方程',color:'school',tasks:['◇ 现代优化方法（固定2节）']},
+      {subj:'◇ 拓扑学',color:'school',tasks:['（固定）']},
+      {subj:'（无固定课）',color:'school',tasks:[]},
+      {weekend:true,text:'—'},
+      {weekend:true,text:'—'},
+    ]
+  },
+  {
+    slot:'🌤 下午\n前段', time:'13:30–14:15', dur:'45min', row:'r-aft1',
+    days:[
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语单词',color:'eng',tasks:['单词20词+/天','复习错词']},
+      {subj:'英语',color:'eng',tasks:['单词（周末不断）']},
+      {subj:'英语',color:'eng',tasks:['单词（周末不断）']},
+    ]
+  },
+  {
+    slot:'🟠 下午\n中段', time:'14:15–15:45', dur:'1.5h', row:'r-aft2',
+    days:[
+      {subj:'CS61B（集中日）',color:'prog',tasks:['集中学1天（周一）','Lec + 练习']},
+      {subj:'高数/线代',color:'calc',tasks:['18.06视频（放松课）']},
+      {subj:'CS61B（集中日）',color:'prog',tasks:['集中学1天（周三）','Lec + 练习']},
+      {subj:'高数/线代',color:'calc',tasks:['18.06视频（放松课）']},
+      {subj:'高数/线代',color:'calc',tasks:['18.06视频'],chips:[{label:'+作业',cls:'chip-c'}]},
+      {subj:'编程补充',color:'prog',tasks:['Lab/HW补充']},
+      {weekend:true,text:'休息·运动\n散步'},
+    ]
+  },
+  {
+    slot:'🔷 下午\n后段', time:'15:45–16:30', dur:'45min', row:'r-aft3',
+    days:[
+      {subj:'英语',color:'eng',tasks:['阅读30min']},
+      {subj:'数据库',color:'db',tasks:['Stanford Widom视频']},
+      {subj:'英语',color:'eng',tasks:['阅读30min']},
+      {subj:'数据库',color:'db',tasks:['Stanford Widom视频']},
+      {subj:'数据库',color:'db',tasks:['SQL练习（隔天30min）']},
+      {subj:'数据库复习',color:'db',tasks:['本周内容巩固']},
+      {weekend:true,text:'休息·自由'},
+    ]
+  },
+  {
+    slot:'🌆 傍晚', time:'17:00–17:45', dur:'30~60min', row:'r-eve1',
+    days:[
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {subj:'英语写作',color:'eng',tasks:['写作练习40min']},
+      {weekend:true,text:'休息·运动\n散步'},
+      {weekend:true,text:'休息·运动\n散步'},
+    ]
+  },
+  {
+    slot:'🌙 晚上', time:'19:00–21:30', dur:'视情况', row:'r-eve2',
+    days:[
+      {subj:'学校作业',color:'school',tasks:['数学物理方程HW','现代优化HW','拓扑预习']},
+      {subj:'学校作业',color:'school',tasks:['拓扑HW/预习'],chips:[{label:'+ Stat HW',cls:'chip-s'}]},
+      {subj:'学校作业',color:'school',tasks:['数学物理方程HW','现代优化HW']},
+      {subj:'学校作业',color:'school',tasks:['拓扑HW/预习'],chips:[{label:'+ Stat HW',cls:'chip-s'}]},
+      {subj:'CS61B HW',color:'prog',tasks:['自由复习']},
+      {subj:'Stat 习题',color:'stat',tasks:['巩固本周内容']},
+      {weekend:true,text:'自由安排\n充分休息'},
+    ]
+  },
+];
+
+const colorMap = {
+  stat:'var(--stat)',calc:'var(--calc)',prog:'var(--prog)',
+  db:'var(--db)',eng:'var(--eng)',school:'var(--school)'
+};
+
+let taskCount = {total:0, done:0};
+let selectedDay = null; // 0=Mon … 6=Sun
+
+function makeCell(cell, prefix) {
+  if (cell.weekend) {
+    return `<td class="wknd">${(cell.text||'').replace('\n','<br>')}</td>`;
+  }
+  const color = colorMap[cell.color] || '#888';
+  let rows = [{ type:'title', text: cell.subj, done: false }];
+  if (cell.tasks && cell.tasks.length) {
+    cell.tasks.forEach((t, i) => {
+      const id = `${prefix}_${i}`;
+      const done = localStorage.getItem(id) === '1';
+      if (done) taskCount.done++;
+      taskCount.total++;
+      rows.push({ type:'task', text: t, done, id });
+    });
+  }
+  let inner = '';
+  rows.forEach((row, ri) => { inner += renderRow(row, prefix, ri, color); });
+  if (cell.chips) {
+    cell.chips.forEach(ch => { inner += `<span class="chip ${ch.cls}">${ch.label}</span>`; });
+  }
+  inner += `<button class="add-row-btn" onclick="addRow(this,'${prefix}','${color}')">＋ 添加行</button>`;
+  return `<td class="dc" data-prefix="${prefix}" data-color="${color}">${inner}</td>`;
+}
+
+function renderRow(row, prefix, ri, color) {
+  const isTitle = row.type === 'title';
+  if (isTitle) {
+    return `<div class="row-wrap" data-ri="${ri}" data-type="title">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为待办">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:${color}" contenteditable="false" data-ri="${ri}">${row.text}</div>
+    </div>`;
+  } else {
+    const done = row.done;
+    const id = row.id || `${prefix}_${ri}`;
+    return `<div class="row-wrap task${done?' done':''}" data-ri="${ri}" data-type="task" data-id="${id}" onclick="toggleIfNotEditing(event,this,'${id}')">
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)" title="切换为标题">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="false" data-ri="${ri}">${row.text}</div>
+      </div>
+    </div>`;
+  }
+}
+
+function renderTable(slots, tbodyId, sectionKey) {
+  const tb = document.getElementById(tbodyId);
+  slots.forEach((row, ri) => {
+    const tr = document.createElement('tr');
+    tr.className = row.row;
+    const slotLines = row.slot.split('\n');
+    let html = `<td class="slot-col">
+      <div class="slot-label"><span>${slotLines[0]}</span>${slotLines[1]||''}</div>
+    </td>
+    <td><div class="time-str">${row.time}</div></td>
+    <td style="text-align:center"><span class="dur">${row.dur}</span></td>`;
+    row.days.forEach((cell, di) => {
+      const prefix = `${sectionKey}_r${ri}_d${di}`;
+      html += makeCell(cell, prefix);
+    });
+    tr.innerHTML = html;
+    // attach day-index to each dc cell
+    tr.querySelectorAll('td.dc, td.wknd').forEach((td, di) => {
+      td.dataset.di = di;
+    });
+    tb.appendChild(tr);
+  });
+}
+
+// ─── Day selector ──────────────────────────────────────────────
+const DAY_LABELS = ['周一','周二','周三','周四','周五','周六','周日'];
+const DAY_KEY = FILE_KEY + '_day';
+
+function initDaySelector() {
+  const saved = localStorage.getItem(DAY_KEY);
+  if (saved !== null) selectedDay = +saved;
+  const wrap = document.getElementById('daySelector');
+  DAY_LABELS.forEach((label, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'day-btn' + (selectedDay === i ? ' active' : '');
+    btn.textContent = label;
+    btn.onclick = () => selectDay(i);
+    wrap.appendChild(btn);
+  });
+  applyDayHighlight();
+}
+
+function selectDay(di) {
+  selectedDay = (selectedDay === di) ? null : di; // toggle off if same
+  localStorage.setItem(DAY_KEY, selectedDay === null ? '' : selectedDay);
+  document.querySelectorAll('.day-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === selectedDay);
+  });
+  applyDayHighlight();
+  recalcProgress();
+}
+
+function applyDayHighlight() {
+  document.querySelectorAll('td.dc, td.wknd').forEach(td => {
+    const di = +td.dataset.di;
+    if (selectedDay === null) {
+      td.classList.remove('day-active','day-inactive');
+    } else {
+      td.classList.toggle('day-active', di === selectedDay);
+      td.classList.toggle('day-inactive', di !== selectedDay);
+    }
+  });
+}
+
+// ─── Progress (day-aware) ──────────────────────────────────────
+function recalcProgress() {
+  let total = 0, done = 0;
+  if (selectedDay === null) {
+    // no day selected → show 0 / 0
+    document.getElementById('pfill').style.width = '0%';
+    document.getElementById('ppct').textContent = '—';
+    document.getElementById('pcount').textContent = '请选择今天是星期几';
+    return;
+  }
+  // Only count tasks in the selected day column
+  document.querySelectorAll(`td.dc[data-di="${selectedDay}"] .row-wrap.task`).forEach(el => {
+    total++;
+    if (el.classList.contains('done')) done++;
+  });
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('pfill').style.width = pct + '%';
+  document.getElementById('ppct').textContent = pct + '%';
+  document.getElementById('pcount').textContent = `${done} / ${total} 项`;
+}
+
+function toggleIfNotEditing(e, el, id) {
+  if (editMode) return;
+  if (e.target.classList.contains('editable') || e.target.classList.contains('row-ctrl') ||
+      e.target.classList.contains('type-btn') || e.target.classList.contains('del-btn')) return;
+  const done = el.classList.toggle('done');
+  localStorage.setItem(id, done ? '1' : '0');
+  recalcProgress();
+}
+
+// ─── Edit Mode ────────────────────────────────────────────────
+const DS_EDIT_KEY = FILE_KEY + '_edits';
+
+function loadEdits() {
+  try { return JSON.parse(localStorage.getItem(DS_EDIT_KEY)||'{}'); } catch(e){return{};}
+}
+function saveAllEdits() {
+  const edits = {};
+  document.querySelectorAll('.editable[data-edit-key]').forEach(el => {
+    edits[el.dataset.editKey] = el.textContent;
+  });
+  localStorage.setItem(DS_EDIT_KEY, JSON.stringify(edits));
+  showToast();
+}
+function applyStoredEdits() {
+  const edits = loadEdits();
+  document.querySelectorAll('.editable[data-edit-key]').forEach(el => {
+    if (edits[el.dataset.editKey] !== undefined) el.textContent = edits[el.dataset.editKey];
+  });
+}
+function assignEditKeys() {
+  document.querySelectorAll('td.dc').forEach(td => {
+    const prefix = td.dataset.prefix;
+    if (!prefix) return;
+    td.querySelectorAll('.editable').forEach((el, i) => {
+      el.dataset.editKey = `${prefix}_e${i}`;
+    });
+  });
+}
+
+let editMode = false;
+function toggleEditMode() {
+  editMode = !editMode;
+  document.body.classList.toggle('editing', editMode);
+  const btn = document.getElementById('editBtn');
+  const hint = document.getElementById('editHint');
+  btn.textContent = editMode ? '✅ 退出编辑' : '✏️ 编辑任务';
+  btn.classList.toggle('active', editMode);
+  hint.classList.toggle('visible', editMode);
+  document.querySelectorAll('.editable').forEach(el => {
+    el.contentEditable = editMode ? 'true' : 'false';
+  });
+  if (!editMode) saveAllEdits();
+}
+
+function toggleType(btn) {
+  const rw = btn.closest('.row-wrap');
+  const td = btn.closest('td.dc');
+  const color = td.dataset.color;
+  const prefix = td.dataset.prefix;
+  const isTitle = rw.dataset.type === 'title';
+  const textEl = rw.querySelector('.editable');
+  const text = textEl ? textEl.textContent : '新内容';
+  if (isTitle) {
+    const id = `${prefix}_dyn_${Date.now()}`;
+    rw.dataset.type = 'task';
+    rw.dataset.id = id;
+    rw.setAttribute('onclick', `toggleIfNotEditing(event,this,'${id}')`);
+    rw.innerHTML = `
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)">→ 标题</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:5px">
+        <div class="tcb"></div>
+        <div class="ttext editable" contenteditable="true">${text}</div>
+      </div>`;
+  } else {
+    rw.dataset.type = 'title';
+    rw.removeAttribute('onclick');
+    rw.classList.remove('task','done');
+    rw.innerHTML = `
+      <div class="row-ctrl">
+        <button class="type-btn" onclick="toggleType(this)">→ 待办</button>
+        <button class="del-btn" onclick="deleteRow(this)">✕</button>
+      </div>
+      <div class="subj editable" style="color:${color}" contenteditable="true">${text}</div>`;
+  }
+  recalcProgress();
+}
+
+function deleteRow(btn) {
+  btn.closest('.row-wrap').remove();
+  recalcProgress();
+}
+
+function addRow(btn, prefix, color) {
+  const td = btn.closest('td.dc');
+  const id = `${prefix}_dyn_${Date.now()}`;
+  const div = document.createElement('div');
+  div.className = 'row-wrap task';
+  div.dataset.type = 'task';
+  div.dataset.id = id;
+  div.setAttribute('onclick', `toggleIfNotEditing(event,this,'${id}')`);
+  div.innerHTML = `
+    <div class="row-ctrl">
+      <button class="type-btn" onclick="toggleType(this)">→ 标题</button>
+      <button class="del-btn" onclick="deleteRow(this)">✕</button>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:5px">
+      <div class="tcb"></div>
+      <div class="ttext editable" contenteditable="true">新任务</div>
+    </div>`;
+  td.insertBefore(div, btn);
+  div.querySelector('.editable').focus();
+  recalcProgress();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && e.target.classList.contains('editable')) {
+    e.preventDefault(); e.target.blur();
+  }
+});
+
+// ─── Toast ────────────────────────────────────────────────────
+let toastTimer;
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+
+renderTable(SLOTS_W812, 'tbody2', 'w812');
+
+// Attach di to wknd cells too
+document.querySelectorAll('td.wknd').forEach(td => {
+  // di already set in renderTable
+});
+
+assignEditKeys();
+applyStoredEdits();
+initDaySelector();
+recalcProgress();
+</script>
+</body>
+</html>
