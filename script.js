@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const token = 'YOUR_GITHUB_TOKEN'; // 👈 把你的令牌粘贴在这里
+    const token = 'Study Plan 网站同步 — repo'; // 👈 把你的令牌粘贴在这里
     const repoOwner = 'keep258-1';      // 👈 你的 GitHub 用户名
     const repoName = 'study-plan';      // 👈 你的仓库名
 
